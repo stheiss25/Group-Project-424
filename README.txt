@@ -1,5 +1,5 @@
 Link to Trello board: 
-
+https://trello.com/b/mnX6w6yF/spring-2022-is424-term-project
 
 User Stories:
     As a finance student, I want to input different bond details so that I can visualize the shape of the bond over its maturity period.
