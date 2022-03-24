@@ -46,10 +46,10 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-light">
+          <a class="js-modal-trigger button is-light" data-target="sign-up">
             Sign up
           </a>
-          <a class="button is-light">
+          <a class="js-modal-trigger button is-light" data-target="log-in">
             Log in
           </a>
         </div>
@@ -280,6 +280,91 @@
     </div>
   </footer>
 
+  <!-- sign-up modal -->
+  <div id="sign-up" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+        <button class="modal-close is-large" aria-label="close"></button>
+        <h1 class="title is-4">Sign up</h1>
+        <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv" data-target="log-in">Log
+            in</a>.</h2>
+
+        <!-- Name input -->
+        <div class="field">
+          <label class="label">Name: </label>
+          <div class="control">
+            <input type="text" class="input" placeholder="Enter your name">
+          </div>
+        </div>
+
+        <!-- Class input -->
+        <div class="field">
+          <label class="label">Class: </label>
+          <div class="control">
+            <input type="text" class="input" placeholder="For which class are you using this calculator?">
+          </div>
+        </div>
+
+        <!-- email input -->
+        <div class="field">
+          <label class="label">Email: </label>
+          <div class="control">
+            <input type="email" class="input" placeholder="Enter email address">
+          </div>
+        </div>
+
+        <!-- password input -->
+        <div class="field">
+          <label class="label">Password: </label>
+          <div class="control">
+            <input type="password" class="input" placeholder="Enter password">
+          </div>
+        </div>
+
+        <!-- submit button -->
+        <br>
+        <div class="has-text-left">
+          <button class="button is-danger">Log in</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- log in modal -->
+  <div id="log-in" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+        <h1 class="title is-4">Log in</h1>
+        <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign-up">Sign
+            up</a></h2>
+        <!-- email input -->
+        <div class="field">
+          <label class="label">Email: </label>
+          <div class="control">
+            <input type="email" class="input" placeholder="Enter email address">
+          </div>
+        </div>
+
+        <!-- password input -->
+        <div class="field">
+          <label class="label">Password: </label>
+          <div class="control">
+            <input type="password" class="input" placeholder="Enter password">
+          </div>
+        </div>
+
+        <!-- submit button -->
+        <br>
+        <div class="has-text-left">
+          <button class="button is-danger">Log in</button>
+        </div>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
   <div id="bond_input" class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
@@ -401,9 +486,9 @@
       });
     });
 
-    // Add a click event on various child elements to close the parent modal
+    // Add a click event on various child elements to close the parent modal || .adv for closing modal to go to other modal
     (document.querySelectorAll(
-      '.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach((
+      '.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .adv') || []).forEach((
       $close) => {
       const $target = $close.closest('.modal');
 
