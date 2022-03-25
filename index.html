@@ -449,7 +449,7 @@
         <!-- Submit button -->
         <div class="field is-grouped is-grouped-centered">
           <div class="control">
-            <button class="button is-link">Submit</button>
+            <button class="js-modal-trigger button is-link" data-target="graph">Submit</button>
           </div>
           <div class="control">
             <button class="button is-link is-light">Cancel</button>
@@ -460,6 +460,34 @@
     </div>
 
     <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <!-- graph modal -->
+  <div id="graph" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+        <h1 class="title is-4">Bond Payment Graph</h1>
+        <br>
+        <div class="field has-text-centered">
+          <p>Graph goes here</p>
+        </div>
+        <br>
+        <div class="level">
+          <!-- back to inputs -->
+          <div class="level-left">
+            <a class="adv h3 is-5">Back to inputs</a>
+          </div>
+
+          <!-- continue button -->
+          <div class="level-right">
+            <button class="button is-success">Show Table</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
   </div>
 </body>
 
