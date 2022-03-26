@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I'm Student A</title>
+    <!-- Bulma CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a2a3bcdcb2.js" crossorigin="anonymous"></script>
 
     <style>
         .navbar-brand {
@@ -58,11 +61,33 @@
         </div>
         </div>
     </nav>
-    <!-- Output Hero -->
+    <!-- Go Back to Edit Inputs Hero -->
     <section class="hero has-text-centered has-background-grey-lighter">
         <div class="hero-body">
+            <a class="button loggedin" id="lo_button">
+                <span class="icon">
+                    <i class="fa-regular fa-circle-up"></i>
+                </span>
+            </a>
+            <p>Edit Inputs</p>
 
+        </div>
+    </section>
 
+    <!-- Output Hero -->
+    <section class="hero has-text-centered has-background-white">
+        <div class="hero-body">
+            <p>Congrats! Here's your debt payment table:</p>
+            <!-- FIXME - Add JS to create the table -->
+            <p>Insert table here with JS</p>
+            <div class="field is-grouped-centered">
+                <div class="control">
+                    <button class="button is-dark">Save for Later</button>
+                </div>
+                <div class="control">
+                    <button class="button is-dark is-light">Export Data</button>
+                </div>
+            </div>
         </div>
     </section>
 
