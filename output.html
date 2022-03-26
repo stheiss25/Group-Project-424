@@ -62,8 +62,48 @@
     <section class="hero has-text-centered has-background-grey-lighter">
         <div class="hero-body">
 
+
         </div>
     </section>
+
+    <!-- save to my account modal -->
+    <div class="modal is-hidden" id="save_modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Save To My Account</p>
+                <button class="delete" id="save_modalx"></button>
+            </header>
+
+            <section class="modal-card-body">
+                <!-- Content ... -->
+                <form id="save_form">
+                    <div class="field">
+                        <label class="label">File Name</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" placeholder="Input File Name Here" id="file_name">
+                        </div>
+                    </div>
+
+                    <!-- save errors -->
+                    <div id="save_error" class="has-text-danger">
+
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-dark">Save</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-danger is-light">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+
+
 
 
     <!-- footer -->
