@@ -1,545 +1,551 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I'm Student A</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Student A</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
-  <style>
-    .navbar-brand {
-      width: 5%;
-      margin-bottom: 8;
-    }
-  </style>
+    <style>
+        .navbar-brand {
+            width: 5%;
+            margin-bottom: 8;
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a>
-        <!-- TODO fix size of logo -->
-        <img src="images/Wisconsin-Crest-Logo.png" width="85%" height="15%">
-      </a>
+    <!-- Navbar -->
+    <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a>
+                <!-- TODO fix size of logo -->
+                <img src="images/Wisconsin-Crest-Logo.png" width="85%" height="15%">
+            </a>
 
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item has-text-white">
-          Home
-        </a>
-
-        <a class="navbar-item has-text-white">
-          Saved Bonds
-        </a>
-      </div>
-    </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="js-modal-trigger button is-light" data-target="sign-up">
-            Sign up
-          </a>
-          <a class="js-modal-trigger button is-light" data-target="log-in">
-            Log in
-          </a>
-        </div>
-      </div>
-    </div>
-    </div>
-  </nav>
-  <!-- Hero -->
-  <section class="hero has-text-centered has-background-grey-lighter">
-    <div class="hero-body">
-      <p class="title">
-        Welcome to the Universal Bond Calculator
-      </p>
-      <p class="subtitle">
-        This application outputs bond payment data based on the bond inputs that you specify. <br>
-        In order to save your work, please create an account or log in<br> <br>
-
-
-        <!-- This application was developed for Erwan Quintin, Department Chair of Finance, Investment, and Banking at the University of Wisconsin, Madison. <br> -->
-
-      </p>
-      <button class="js-modal-trigger  button is-large is-primary" data-target="bond_input">
-        Get Started
-      </button>
-    </div>
-  </section>
-  <!-- About Us -->
-  <section class="hero has-text-centered ">
-    <div class="hero-body">
-      <p class="title">
-        About Us
-      </p>
-      <!-- Card -->
-
-      <div class="columns has-text-centered">
-        <div class="column">
-          <!-- Card - row 1, column 1 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Component
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Input Text Here
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <!-- PUT LINKEDIN IN HREF -->
-              <a href="#" class="card-footer-item">Linked In</a>
-            </footer>
-          </div><br>
-          <!-- Card - row 2, column 1 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Component
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Input Text Here
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <!-- PUT LINKEDIN IN HREF -->
-              <a href="#" class="card-footer-item">Linked In</a>
-            </footer>
-          </div>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
 
-        <div class="column">
-          <!-- Card - row 1, column 2 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Component
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Input Text Here
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <!-- PUT LINKEDIN IN HREF -->
-              <a href="#" class="card-footer-item">Linked In</a>
-            </footer>
-          </div><br>
-          <!-- Card - row 2, column 2 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Component
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Input Text Here
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <!-- PUT LINKEDIN IN HREF -->
-              <a href="#" class="card-footer-item">Linked In</a>
-            </footer>
-          </div>
-        </div>
-        <div class="column">
-          <!-- Card - row 1, column 3 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Component
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Input Text Here
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <!-- PUT LINKEDIN IN HREF -->
-              <a href="#" class="card-footer-item">Linked In</a>
-            </footer>
-          </div><br>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item has-text-white">
+                    Home
+                </a>
 
-          <!-- Card - row 2, column 3 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
+                <a class="navbar-item has-text-white">
+                    Saved Bonds
+                </a>
             </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Component
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Input Text Here
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <!-- PUT LINKEDIN IN HREF -->
-              <a href="#" class="card-footer-item">Linked In</a>
-            </footer>
-          </div>
         </div>
 
-      </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="js-modal-trigger button is-light" data-target="sign-up">
+                        Sign up
+                    </a>
+                    <a class="js-modal-trigger button is-light" data-target="log-in">
+                        Log in
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <!-- Hero -->
+    <section class="hero has-text-centered has-background-grey-lighter">
+        <div class="hero-body">
+            <p class="title">
+                Welcome to the Universal Bond Calculator
+            </p>
+            <p class="subtitle">
+                This application outputs bond payment data based on the bond inputs that you specify. <br>
+                In order to save your work, please create an account or log in<br> <br>
+
+
+                <!-- This application was developed for Erwan Quintin, Department Chair of Finance, Investment, and Banking at the University of Wisconsin, Madison. <br> -->
+
+            </p>
+            <button class="js-modal-trigger  button is-large is-primary" data-target="bond_input">
+                Get Started
+            </button>
+        </div>
+    </section>
+    <!-- About Us -->
+    <section class="hero has-text-centered ">
+        <div class="hero-body">
+            <p class="title">
+                About Us
+            </p>
+            <!-- Card -->
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <!-- Card - row 1, column 1 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Component
+                            </p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                Input Text Here
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <!-- PUT LINKEDIN IN HREF -->
+                            <a href="#" class="card-footer-item">LinkedIn</a>
+                        </footer>
+                    </div><br>
+                    <!-- Card - row 2, column 1 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Component
+                            </p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                Input Text Here
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <!-- PUT LINKEDIN IN HREF -->
+                            <a href="#" class="card-footer-item">LinkedIn</a>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <!-- Card - row 1, column 2 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Component
+                            </p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                Input Text Here
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <!-- PUT LINKEDIN IN HREF -->
+                            <a href="#" class="card-footer-item">LinkedIn</a>
+                        </footer>
+                    </div><br>
+                    <!-- Card - row 2, column 2 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Component
+                            </p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                Input Text Here
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <!-- PUT LINKEDIN IN HREF -->
+                            <a href="#" class="card-footer-item">LinkedIn</a>
+                        </footer>
+                    </div>
+                </div>
+                <div class="column">
+                    <!-- Card - row 1, column 3 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Component
+                            </p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                Input Text Here
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <!-- PUT LINKEDIN IN HREF -->
+                            <a href="#" class="card-footer-item">LinkedIn</a>
+                        </footer>
+                    </div><br>
+
+                    <!-- Card - row 2, column 3 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Tanner Wagner-Durr
+                            </p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                Input Text Here
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+                        <footer class="card-footer">>
+                            <a href="https://www.linkedin.com/in/tannerwagner-durr/"
+                                class="card-footer-item">LinkedIn</a>
+                        </footer>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p> <strong>&copy; Copyright 2022</strong> Declan Nashold, Mason Guell, Spencer Hikade, Stefan Theiss, and
+                Tanner
+                Wagner-Durr. </p>
+            <p>Developed for Prof. Erwan Quintin for use by the students, alumni, and faculty of the University of
+                Wisconsin-Madison.</p>
+            <p>View the source code of this project on <a
+                    href="https://github.com/stheiss25/Group-Project-424">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- sign-up modal -->
+    <div id="sign-up" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <button class="modal-close is-large" aria-label="close"></button>
+                <h1 class="title is-4">Sign up</h1>
+                <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv"
+                        data-target="log-in">Log
+                        in</a>.</h2>
+
+                <!-- Name input -->
+                <div class="field">
+                    <label class="label">Name: </label>
+                    <div class="control">
+                        <input type="text" class="input" placeholder="Enter your name">
+                    </div>
+                </div>
+
+                <!-- Class input -->
+                <div class="field">
+                    <label class="label">Class: </label>
+                    <div class="control">
+                        <input type="text" class="input" placeholder="For which class are you using this calculator?">
+                    </div>
+                </div>
+
+                <!-- email input -->
+                <div class="field">
+                    <label class="label">Email: </label>
+                    <div class="control">
+                        <input type="email" class="input" placeholder="Enter email address">
+                    </div>
+                </div>
+
+                <!-- password input -->
+                <div class="field">
+                    <label class="label">Password: </label>
+                    <div class="control">
+                        <input type="password" class="input" placeholder="Enter password">
+                    </div>
+                </div>
+
+                <!-- submit button -->
+                <br>
+                <div class="has-text-left">
+                    <button class="button is-danger">Log in</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    </div>
-  </section>
+    <!-- log in modal -->
+    <div id="log-in" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h1 class="title is-4">Log in</h1>
+                <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign-up">Sign
+                        up</a>.</h2>
+                <!-- email input -->
+                <div class="field">
+                    <label class="label">Email: </label>
+                    <div class="control">
+                        <input type="email" class="input" placeholder="Enter email address">
+                    </div>
+                </div>
 
-  <!-- footer -->
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p> <strong>&copy; Copyright 2022</strong> Declan Nashold, Mason Guell, Spencer Hikade, Stefan Theiss, and Tanner
-        Wagner-Durr. </p>
-      <p>Developed for Prof. Erwan Quintin for use by the students, alumni, and faculty of the University of
-        Wisconsin-Madison.</p>
-      <p>View the source code of this project on <a href="https://github.com/stheiss25/Group-Project-424">GitHub</a>
-      </p>
-    </div>
-  </footer>
+                <!-- password input -->
+                <div class="field">
+                    <label class="label">Password: </label>
+                    <div class="control">
+                        <input type="password" class="input" placeholder="Enter password">
+                    </div>
+                </div>
 
-  <!-- sign-up modal -->
-  <div id="sign-up" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
+                <!-- submit button -->
+                <br>
+                <div class="has-text-left">
+                    <button class="button is-danger">Log in</button>
+                </div>
+            </div>
+        </div>
         <button class="modal-close is-large" aria-label="close"></button>
-        <h1 class="title is-4">Sign up</h1>
-        <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv" data-target="log-in">Log
-            in</a>.</h2>
-
-        <!-- Name input -->
-        <div class="field">
-          <label class="label">Name: </label>
-          <div class="control">
-            <input type="text" class="input" placeholder="Enter your name">
-          </div>
-        </div>
-
-        <!-- Class input -->
-        <div class="field">
-          <label class="label">Class: </label>
-          <div class="control">
-            <input type="text" class="input" placeholder="For which class are you using this calculator?">
-          </div>
-        </div>
-
-        <!-- email input -->
-        <div class="field">
-          <label class="label">Email: </label>
-          <div class="control">
-            <input type="email" class="input" placeholder="Enter email address">
-          </div>
-        </div>
-
-        <!-- password input -->
-        <div class="field">
-          <label class="label">Password: </label>
-          <div class="control">
-            <input type="password" class="input" placeholder="Enter password">
-          </div>
-        </div>
-
-        <!-- submit button -->
-        <br>
-        <div class="has-text-left">
-          <button class="button is-danger">Log in</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- log in modal -->
-  <div id="log-in" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-        <h1 class="title is-4">Log in</h1>
-        <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign-up">Sign
-            up</a>.</h2>
-        <!-- email input -->
-        <div class="field">
-          <label class="label">Email: </label>
-          <div class="control">
-            <input type="email" class="input" placeholder="Enter email address">
-          </div>
-        </div>
-
-        <!-- password input -->
-        <div class="field">
-          <label class="label">Password: </label>
-          <div class="control">
-            <input type="password" class="input" placeholder="Enter password">
-          </div>
-        </div>
-
-        <!-- submit button -->
-        <br>
-        <div class="has-text-left">
-          <button class="button is-danger">Log in</button>
-        </div>
-      </div>
-    </div>
-    <button class="modal-close is-large" aria-label="close"></button>
-  </div>
-
-  <!-- Bond input modal -->
-  <div id="bond_input" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-        <p class="has-text-centered">
-          <button class="button is-danger mb-3 has-text-centered is-focused">Enter Bond Information Below!</button>
-        </p>
-
-        <!-- Initial Loan Size -->
-        <div class="field is-horizontal">
-          <div class="field is-horizontal ">
-            <div class="field-label is-normal">
-              <label class="label">Initial Loan Size:</label>
-            </div>
-            <div class="control">
-              <input class="input" id="loan_size" type="text" placeholder="Enter a $ amount">
-            </div>
-          </div>
-        </div>
-
-        <!-- Balloon payment -->
-        <div class="field is-horizontal">
-          <div class="field is-horizontal ">
-            <div class="field-label is-normal">
-              <label class="label">Balloon Payment:</label>
-            </div>
-            <div class="control">
-              <input class="input" id="balloon_payment" type="text" placeholder="Enter a $ amount">
-            </div>
-          </div>
-        </div>
-
-        <!-- Number of periods -->
-        <div class="field is-horizontal">
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Number of Periods:</label>
-            </div>
-            <div class="control">
-              <input class="input is-right" id="periods" type="text" placeholder="Enter a number">
-            </div>
-          </div>
-        </div>
-
-        <!-- Interest per period -->
-        <div class="field is-horizontal">
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Interest per Period:</label>
-            </div>
-            <div class="control">
-              <input class="input is-right" id="interest" type="text" placeholder="Enter a decimal">
-            </div>
-          </div>
-        </div>
-
-        <!-- Number of payments -->
-        <div class="field is-horizontal">
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Payments per Period:</label>
-            </div>
-            <div class="control">
-              <input class="input is-right" id="payments" type="text" placeholder="Enter a number">
-            </div>
-          </div>
-        </div>
-
-        <!-- growth regimes -->
-        <div class="field is-horizontal">
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label"># of growth regimes:</label>
-            </div>
-            <div class="control">
-              <input class="input is-right" id="growth" type="text" placeholder="Enter a number">
-            </div>
-          </div>
-        </div>
-
-        <!-- Submit button -->
-        <div class="field is-grouped is-grouped-centered">
-          <div class="control">
-            <button class="js-modal-trigger button is-link" data-target="graph">Submit</button>
-          </div>
-          <div class="control">
-            <button class="button is-link is-light">Cancel</button>
-          </div>
-        </div>
-
-      </div>
     </div>
 
-    <button class="modal-close is-large" aria-label="close"></button>
-  </div>
+    <!-- Bond input modal -->
+    <div id="bond_input" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <p class="has-text-centered">
+                    <button class="button is-danger mb-3 has-text-centered is-focused">Enter Bond Information
+                        Below!</button>
+                </p>
 
-  <!-- graph modal -->
-  <div id="graph" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-        <h1 class="title is-4">Bond Payment Graph</h1>
-        <br>
-        <div class="field has-text-centered">
-          <p>Graph goes here</p>
+                <!-- Initial Loan Size -->
+                <div class="field is-horizontal">
+                    <div class="field is-horizontal ">
+                        <div class="field-label is-normal">
+                            <label class="label">Initial Loan Size:</label>
+                        </div>
+                        <div class="control">
+                            <input class="input" id="loan_size" type="text" placeholder="Enter a $ amount">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Balloon payment -->
+                <div class="field is-horizontal">
+                    <div class="field is-horizontal ">
+                        <div class="field-label is-normal">
+                            <label class="label">Balloon Payment:</label>
+                        </div>
+                        <div class="control">
+                            <input class="input" id="balloon_payment" type="text" placeholder="Enter a $ amount">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Number of periods -->
+                <div class="field is-horizontal">
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Number of Periods:</label>
+                        </div>
+                        <div class="control">
+                            <input class="input is-right" id="periods" type="text" placeholder="Enter a number">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interest per period -->
+                <div class="field is-horizontal">
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Interest per Period:</label>
+                        </div>
+                        <div class="control">
+                            <input class="input is-right" id="interest" type="text" placeholder="Enter a decimal">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Number of payments -->
+                <div class="field is-horizontal">
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Payments per Period:</label>
+                        </div>
+                        <div class="control">
+                            <input class="input is-right" id="payments" type="text" placeholder="Enter a number">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- growth regimes -->
+                <div class="field is-horizontal">
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label"># of growth regimes:</label>
+                        </div>
+                        <div class="control">
+                            <input class="input is-right" id="growth" type="text" placeholder="Enter a number">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <div class="field is-grouped is-grouped-centered">
+                    <div class="control">
+                        <button class="js-modal-trigger button is-link" data-target="graph">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <br>
-        <div class="level">
-          <!-- back to inputs -->
-          <div class="level-left">
-            <a class="adv h3 is-5">Back to inputs</a>
-          </div>
 
-          <!-- continue button -->
-          <div class="level-right">
-            <!-- TODO add link to table page -->
-            <button class="button is-success">Show Table</button>
-          </div>
-
-        </div>
-
-      </div>
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
-  </div>
+
+    <!-- graph modal -->
+    <div id="graph" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h1 class="title is-4">Bond Payment Graph</h1>
+                <br>
+                <div class="field has-text-centered">
+                    <p>Graph goes here</p>
+                </div>
+                <br>
+                <div class="level">
+                    <!-- back to inputs -->
+                    <div class="level-left">
+                        <a class="adv h3 is-5">Back to inputs</a>
+                    </div>
+
+                    <!-- continue button -->
+                    <div class="level-right">
+                        <!-- TODO add link to table page -->
+                        <button class="button is-success">Show Table</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Functions to open and close a modal
-    function openModal($el) {
-      $el.classList.add('is-active');
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+        // Functions to open and close a modal
+        function openModal($el) {
+            $el.classList.add('is-active');
+        }
 
-    function closeModal($el) {
-      $el.classList.remove('is-active');
-    }
+        function closeModal($el) {
+            $el.classList.remove('is-active');
+        }
 
-    function closeAllModals() {
-      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-        closeModal($modal);
-      });
-    }
+        function closeAllModals() {
+            (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+                closeModal($modal);
+            });
+        }
 
-    // Add a click event on buttons to open a specific modal
-    (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-      const modal = $trigger.dataset.target;
-      const $target = document.getElementById(modal);
-      console.log($target);
+        // Add a click event on buttons to open a specific modal
+        (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+            const modal = $trigger.dataset.target;
+            const $target = document.getElementById(modal);
+            console.log($target);
 
-      $trigger.addEventListener('click', () => {
-        openModal($target);
-      });
+            $trigger.addEventListener('click', () => {
+                openModal($target);
+            });
+        });
+
+        // Add a click event on various child elements to close the parent modal || .adv for closing modal to go to other modal
+        (document.querySelectorAll(
+                '.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .adv') ||
+            []).forEach((
+            $close) => {
+            const $target = $close.closest('.modal');
+
+            $close.addEventListener('click', () => {
+                closeModal($target);
+            });
+        });
+
+        // Add a keyboard event to close all modals
+        document.addEventListener('keydown', (event) => {
+            const e = event || window.event;
+
+            if (e.keyCode === 27) { // Escape key
+                closeAllModals();
+            }
+        });
     });
-
-    // Add a click event on various child elements to close the parent modal || .adv for closing modal to go to other modal
-    (document.querySelectorAll(
-      '.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .adv') || []).forEach((
-      $close) => {
-      const $target = $close.closest('.modal');
-
-      $close.addEventListener('click', () => {
-        closeModal($target);
-      });
-    });
-
-    // Add a keyboard event to close all modals
-    document.addEventListener('keydown', (event) => {
-      const e = event || window.event;
-
-      if (e.keyCode === 27) { // Escape key
-        closeAllModals();
-      }
-    });
-  });
 </script>
