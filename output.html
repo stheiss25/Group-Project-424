@@ -61,10 +61,12 @@
         </div>
         </div>
     </nav>
+
     <!-- Go Back to Edit Inputs Hero -->
     <section class="hero has-text-centered has-background-grey-lighter">
         <div class="hero-body">
-            <a class="button loggedin" id="lo_button">
+            <!-- FIXME: Need to combine with code in index.html so you have access to the input form -->
+            <a class="js-modal-trigger button go_back" id="go_back_button" data-target="bond_input">
                 <span class="icon">
                     <i class="fa-regular fa-circle-up"></i>
                 </span>
@@ -90,10 +92,12 @@
                 <div class="column">
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-dark">Save for Later</button>
+                            <button class="js-modal-trigger button is-dark" data-target="save_modal">Save for
+                                Later</button>
                         </div>
                         <div class="control">
-                            <button class="button is-dark is-light">Export Data</button>
+                            <button class="js-modal-trigger button is-dark is-light" data-target="export_modal">Export
+                                Data</button>
                         </div>
                     </div>
                 </div>
@@ -106,7 +110,7 @@
     </section>
 
     <!-- save to my account modal -->
-    <div class="modal is-hidden" id="save_modal">
+    <div class="modal" id="save_modal">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
@@ -144,7 +148,7 @@
 
 
     <!-- export modal -->
-    <div class="modal is-hidden" id="export_modal">
+    <div class="modal" id="export_modal">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
@@ -185,20 +189,6 @@
                         </div>
                     </div>
 
-
-
-                    <!-- <div class="field is-grouped is-pulled-right">
-                        <div class="control">
-                            <button class="button is-danger is-light">Cancel</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-dark">Export as .pdf</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-dark">Export as .csv</button>
-                        </div>
-                    </div> -->
-
                 </form>
             </section>
         </div>
@@ -225,3 +215,57 @@
 </body>
 
 </html>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Functions to open and close a modal
+        function openModal($el) {
+            $el.classList.add('is-active');
+        }
+
+        function closeModal($el) {
+            $el.classList.remove('is-active');
+        }
+
+        function closeAllModals() {
+            (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+                closeModal($modal);
+            });
+        }
+
+        // Add a click event on buttons to open a specific modal
+        (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+            const modal = $trigger.dataset.target;
+            const $target = document.getElementById(modal);
+            console.log($target);
+
+            $trigger.addEventListener('click', () => {
+                openModal($target);
+            });
+        });
+
+        // Add a click event on various child elements to close the parent modal || .adv for closing modal to go to other modal
+        (document.querySelectorAll(
+                '.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .adv') ||
+            []).forEach((
+            $close) => {
+            const $target = $close.closest('.modal');
+
+            $close.addEventListener('click', () => {
+                closeModal($target);
+            });
+        });
+
+        // Add a keyboard event to close all modals
+        document.addEventListener('keydown', (event) => {
+            const e = event || window.event;
+
+            if (e.keyCode === 27) { // Escape key
+                closeAllModals();
+            }
+        });
+    });
+</script>
