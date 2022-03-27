@@ -20,23 +20,23 @@ Breaking Down User Stories:
 <https://docs.google.com/document/d/1zpM0-rGJCFcx12HlnaGQqWUM8hSjBiEHii0vRbWfhK8/edit?usp=sharing>
 
 Burndown Chart:
-
+<https://drive.google.com/file/d/1VWShNbI-ArA70-PfY9OKOuPAlZCOYaWz/view?usp=sharing>
 
 GitHub repo link:
 <https://github.com/stheiss25/Group-Project-424>
 
 Standup History:
-
+<https://docs.google.com/spreadsheets/d/1DnBN8hUAmY5jjvbUIzr4kAhf0SAFI_6Sxoo62p2LzHQ/edit?usp=sharing>
 
 Sprint Review:
     What did we learn from doing our first sprint?
-
+    - We learned the importance of working on a project almost every day so that we are able to accurately track our metrcis over time. We also learned the value of looking at all project requirements at the start of the sprint so we don't have trouble meeting any requirements.
     What did go well? Why?
-
+    - Prototyping went well for our group. We each came up with unique ideas for how the app would look, and then we were able to pick our favorite look. We communicated effectively during the sprint with frequent video calls, emails, and texts back and forth.
     What didn’t go well? Why not?
-
+    - We did not track our daily work with enough regularity making it difficult to create a proper burndown chart.
     How can you make things better next time?
-
+    - Next sprint we will make sure to log all of our tasks and the time it took to complete them all. This will allow us to accurately complete any end of sprint materials.
     Are you satisfied with what you already completed?
-
+    - Yes! Other than the burndown chart, we feel everything went well for our group and we feel like we are making good progress.
     Which group was invited? What are your observations/notes? Everybody was present?
