@@ -1,3 +1,6 @@
+Link to JustInMind Prototypes:
+<https://drive.google.com/drive/folders/1a-nqqjcKD8_8FJ5eRsRRWaYvtWVjFIOn?usp=sharing>
+
 Link to Trello board: 
 <https://trello.com/b/mnX6w6yF/spring-2022-is424-term-project>
 
