@@ -1,100 +1,103 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Universal Bond Calculator</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" 
-        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous">
     <style>
-        .navbar-brand{
+        .navbar-brand {
             width: 5%;
             margin-bottom: 8;
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a>
-            <!-- TODO fix size of logo -->
-            <img src="images/Wisconsin-Crest-Logo.png" width = "85%" height = "15%">
-         </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+            <a>
+                <!-- TODO fix size of logo -->
+                <img src="images/Wisconsin-Crest-Logo.png" width="85%" height="15%">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-      
+
         <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a href= "index.html"class="navbar-item has-text-white">
-              Home
-            </a>
-      
-            <a class="navbar-item has-text-white">
-              Saved Bonds
-            </a>
-            </div>
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-light">
-                  Sign up
+            <div class="navbar-start">
+                <a href="index.html" class="navbar-item has-text-white">
+                    Home
                 </a>
-                <a class="button is-light">
-                  Log in
+
+                <a class="navbar-item has-text-white">
+                    Saved Bonds
                 </a>
-              </div>
             </div>
-          </div>
         </div>
-      </nav>
-      
 
-      <!-- body -->
-      <div class="columns mt-5">
-          <div class="column is-2">
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-light">
+                        Sign up
+                    </a>
+                    <a class="button is-light">
+                        Log in
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
 
-          </div>
-          <div class="column">
-                <h1 class="title has-text-centered">
-                    Saved Bond Sheets
-                </h1>
+
+    <!-- body -->
+    <div class="columns mt-5">
+        <div class="column is-2">
+
+        </div>
+        <div class="column">
+            <h1 class="title has-text-centered">
+                Saved Bond Sheets
+            </h1>
             <div class="box">
-                
+
                 <div class="field is-grouped">
                     <div class="control">
                         <label class="label">Date</label>
-                    
+
                         <div class="control">
-                                <div class="select">
-                                    <select>
+                            <div class="select">
+                                <select>
                                     <option>Select dropdown</option>
                                     <option>With options</option>
-                                    </select>
-                                </div>
+                                </select>
                             </div>
+                        </div>
                     </div>
                     <div class="control">
                         <label class="label">Name</label>
-                            <div class="control">
-                                <input class="input" type="text" placeholder="Text input">
-                            </div>
-                        
-                   </div>
-                   <!-- TODO figure out how to get this button to align properly -->
-                   <div class="control">
-                    <button class="button is-link">Submit</button>
-                  </div>
-    
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Input Name of File">
+                        </div>
+
+                    </div>
+                    <!-- TODO figure out how to get this button to align properly -->
+                    <div class="control">
+                        <button class="button is-danger">Submit</button>
+                    </div>
+
                 </div>
             </div>
             <div class="box">
@@ -108,72 +111,89 @@
                     <tbody>
                         <!-- Example Row -->
                         <tr>
-                            <th> <div class="content is-large">Test</div> </th>
-                            <th> <div class="content is-large">10/12/2022</div> </th>
                             <th>
-                            <div class="button">
-                                <div class="content is-large">View</div>
-                            </div>
+                                <div class="content is-large">Test</div>
                             </th>
                             <th>
-                            <div class="button">
-                                <div class="content is-large">Download</div>
-                            </div>
-                            </th>
-                        </tr>
-                        <!-- Example Row -->
-                        <tr>
-                            <th> <div class="content is-large">Test</div> </th>
-                            <th> <div class="content is-large">10/12/2022</div> </th>
-                            <th>
-                            <div class="button">
-                                <div class="content is-large">View</div>
-                            </div>
+                                <div class="content is-large">10/12/2022</div>
                             </th>
                             <th>
-                            <div class="button">
-                                <div class="content is-large">Download</div>
-                            </div>
+                                <div class="button">
+                                    <div class="content is-large">View</div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="button">
+                                    <div class="content is-large">Download</div>
+                                </div>
                             </th>
                         </tr>
                         <!-- Example Row -->
                         <tr>
-                            <th> <div class="content is-large">Test</div> </th>
-                            <th> <div class="content is-large">10/12/2022</div> </th>
                             <th>
-                            <div class="button">
-                                <div class="content is-large">View</div>
-                            </div>
+                                <div class="content is-large">Test</div>
                             </th>
                             <th>
-                            <div class="button">
-                                <div class="content is-large">Download</div>
-                            </div>
+                                <div class="content is-large">10/12/2022</div>
                             </th>
-                        </tr> 
+                            <th>
+                                <div class="button">
+                                    <div class="content is-large">View</div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="button">
+                                    <div class="content is-large">Download</div>
+                                </div>
+                            </th>
+                        </tr>
                         <!-- Example Row -->
                         <tr>
-                            <th> <div class="content is-large">Test</div> </th>
-                            <th> <div class="content is-large">10/12/2022</div> </th>
                             <th>
-                            <div class="button">
-                                <div class="content is-large">View</div>
-                            </div>
+                                <div class="content is-large">Test</div>
                             </th>
                             <th>
-                            <div class="button">
-                                <div class="content is-large">Download</div>
-                            </div>
+                                <div class="content is-large">10/12/2022</div>
                             </th>
-                        </tr>                      
+                            <th>
+                                <div class="button">
+                                    <div class="content is-large">View</div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="button">
+                                    <div class="content is-large">Download</div>
+                                </div>
+                            </th>
+                        </tr>
+                        <!-- Example Row -->
+                        <tr>
+                            <th>
+                                <div class="content is-large">Test</div>
+                            </th>
+                            <th>
+                                <div class="content is-large">10/12/2022</div>
+                            </th>
+                            <th>
+                                <div class="button">
+                                    <div class="content is-large">View</div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="button">
+                                    <div class="content is-large">Download</div>
+                                </div>
+                            </th>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-          </div>
-          <div class="column is-2">
+        </div>
+        <div class="column is-2">
 
-          </div>
-      </div>
-      
+        </div>
+    </div>
+
 </body>
+
 </html>
