@@ -1,26 +1,29 @@
 Link to Trello board: 
-https://trello.com/b/mnX6w6yF/spring-2022-is424-term-project
+<https://trello.com/b/mnX6w6yF/spring-2022-is424-term-project>
 
-User Stories:
-    As a finance student, I want to input different bond details so that I can visualize the shape of the bond over its maturity period.
+User Stories: (Also Accessible at <https://docs.google.com/document/d/1Iaa87NK3zTuYqyYoe-UsKTGL5SLk7lStHa4GQltaaEk/edit?usp=sharing>)
+    1. As a finance student, I want to input different bond details so that I can visualize the shape of the bond over its maturity period.
 
-    As Erwan, I want to be able to provide a tool to my students so that I can help develop their understanding of a complex financial topic like bonds.
+    2. As Erwan, I want to be able to provide a tool to my students so that I can help develop their understanding of a complex financial topic like bonds.
 
-    As a student, I want to be able to login and save my results so I can save time on data entry.
+    3. As a student, I want to be able to login and save my results so I can save time on data entry.
 
-    As a student, I want to be able to view a graph of the payment shape so I can verify that I have correctly inputted my bond data.
+    4. As a student, I want to be able to view a graph of the payment shape so I can verify that I have correctly inputted my bond data.
 
-    As a student, I want to be able to view a table showing the initial balance, payment, interest, and final balance in each period based on the data I input so I don’t need to rely on an Excel spreadsheet or Jupyter notebook to perform these calculations.
+    5. As a student, I want to be able to view a table showing the initial balance, payment, interest, and final balance in each period based on the data I input so I don’t need to rely on an Excel spreadsheet or Jupyter notebook to perform these calculations.
 
-    As a student, I want the option to export the payment shape graph or payment table so that I can perform further analysis or share my results with other students, colleagues, or my professor.
+    6. As a student, I want the option to export the payment shape graph or payment table so that I can perform further analysis or share my results with other students, colleagues, or my professor.
 
-    As a student, I want to read helpful tips and definitions of unfamiliar terms so that I can increase my understanding of bonds.
+    7. As a student, I want to read helpful tips and definitions of unfamiliar terms so that I can increase my understanding of bonds.
+    
+Breaking Down User Stories:
+<https://docs.google.com/document/d/1zpM0-rGJCFcx12HlnaGQqWUM8hSjBiEHii0vRbWfhK8/edit?usp=sharing>
 
 Burndown Chart:
 
 
 GitHub repo link:
-https://github.com/stheiss25/Group-Project-424
+<https://github.com/stheiss25/Group-Project-424>
 
 Standup History:
 
