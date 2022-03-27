@@ -26,7 +26,7 @@ GitHub repo link:
 <https://github.com/stheiss25/Group-Project-424>
 
 Standup History:
-
+<https://docs.google.com/spreadsheets/d/1DnBN8hUAmY5jjvbUIzr4kAhf0SAFI_6Sxoo62p2LzHQ/edit?usp=sharing>
 
 Sprint Review:
     What did we learn from doing our first sprint?
