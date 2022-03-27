@@ -1,7 +1,7 @@
 Link to Trello board: 
-https://trello.com/b/mnX6w6yF/spring-2022-is424-term-project
+<https://trello.com/b/mnX6w6yF/spring-2022-is424-term-project>
 
-User Stories:
+User Stories: (Also Accessible at <https://docs.google.com/document/d/1Iaa87NK3zTuYqyYoe-UsKTGL5SLk7lStHa4GQltaaEk/edit?usp=sharing>)
     As a finance student, I want to input different bond details so that I can visualize the shape of the bond over its maturity period.
 
     As Erwan, I want to be able to provide a tool to my students so that I can help develop their understanding of a complex financial topic like bonds.
@@ -15,12 +15,15 @@ User Stories:
     As a student, I want the option to export the payment shape graph or payment table so that I can perform further analysis or share my results with other students, colleagues, or my professor.
 
     As a student, I want to read helpful tips and definitions of unfamiliar terms so that I can increase my understanding of bonds.
+    
+Breaking Down User Stories:
+<https://docs.google.com/document/d/1zpM0-rGJCFcx12HlnaGQqWUM8hSjBiEHii0vRbWfhK8/edit?usp=sharing>
 
 Burndown Chart:
 
 
 GitHub repo link:
-https://github.com/stheiss25/Group-Project-424
+<https://github.com/stheiss25/Group-Project-424>
 
 Standup History:
 
