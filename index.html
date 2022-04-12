@@ -292,47 +292,49 @@
       <div class="box">
         <button class="modal-close is-large" aria-label="close"></button>
         <h1 class="title is-4">Sign up</h1>
-        <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv" data-target="log-in">Log
-            in</a>.</h2>
+        <form id="signup_form">
+          <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv" data-target="log-in">Log
+              in</a>.</h2>
 
-        <!-- Name input -->
-        <div class="field">
-          <label class="label">Name: </label>
-          <div class="control">
-            <input type="text" class="input" placeholder="Enter your name">
+          <!-- Name input -->
+          <div class="field">
+            <label class="label">Name: </label>
+            <div class="control">
+              <input type="text" class="input" placeholder="Enter your name">
+            </div>
           </div>
-        </div>
 
 
-        <!-- Class input -->
-        <div class="field">
-          <label class="label">Class: </label>
-          <div class="control">
-            <input type="text" class="input" placeholder="For which class are you using this calculator?">
+          <!-- Class input -->
+          <div class="field">
+            <label class="label">Class: </label>
+            <div class="control">
+              <input type="text" class="input" placeholder="For which class are you using this calculator?">
+            </div>
           </div>
-        </div>
 
-        <!-- email input -->
-        <div class="field">
-          <label class="label">Email: </label>
-          <div class="control">
-            <input type="email" class="input" placeholder="Enter email address">
+          <!-- email input -->
+          <div class="field">
+            <label class="label">Email: </label>
+            <div class="control">
+              <input id='email' type="email" class="input" placeholder="Enter email address">
+            </div>
           </div>
-        </div>
 
-        <!-- password input -->
-        <div class="field">
-          <label class="label">Password: </label>
-          <div class="control">
-            <input type="password" class="input" placeholder="Enter password">
+          <!-- password input -->
+          <div class="field">
+            <label class="label">Password: </label>
+            <div class="control">
+              <input id='password' type="password" class="input" placeholder="Enter password">
+            </div>
           </div>
-        </div>
 
-        <!-- submit button -->
-        <br>
-        <div class="has-text-left">
-          <button class="button is-danger">Log in</button>
-        </div>
+          <!-- submit button -->
+          <br>
+          <div class="has-text-left">
+            <button class="button is-danger">Log in</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -660,4 +662,21 @@
       }
     });
   });
+
+  // signup
+  let signup_form = document.querySelector('#signup_form')
+
+  signup_form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    let email = document.querySelector('#email').value
+    let password = document.querySelector('#password').value
+
+    auth.createUserWithEmailAndPassword(email, password).then(() => {
+      console.log('user created successfully')
+      signup_form.reset()
+    })
+
+
+  })
 </script>
