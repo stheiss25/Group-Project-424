@@ -30,7 +30,8 @@ GitHub repo link:
 <https://github.com/stheiss25/Group-Project-424>
 
 Standup History:
-<https://docs.google.com/spreadsheets/d/1DnBN8hUAmY5jjvbUIzr4kAhf0SAFI_6Sxoo62p2LzHQ/edit?usp=sharing>
+Sprint 1: <https://docs.google.com/spreadsheets/d/1DnBN8hUAmY5jjvbUIzr4kAhf0SAFI_6Sxoo62p2LzHQ/edit?usp=sharing>
+Sprint 2: <https://docs.google.com/spreadsheets/d/1FCx4BsVXJPCNUJxFw725CTdSkovlxUMUEnz5t3Vz4qs/edit?usp=sharing>
 
 Sprint 1 Review:
     What did we learn from doing our first sprint?
