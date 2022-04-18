@@ -22,7 +22,7 @@
 ### Breaking Down User Stories:
 Sprint 1: <https://docs.google.com/document/d/1zpM0-rGJCFcx12HlnaGQqWUM8hSjBiEHii0vRbWfhK8/edit?usp=sharing>
 <br />
-Sprint 2: INSERT LINK HERE
+Sprint 2: <https://docs.google.com/document/d/1NQXyImaiPkEvelMen7Oc0b92-OIqt1KFzLlrsR-wtUE/edit?usp=sharing>
 
 ### Burndown Charts:
 Sprint 1: <https://drive.google.com/file/d/1wtKKPvKWAoWWu-5SsB9LcZZu1F0HU1bz/view?usp=sharing>
