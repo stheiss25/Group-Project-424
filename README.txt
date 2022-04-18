@@ -31,7 +31,7 @@ GitHub repo link:
 Standup History:
 <https://docs.google.com/spreadsheets/d/1DnBN8hUAmY5jjvbUIzr4kAhf0SAFI_6Sxoo62p2LzHQ/edit?usp=sharing>
 
-Sprint Review:
+Sprint 1 Review:
     What did we learn from doing our first sprint?
     - We learned the importance of working on a project almost every day so that we are able to accurately track our metrcis over time. We also learned the value of looking at all project requirements at the start of the sprint so we don't have trouble meeting any requirements.
     What did go well? Why?
@@ -44,3 +44,24 @@ Sprint Review:
     - Yes! Other than the burndown chart, we feel everything went well for our group and we feel like we are making good progress.
     Which group was invited? What are your observations/notes? Everybody was present?
     - We decieded to work with Group 7 for our reviews. Group 7 seemed to have excellent project management skills. They have applied many of the concepts we learned in class, and are using them effectively. The Group 7 members each seem to be independently motivated to make their project the best it can be. Our group had a similar improvement idea for the next sprint, by making more frequent use of our planning materials. All members were present and we are excited to see the final deliverable from this group! 
+
+Sprint 2 Review
+a. What did you learn from doing our first sprint?
+- From our first sprint, we learned the importance of tracking our metrics correctly. We did not create our burndown chart until the last day of the sprint 1. This time we created our burndown chart on day 1 and it accurately reflects our work.
+
+b. What did go well? Why?
+- What went well was our management of Google Firebase. We were able to set up our firebase early in the sprint and with little issues.
+
+c. What didn’t go well? Why not?
+-	What didn’t go well was accounting for other priorities we had this sprint. This sprint was exam heavy for us and had some holidays / out of town obligations. We didn’t anticipate the amount of work we would need to do during this sprint, so we felt stressed to get it all done.
+
+d. How can you make things better next time?
+-	Next time we will make a detailed schedule for our whole sprint. We will try to breakdown the work that will be completed on a day to day basis.
+
+e. Are you satisfied with what you already completed?
+
+-	I am satisfied with what we accomplished this sprint. We just need to add a little more functionality to our app and then polish/refine the existing features.
+
+f. Which group was invited? What are your observations/notes? 
+Everybody was present?
+- We invited group 7 to analyze our sprint review. What we observed was that Group 7 had a great sense of what they do well and what they need to improve upon. Group 7 has excellent communication and project management skills. They made effective use of their standups and were in constant contact with each other. They recognized some inexperience in Javascript but made sure adjust accordingly. They were all present.
