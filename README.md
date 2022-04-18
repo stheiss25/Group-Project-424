@@ -1,10 +1,10 @@
-Link to JustInMind Prototypes:
+### Link to JustInMind Prototypes:
 <https://drive.google.com/drive/folders/1a-nqqjcKD8_8FJ5eRsRRWaYvtWVjFIOn?usp=sharing>
 
-Link to Trello board: 
+### Link to Trello board: 
 <https://trello.com/b/mnX6w6yF/spring-2022-is424-term-project>
 
-User Stories: (Also Accessible at <https://docs.google.com/document/d/1Iaa87NK3zTuYqyYoe-UsKTGL5SLk7lStHa4GQltaaEk/edit?usp=sharing>)
+### User Stories: (Also Accessible at <https://docs.google.com/document/d/1Iaa87NK3zTuYqyYoe-UsKTGL5SLk7lStHa4GQltaaEk/edit?usp=sharing>)
     1. As a finance student, I want to input different bond details so that I can visualize the shape of the bond over its maturity period.
 
     2. As Erwan, I want to be able to provide a tool to my students so that I can help develop their understanding of a complex financial topic like bonds.
@@ -19,21 +19,21 @@ User Stories: (Also Accessible at <https://docs.google.com/document/d/1Iaa87NK3z
 
     7. As a student, I want to read helpful tips and definitions of unfamiliar terms so that I can increase my understanding of bonds.
     
-Breaking Down User Stories:
+### Breaking Down User Stories:
 Sprint 1: <https://docs.google.com/document/d/1zpM0-rGJCFcx12HlnaGQqWUM8hSjBiEHii0vRbWfhK8/edit?usp=sharing>
 
-Burndown Charts:
+### Burndown Charts:
 Sprint 1: <https://drive.google.com/file/d/1wtKKPvKWAoWWu-5SsB9LcZZu1F0HU1bz/view?usp=sharing>
 Sprint 2: <https://drive.google.com/drive/folders/15Kuv8nTL9IbHKDhzxHJ23XLJTfrqdJp0?usp=sharing>
 
-GitHub repo link:
+### GitHub repo link:
 <https://github.com/stheiss25/Group-Project-424>
 
-Standup History:
+### Standup History:
 Sprint 1: <https://docs.google.com/spreadsheets/d/1DnBN8hUAmY5jjvbUIzr4kAhf0SAFI_6Sxoo62p2LzHQ/edit?usp=sharing>
 Sprint 2: <https://docs.google.com/spreadsheets/d/1FCx4BsVXJPCNUJxFw725CTdSkovlxUMUEnz5t3Vz4qs/edit?usp=sharing>
 
-Sprint 1 Review:
+### Sprint 1 Review:
     What did we learn from doing our first sprint?
     - We learned the importance of working on a project almost every day so that we are able to accurately track our metrcis over time. We also learned the value of looking at all project requirements at the start of the sprint so we don't have trouble meeting any requirements.
     What did go well? Why?
@@ -47,7 +47,7 @@ Sprint 1 Review:
     Which group was invited? What are your observations/notes? Everybody was present?
     - We decieded to work with Group 7 for our reviews. Group 7 seemed to have excellent project management skills. They have applied many of the concepts we learned in class, and are using them effectively. The Group 7 members each seem to be independently motivated to make their project the best it can be. Our group had a similar improvement idea for the next sprint, by making more frequent use of our planning materials. All members were present and we are excited to see the final deliverable from this group! 
 
-Sprint 2 Review
+### Sprint 2 Review
 a. What did you learn from doing our first sprint?
 - From our first sprint, we learned the importance of tracking our metrics correctly. We did not create our burndown chart until the last day of the sprint 1. This time we created our burndown chart on day 1 and it accurately reflects our work.
 
