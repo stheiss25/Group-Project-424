@@ -21,6 +21,8 @@
     
 ### Breaking Down User Stories:
 Sprint 1: <https://docs.google.com/document/d/1zpM0-rGJCFcx12HlnaGQqWUM8hSjBiEHii0vRbWfhK8/edit?usp=sharing>
+<br />
+Sprint 2: INSERT LINK HERE
 
 ### Burndown Charts:
 Sprint 1: <https://drive.google.com/file/d/1wtKKPvKWAoWWu-5SsB9LcZZu1F0HU1bz/view?usp=sharing>
@@ -31,6 +33,7 @@ Sprint 2: <https://drive.google.com/drive/folders/15Kuv8nTL9IbHKDhzxHJ23XLJTfrqd
 
 ### Standup History:
 Sprint 1: <https://docs.google.com/spreadsheets/d/1DnBN8hUAmY5jjvbUIzr4kAhf0SAFI_6Sxoo62p2LzHQ/edit?usp=sharing>
+<br />
 Sprint 2: <https://docs.google.com/spreadsheets/d/1FCx4BsVXJPCNUJxFw725CTdSkovlxUMUEnz5t3Vz4qs/edit?usp=sharing>
 
 ### Sprint 1 Review:
