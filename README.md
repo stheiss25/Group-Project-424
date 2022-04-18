@@ -4,6 +4,20 @@
 ### Link to Trello board: 
 <https://trello.com/b/mnX6w6yF/spring-2022-is424-term-project>
 
+### Sprint 2 Tasks (From Trello Board)
+    * Level 0 Data Flow Diagram
+    * Level 1 Data Flow Diagram
+    * Context Diagram
+    * Use-Case Diagram
+    * Activity Diagram
+    * Text File of Collections and Documents for NoSQL Database
+    * Create Firebase Instance and Configure Basic Settings
+    * Code Account Info Logic/Firebase Connect
+    * Code JS to connect to Firebase
+    * Code other Non-Application Logic JS
+    * Create Collections and Documents in Google Firebase
+    
+
 ### User Stories: (Also Accessible at <https://docs.google.com/document/d/1Iaa87NK3zTuYqyYoe-UsKTGL5SLk7lStHa4GQltaaEk/edit?usp=sharing>)
     1. As a finance student, I want to input different bond details so that I can visualize the shape of the bond over its maturity period.
 
@@ -18,6 +32,7 @@
     6. As a student, I want the option to export the payment shape graph or payment table so that I can perform further analysis or share my results with other students, colleagues, or my professor.
 
     7. As a student, I want to read helpful tips and definitions of unfamiliar terms so that I can increase my understanding of bonds.
+    
     
 ### Breaking Down User Stories:
 Sprint 1: <https://docs.google.com/document/d/1zpM0-rGJCFcx12HlnaGQqWUM8hSjBiEHii0vRbWfhK8/edit?usp=sharing>
