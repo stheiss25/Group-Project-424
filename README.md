@@ -68,7 +68,7 @@ Sprint 2: <https://docs.google.com/spreadsheets/d/1FCx4BsVXJPCNUJxFw725CTdSkovlx
     Are you satisfied with what you already completed?
     - Yes! Other than the burndown chart, we feel everything went well for our group and we feel like we are making good progress.
     Which group was invited? What are your observations/notes? Everybody was present?
-    - We decieded to work with Group 7 for our reviews. Group 7 seemed to have excellent project management skills. They have applied many of the concepts we learned in class, and are using them effectively. The Group 7 members each seem to be independently motivated to make their project the best it can be. Our group had a similar improvement idea for the next sprint, by making more frequent use of our planning materials. All members were present and we are excited to see the final deliverable from this group! 
+    - We decided to work with Group 7 for our reviews. Group 7 seemed to have excellent project management skills. They have applied many of the concepts we learned in class, and are using them effectively. The Group 7 members each seem to be independently motivated to make their project the best it can be. Our group had a similar improvement idea for the next sprint, by making more frequent use of our planning materials. All members were present and we are excited to see the final deliverable from this group! 
 
 ### Sprint 2 Review
 a. What did you learn from doing our first sprint?
