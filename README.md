@@ -5,17 +5,17 @@
 <https://trello.com/b/mnX6w6yF/spring-2022-is424-term-project>
 
 ### Sprint 2 Tasks (From Trello Board)
-    * Level 0 Data Flow Diagram
-    * Level 1 Data Flow Diagram
-    * Context Diagram
-    * Use-Case Diagram
-    * Activity Diagram
-    * Text File of Collections and Documents for NoSQL Database
-    * Create Firebase Instance and Configure Basic Settings
-    * Code Account Info Logic/Firebase Connect
-    * Code JS to connect to Firebase
-    * Code other Non-Application Logic JS
-    * Create Collections and Documents in Google Firebase
+- Level 0 Data Flow Diagram
+- Level 1 Data Flow Diagram
+- Context Diagram
+- Use-Case Diagram
+- Activity Diagram
+- Text File of Collections and Documents for NoSQL Database
+- Create Firebase Instance and Configure Basic Settings
+- Code Account Info Logic/Firebase Connect
+- Code JS to connect to Firebase
+- Code other Non-Application Logic JS
+- Create Collections and Documents in Google Firebase
     
 
 ### User Stories: (Also Accessible at <https://docs.google.com/document/d/1Iaa87NK3zTuYqyYoe-UsKTGL5SLk7lStHa4GQltaaEk/edit?usp=sharing>)
