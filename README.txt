@@ -20,10 +20,11 @@ User Stories: (Also Accessible at <https://docs.google.com/document/d/1Iaa87NK3z
     7. As a student, I want to read helpful tips and definitions of unfamiliar terms so that I can increase my understanding of bonds.
     
 Breaking Down User Stories:
-<https://docs.google.com/document/d/1zpM0-rGJCFcx12HlnaGQqWUM8hSjBiEHii0vRbWfhK8/edit?usp=sharing>
+Sprint 1: <https://docs.google.com/document/d/1zpM0-rGJCFcx12HlnaGQqWUM8hSjBiEHii0vRbWfhK8/edit?usp=sharing>
 
-Burndown Chart:
-<https://drive.google.com/file/d/1wtKKPvKWAoWWu-5SsB9LcZZu1F0HU1bz/view?usp=sharing>
+Burndown Charts:
+Sprint 1: <https://drive.google.com/file/d/1wtKKPvKWAoWWu-5SsB9LcZZu1F0HU1bz/view?usp=sharing>
+Sprint 2: <https://drive.google.com/drive/folders/15Kuv8nTL9IbHKDhzxHJ23XLJTfrqdJp0?usp=sharing>
 
 GitHub repo link:
 <https://github.com/stheiss25/Group-Project-424>
