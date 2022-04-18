@@ -26,6 +26,7 @@ Sprint 2: INSERT LINK HERE
 
 ### Burndown Charts:
 Sprint 1: <https://drive.google.com/file/d/1wtKKPvKWAoWWu-5SsB9LcZZu1F0HU1bz/view?usp=sharing>
+<br />
 Sprint 2: <https://drive.google.com/drive/folders/15Kuv8nTL9IbHKDhzxHJ23XLJTfrqdJp0?usp=sharing>
 
 ### GitHub repo link:
