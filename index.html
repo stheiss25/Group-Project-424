@@ -44,13 +44,13 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="js-modal-trigger button is-light" data-target="sign-up">
+          <a class="js-modal-trigger button is-light" data-target="sign_up">
             Sign up
           </a>
-          <a class="js-modal-trigger button is-light" data-target="log-in">
+          <a class="js-modal-trigger button is-light" data-target="log_in">
             Log in
           </a>
-          <a class="js-modal-trigger button is-light" data-target="account-info">
+          <a class="js-modal-trigger button is-light" data-target="account_info">
             Account Info
           </a>
         </div>
@@ -286,14 +286,14 @@
   </footer>
 
   <!-- sign-up modal -->
-  <div id="sign-up" class="modal">
+  <div id="sign_up" class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
       <div class="box">
         <button class="modal-close is-large" aria-label="close"></button>
         <h1 class="title is-4">Sign up</h1>
         <form id="signup_form">
-          <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv" data-target="log-in">Log
+          <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv" data-target="log_in">Log
               in</a>.</h2>
 
           <!-- Name input -->
@@ -332,7 +332,7 @@
           <!-- submit button -->
           <br>
           <div class="has-text-left">
-            <button class="button is-danger">Log in</button>
+            <button type="submit" class="button is-danger">Sign Up</button>
           </div>
         </form>
       </div>
@@ -343,85 +343,89 @@
 
 
   <!-- log in modal -->
-  <div id="log-in" class="modal">
+  <div id="log_in" class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
       <div class="box">
         <h1 class="title is-4">Log in</h1>
-        <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign-up">Sign
+        <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign_up">Sign
             up</a>.</h2>
-        <!-- email input -->
-        <div class="field">
-          <label class="label">Email: </label>
-          <div class="control">
-            <input type="email" class="input" placeholder="Enter email address">
+        <form action="" id="log_in_form" class="mb-0 mt-2 loggedin">
+          <!-- email input -->
+          <div class="field">
+            <label class="label">Email: </label>
+            <div class="control">
+              <input type="email" class="input" placeholder="Enter email address">
+            </div>
           </div>
-        </div>
 
-        <!-- password input -->
-        <div class="field">
-          <label class="label">Password: </label>
-          <div class="control">
-            <input type="password" class="input" placeholder="Enter password">
+          <!-- password input -->
+          <div class="field">
+            <label class="label">Password: </label>
+            <div class="control">
+              <input type="password" class="input" placeholder="Enter password">
+            </div>
           </div>
-        </div>
 
-        <!-- submit button -->
-        <br>
-        <div class="has-text-left">
-          <button class="button is-danger">Log in</button>
-        </div>
+          <!-- submit button -->
+          <br>
+          <div class="has-text-left">
+            <button type="submit" class="button is-danger">Log in</button>
+          </div>
+        </form>
       </div>
     </div>
     <button class="modal-close is-large" aria-label="close"></button>
   </div>
 
   <!-- account-info modal -->
-  <div id="account-info" class="modal">
+  <div id="account_info" class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
       <div class="box">
         <button class="modal-close is-large" aria-label="close"></button>
         <h1 class="title is-4">Account Information</h1>
-
-        <!-- Name input -->
-        <div class="field">
-          <label class="label">Name: </label>
-          <div class="control">
-            <input type="text" class="input" placeholder="Change your name">
+        <form action="" id="change_info" class="mb-0 mt-2 loggedin">
+          <!-- Name input -->
+          <div class="field">
+            <label class="label">Name: </label>
+            <div class="control">
+              <input type="text" class="input" id="change_name" placeholder="Change your name">
+            </div>
           </div>
-        </div>
 
 
-        <!-- Class input -->
-        <div class="field">
-          <label class="label">Class: </label>
-          <div class="control">
-            <input type="text" class="input" placeholder="For which class are you using this calculator?">
+          <!-- Class input -->
+          <div class="field">
+            <label class="label">Class: </label>
+            <div class="control">
+              <input type="text" class="input" id="change_class"
+                placeholder="For which class are you using this calculator?">
+            </div>
           </div>
-        </div>
 
-        <!-- email input -->
-        <div class="field">
-          <label class="label">Email: </label>
-          <div class="control">
-            <input type="email" class="input" placeholder="Change email address">
+          <!-- email input -->
+          <div class="field">
+            <label class="label">Email: </label>
+            <div class="control">
+              <input type="email" class="input" id="change_email" placeholder="Change email address">
+            </div>
           </div>
-        </div>
 
-        <!-- password input -->
-        <div class="field">
-          <label class="label">Password: </label>
-          <div class="control">
-            <input type="password" class="input" placeholder="Change your password">
+          <!-- password input -->
+          <div class="field">
+            <label class="label">Password: </label>
+            <div class="control">
+              <input type="password" class="input" id="change_password" placeholder="Change your password">
+            </div>
           </div>
-        </div>
 
-        <!-- submit button -->
-        <br>
-        <div class="has-text-left">
-          <button class="button is-danger">Log in</button>
-        </div>
+          <!-- submit button -->
+          <br>
+          <div class="has-text-left">
+            <button type="submit" class="button is-danger">Log in</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -445,10 +449,10 @@
           </h2>
           <div class="field is-grouped is-grouped-centered">
             <div class="control">
-              <button class="js-modal-trigger button is-light adv" data-target="log-in">Log-In</button>
+              <button class="js-modal-trigger button is-light adv" data-target="log_in">Log-In</button>
             </div>
             <div class="control">
-              <button class="js-modal-trigger button is-light adv" data-target="sign-up">Sign-Up</button>
+              <button class="js-modal-trigger button is-light adv" data-target="sign_up">Sign-Up</button>
             </div>
           </div>
         </p>
@@ -669,6 +673,9 @@
   signup_form.addEventListener('submit', (e) => {
     e.preventDefault()
 
+    var sign_up_modal = document.querySelector("#sign_up");
+
+
     let email = document.querySelector('#email').value
     let password = document.querySelector('#password').value
 
@@ -677,6 +684,41 @@
       signup_form.reset()
     })
 
+    sign_up_modal.classList.remove('is-active');
+  })
 
+  function updateInfo(id, data) {
+    return id.update({
+        friends: data
+      })
+      .then(() => {
+        console.log("Document successfully updated!");
+      })
+      .catch((error) => {
+        // The document probably doesn't exist.
+        console.error("Error updating document: ", error);
+      });
+  }
+
+  let log_in = document.querySelector("#log_in_form");
+
+  log_in.addEventListener('submit', (e) => {
+    var login_modal = document.querySelector("#log_in");
+    login_modal.classList.remove('is-active');
+  })
+
+
+  let change_info = document.querySelector("#change_info");
+
+  change_info.addEventListener('submit', (e) => {
+
+    var change_modal = document.querySelector("account_info");
+
+    let new_email = document.querySelector('#change_name').value;
+
+    console.log(new_email);
+
+    change_modal.classList.remove('is-active');
+    e.preventDefault();
   })
 </script>
