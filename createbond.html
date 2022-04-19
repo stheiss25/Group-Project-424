@@ -1,0 +1,181 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <title>Document</title>
+    <style>
+        .navbar-brand {
+          width: 5%;
+          margin-bottom: 8;
+        }
+      </style>
+</head>
+<body>
+    <!-- Navbar -->
+  <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a>
+        <img src="images/Wisconsin-Crest-Logo.png" width="85%" height="15%">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item has-text-white">
+          Home
+        </a>
+        <a href="savedbonds.html" class="navbar-item has-text-white">
+          Saved Bonds
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="js-modal-trigger button is-light" data-target="sign-up">
+            Sign up
+          </a>
+          <a class="js-modal-trigger button is-light" data-target="log-in">
+            Log in
+          </a>
+          <a class="js-modal-trigger button is-light" data-target="account-info">
+            Account Info
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </nav>
+
+
+  <!-- content -->
+  <div class="columns m-4">
+      <div class="column is-4">
+        <div class="box has-background-light">
+            <h1 class="subtitle has-text-centered">
+                Information
+            </h1>
+            <div class="box">
+                <i class="fa-solid fa-circle-info"></i> <bold>Initial Loan Size</bold>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-circle-info"></i> <bold>Balloon Payment</bold>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-circle-info"></i> <bold>Number of Periods</bold>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-circle-info"></i> <bold>Interest per Period</bold>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-circle-info"></i> <bold>Payments per Period</bold>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-circle-info"></i> <bold>Number of Growth Regimes</bold>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+            </div>
+            
+        </div>
+      </div>
+      <div class="column">
+          <div class="box has-background-light">
+            <!-- Initial Loan Size -->
+        <h1 class="subtitle has-text-centered">Bond Specifications</h1>
+        <div class="field ">
+            <label class="label ">Initial Loan Size:</label>
+  
+            <div class="control">
+              <input class="input" id="loan_size" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
+            </div>
+          </div>
+  
+          <!-- Balloon payment -->
+          <div class="field">
+  
+  
+            <label class="label">Balloon Payment:</label>
+            <div class="control">
+              <input class="input" id="balloon_payment" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
+            </div>
+  
+          </div>
+  
+          <!-- Number of periods -->
+          <div class="field">
+  
+  
+            <label class="label">Number of Periods:</label>
+  
+            <div class="control">
+              <input class="input is-right" id="periods" type="text" placeholder="Enter a number (e.g. 1)">
+            </div>
+  
+          </div>
+  
+          <!-- Interest per period -->
+          <div class="field ">
+  
+  
+            <label class="label">Interest per Period:</label>
+  
+            <div class="control">
+              <input class="input is-right" id="interest" type="text" placeholder="Enter a decimal (e.g. 0.01 for 1%)">
+            </div>
+  
+          </div>
+  
+          <!-- Number of payments -->
+          <div class="field ">
+  
+  
+            <label class="label">Payments per Period:</label>
+  
+            <div class="control">
+              <input class="input is-right" id="payments" type="text" placeholder="Enter a number (e.g. 1)">
+            </div>
+  
+          </div>
+  
+          <!-- growth regimes -->
+          <div class="field ">
+  
+  
+            <label class="label"># of growth regimes:</label>
+            <div class="control">
+              <input class="input is-right" id="growth" type="text" placeholder="Enter a number (e.g. 1)">
+            </div>
+  
+          </div>
+          <!-- Submit button -->
+        <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+              <button class="js-modal-trigger button" data-target="graph">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-danger adv">Cancel</button>
+            </div>
+          </div>
+          </div>
+      </div>
+      <div class="column is-4">
+          
+      </div>
+  </div>
+</body>
+</html>
