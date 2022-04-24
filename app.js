@@ -5,7 +5,22 @@ function calcBondInformation(bnow, balloon, periods, nper, rper, nregims){
     let fb = [term];
     let intpayment = [term];
 
-    
+    paymentshape= [term]
+    regime=0
+    change = shape[0][1]
+
+    for (let i = 0 ; i< term; i++){
+        paymentshape[i]=paymentshape[i-1]*(1+shape[regime][0]/100)
+        if (i==change-1 && regime<nregims-1){
+            regime=regime+1
+            change=change+shape[regime][1]
+        }
+    }
+
+    let F=getNPV(rnow, ib,  ) 
+    //this the bond factor
+    //warning: npv does not discount first payment in numpy-financial unlike excel
+
 
     for(let i = 0; i < term; i ++){
         if(i == 0){
@@ -36,3 +51,20 @@ function calcBondInformation(bnow, balloon, periods, nper, rper, nregims){
   
     return npv;
   }
+
+
+  //function to export data as CSV, should be used after button is clicked, data is a 2D array
+  function exportCSV(data){
+    let csv = "data:text/csv;charset=utf-8,";
+    for(let i = 0; i < data.length; i++){
+        csv += (data[i] + "\r\n");
+    }
+    var encodedUri = encodeURI(csv);
+    
+    //credit to isherwood on stack overflow
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "my_data.csv");
+    document.body.appendChild(link); 
+    link.click(); 
+}
