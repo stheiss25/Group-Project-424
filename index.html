@@ -689,9 +689,30 @@
     sign_up_modal.classList.remove('is-active');
   })
 
-  function updateInfo(id, data) {
+  function updateInfo(id, new_name, new_class, new_email, new_password) {
+    let name = id.name;
+    let email = id.email
+    let password = id.password
+    let a_class = id.class
+
+    if (new_name !== null) {
+      name = new_name
+    }
+    if (new_class !== null) {
+      a_class = new_class
+    }
+    if (new_email !== null) {
+      email = new_email
+    }
+    if (new_password !== null) {
+      password = new_password
+    }
     return id.update({
-        friends: data
+        name: name,
+        password: password,
+        class: a_class,
+        email: email
+
       })
       .then(() => {
         console.log("Document successfully updated!");
@@ -716,9 +737,12 @@
 
     var change_modal = document.querySelector("account_info");
 
-    let new_email = document.querySelector('#change_name').value;
+    let new_name = document.querySelector('#change_name').value;
+    let new_class = document.querySelector('#change_class').value;
+    let new_email = document.querySelector('#change_email').value;
+    let new_password = document.querySelector('#change_password').value;
 
-    console.log(new_email);
+    updateinfo(id, new_name, new_class, new_email, new_password)
 
     change_modal.classList.remove('is-active');
     e.preventDefault();
