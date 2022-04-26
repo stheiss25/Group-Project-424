@@ -748,6 +748,8 @@
     e.preventDefault();
   })
 
+
+  // function getTable(principal, int_rate, term_length, balloon_payment, growth_rate) {
   let bnow = 500000
   let rate = .07
   let term = 10
@@ -766,6 +768,8 @@
 
   let npv = getNPV(rate / 12, 0, cf_pattern)
   let f = npv / (1 + rate / 12)
+
+  console.log(f)
 
   let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
   console.log(payment1)
@@ -787,14 +791,21 @@
 
   for (let i = 0; i < term * 12; i++) {
     interestpath[i] = startprincipal[i] * rate / 12
-    endprincipal[i] = startprincipal + interestpath[i] - payment[i]
+    endprincipal[i] = startprincipal[i] + interestpath[i] - payment[i]
 
     if (i < term * 12 - 1) {
       startprincipal[i + 1] = endprincipal[i]
     }
   }
 
-  console.log(payment)
+  console.log(startprincipal)
+  let my_table = [term * 12]
+
+  for (let i = 0; i < term * 12; i++) {
+    my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
+  }
+  console.log(my_table)
+
 
 
   function getNPV(rate, initialCost, cashFlows) {
