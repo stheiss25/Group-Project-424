@@ -747,4 +747,63 @@
     change_modal.classList.remove('is-active');
     e.preventDefault();
   })
+
+  let bnow = 500000
+  let rate = .07
+  let term = 10
+  let balloon = 0
+  let growth = 0.005
+
+  let month = [term * 12]
+  let cf_pattern = [term * 12]
+  for (let i = 0; i < term * 12; i++) {
+    month[i] = i + 1
+    cf_pattern[i] = 1
+  }
+  for (let i = 0; i < term * 12; i++) {
+    cf_pattern[i + 1] = cf_pattern[i] * (1 + growth)
+  }
+
+  let npv = getNPV(rate / 12, 0, cf_pattern)
+  let f = npv / (1 + rate / 12)
+
+  let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
+  console.log(payment1)
+
+  let payment = [term * 12]
+
+  for (let i = 0; i < term * 12; i++) {
+    payment[i] = payment1 * cf_pattern[i]
+  }
+
+  let startprincipal = [term * 12]
+  let endprincipal = [term * 12]
+  let interestpath = [term * 12]
+  for (let i = 0; i < term * 12; i++) {
+    startprincipal[i] = bnow
+    endprincipal[i] = 1
+    interestpath[i] = 1
+  }
+
+  for (let i = 0; i < term * 12; i++) {
+    interestpath[i] = startprincipal[i] * rate / 12
+    endprincipal[i] = startprincipal + interestpath[i] - payment[i]
+
+    if (i < term * 12 - 1) {
+      startprincipal[i + 1] = endprincipal[i]
+    }
+  }
+
+  console.log(payment)
+
+
+  function getNPV(rate, initialCost, cashFlows) {
+    var npv = initialCost;
+
+    for (var i = 0; i < cashFlows.length; i++) {
+      npv += cashFlows[i] / Math.pow(rate / 100 + 1, i + 1);
+    }
+
+    return npv;
+  }
 </script>
