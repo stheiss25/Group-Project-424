@@ -765,14 +765,17 @@
   for (let i = 0; i < term * 12; i++) {
     cf_pattern[i + 1] = cf_pattern[i] * (1 + growth)
   }
+  console.log(cf_pattern[119])
 
   let npv = getNPV(rate / 12, 0, cf_pattern)
   let f = npv / (1 + rate / 12)
+  console.log(npv)
+  // npv is 114.27269606595011
 
   console.log(f)
+  //113.60997123375321
 
   let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
-  console.log(payment1)
 
   let payment = [term * 12]
 
@@ -811,9 +814,11 @@
   function getNPV(rate, initialCost, cashFlows) {
     var npv = initialCost;
 
-    for (var i = 0; i < cashFlows.length; i++) {
-      npv += cashFlows[i] / Math.pow(rate / 100 + 1, i + 1);
+    for (var i = 1; i < cashFlows.length; i++) {
+      npv += cashFlows[i] / Math.pow(rate + 1, i + 1);
     }
+
+    npv += cashFlows[0] / (rate + 1)
 
     return npv;
   }
