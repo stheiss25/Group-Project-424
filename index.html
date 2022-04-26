@@ -692,9 +692,30 @@
     sign_up_modal.classList.remove('is-active');
   })
 
-  function updateInfo(id, data) {
+  function updateInfo(id, new_name, new_class, new_email, new_password) {
+    let name = id.name;
+    let email = id.email
+    let password = id.password
+    let a_class = id.class
+
+    if (new_name !== null) {
+      name = new_name
+    }
+    if (new_class !== null) {
+      a_class = new_class
+    }
+    if (new_email !== null) {
+      email = new_email
+    }
+    if (new_password !== null) {
+      password = new_password
+    }
     return id.update({
-        friends: data
+        name: name,
+        password: password,
+        class: a_class,
+        email: email
+
       })
       .then(() => {
         console.log("Document successfully updated!");
@@ -719,11 +740,89 @@
 
     var change_modal = document.querySelector("account_info");
 
-    let new_email = document.querySelector('#change_name').value;
+    let new_name = document.querySelector('#change_name').value;
+    let new_class = document.querySelector('#change_class').value;
+    let new_email = document.querySelector('#change_email').value;
+    let new_password = document.querySelector('#change_password').value;
 
-    console.log(new_email);
+    updateinfo(id, new_name, new_class, new_email, new_password)
 
     change_modal.classList.remove('is-active');
     e.preventDefault();
   })
+
+
+  // function getTable(principal, int_rate, term_length, balloon_payment, growth_rate) {
+  let bnow = 500000
+  let rate = .07
+  let term = 10
+  let balloon = 0
+  let growth = 0.005
+
+  let month = [term * 12]
+  let cf_pattern = [term * 12]
+  for (let i = 0; i < term * 12; i++) {
+    month[i] = i + 1
+    cf_pattern[i] = 1
+  }
+  for (let i = 0; i < term * 12; i++) {
+    cf_pattern[i + 1] = cf_pattern[i] * (1 + growth)
+  }
+  console.log(cf_pattern[119])
+
+  let npv = getNPV(rate / 12, 0, cf_pattern)
+  let f = npv / (1 + rate / 12)
+  console.log(npv)
+  // npv is 114.27269606595011
+
+  console.log(f)
+  //113.60997123375321
+
+  let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
+
+  let payment = [term * 12]
+
+  for (let i = 0; i < term * 12; i++) {
+    payment[i] = payment1 * cf_pattern[i]
+  }
+
+  let startprincipal = [term * 12]
+  let endprincipal = [term * 12]
+  let interestpath = [term * 12]
+  for (let i = 0; i < term * 12; i++) {
+    startprincipal[i] = bnow
+    endprincipal[i] = 1
+    interestpath[i] = 1
+  }
+
+  for (let i = 0; i < term * 12; i++) {
+    interestpath[i] = startprincipal[i] * rate / 12
+    endprincipal[i] = startprincipal[i] + interestpath[i] - payment[i]
+
+    if (i < term * 12 - 1) {
+      startprincipal[i + 1] = endprincipal[i]
+    }
+  }
+
+  console.log(startprincipal)
+  let my_table = [term * 12]
+
+  for (let i = 0; i < term * 12; i++) {
+    my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
+  }
+  console.log(my_table)
+
+
+
+  function getNPV(rate, initialCost, cashFlows) {
+    var npv = initialCost;
+
+    for (var i = 1; i < cashFlows.length; i++) {
+      npv += cashFlows[i] / Math.pow(rate + 1, i + 1);
+    }
+
+    npv += cashFlows[0] / (rate + 1)
+
+    return npv;
+  }
 </script>
