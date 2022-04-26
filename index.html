@@ -300,7 +300,7 @@
           <div class="field">
             <label class="label">Name: </label>
             <div class="control">
-              <input type="text" class="input" placeholder="Enter your name">
+              <input type="text" class="input" id="signup_name" placeholder="Enter your name">
             </div>
           </div>
 
@@ -309,7 +309,8 @@
           <div class="field">
             <label class="label">Class: </label>
             <div class="control">
-              <input type="text" class="input" placeholder="For which class are you using this calculator?">
+              <input type="text" class="input" id="signup_class"
+                placeholder="For which class are you using this calculator?">
             </div>
           </div>
 
@@ -317,7 +318,7 @@
           <div class="field">
             <label class="label">Email: </label>
             <div class="control">
-              <input id='email' type="email" class="input" placeholder="Enter email address">
+              <input type="text" id="signup_email" class="input" placeholder="Enter email address">
             </div>
           </div>
 
@@ -325,7 +326,7 @@
           <div class="field">
             <label class="label">Password: </label>
             <div class="control">
-              <input id='password' type="password" class="input" placeholder="Enter password">
+              <input type="password" id="signup_password" class="input" placeholder="Enter password">
             </div>
           </div>
 
@@ -355,7 +356,7 @@
           <div class="field">
             <label class="label">Email: </label>
             <div class="control">
-              <input type="email" class="input" placeholder="Enter email address">
+              <input type="email" class="input" id="login_email" placeholder="Enter email address">
             </div>
           </div>
 
@@ -363,7 +364,7 @@
           <div class="field">
             <label class="label">Password: </label>
             <div class="control">
-              <input type="password" class="input" placeholder="Enter password">
+              <input type="password" class="input" id="login_password" placeholder="Enter password">
             </div>
           </div>
 
@@ -669,6 +670,27 @@
     });
   });
 
+
+  let login_form = document.querySelector('#log_in_form');
+  login_form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let email_ = document.querySelector('#login_email').value;
+    let password_ = document.querySelector('#login_password').value;
+    auth.signInWithEmailAndPassword(email_, password_)
+      .then((userCredentials) => {
+        console.log(userCredentials.user.email + " with the id " + userCredentials.user.uid + " is logged in");
+        // user_id = userCredentials.user.uid;
+        my_login_modal.classList.remove('is-active');
+        login_form.reset();
+        welcome_user();
+      })
+      .catch((e) => {
+
+      })
+
+
+  })
+
   // signup
   let signup_form = document.querySelector('#signup_form')
 
@@ -678,13 +700,28 @@
     var sign_up_modal = document.querySelector("#sign_up");
 
 
-    let email = document.querySelector('#email').value
-    let password = document.querySelector('#password').value
+    let name = document.querySelector('#signup_name').value;
+    let email = document.querySelector('#signup_email').value;
+    let s_class = document.querySelector('#signup_class').value;
+    let password = document.querySelector('#signup_password').value;
 
-    auth.createUserWithEmailAndPassword(email, password).then(() => {
-      console.log('user created successfully')
+    auth.createUserWithEmailAndPassword(email, password).then((userCredential) => {
+      console.log('user created successfully');
+      user = {
+        name: name,
+        class: s_class,
+        id: userCredential.user.uid,
+        email: email,
+        password: password
+      };
+
+      db.collection("users").add(user).then((data) => {
+        console.log("User added to database");
+      })
       signup_form.reset()
     })
+
+
 
     sign_up_modal.classList.remove('is-active');
   })
@@ -742,7 +779,14 @@
     let new_email = document.querySelector('#change_email').value;
     let new_password = document.querySelector('#change_password').value;
 
-    updateinfo(id, new_name, new_class, new_email, new_password)
+    userdata.forEach((user) => {
+      if (auth.currentUser.uid == user.data().id) {
+        main_user = user;
+        main_user_id = db.collection("Users").doc(user.id);
+      }
+    })
+
+    updateinfo(main_user_id, new_name, new_class, new_email, new_password)
 
     change_modal.classList.remove('is-active');
     e.preventDefault();
