@@ -32,11 +32,14 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item has-text-white">
+        <a class="navbar-item has-text-white" id="homebtn">
           Home
         </a>
-        <a href="savedbonds.html" class="navbar-item has-text-white">
+        <a href="savedbonds.html" class="navbar-item has-text-white" id="savedbtn">
           Saved Bonds
+        </a>
+        <a href="createbond.html" class="navbar-item has-text-white" id="createbtn">
+          Create Bond
         </a>
       </div>
     </div>
@@ -58,232 +61,235 @@
     </div>
     </div>
   </nav>
-  <!-- Hero -->
-  <section class="hero has-text-centered has-background-grey-lighter">
-    <div class="hero-body">
-      <p class="title">
-        Welcome to the Universal Bond Calculator
-      </p>
-      <p class="subtitle">
-        This application outputs bond payment data based on the bond inputs that you specify. <br>
-        In order to save your work, please create an account or log in<br> <br>
-      </p>
-      <button class="js-modal-trigger  button is-larger has-background-danger-dark is-large" data-target="bond_input">
-        <p class="has-text-white">
-          Get Started
+
+  <div id="home">
+    <!-- Hero -->
+    <section class="hero has-text-centered has-background-grey-lighter">
+      <div class="hero-body">
+        <p class="title">
+          Welcome to the Universal Bond Calculator
         </p>
+        <p class="subtitle">
+          This application outputs bond payment data based on the bond inputs that you specify. <br>
+          In order to save your work, please create an account or log in<br> <br>
+        </p>
+        <button class="js-modal-trigger  button is-larger has-background-danger-dark is-large" data-target="bond_input">
+          <p class="has-text-white">
+            Get Started
+          </p>
 
-      </button>
-    </div>
-  </section>
-  <!-- About Us -->
-  <section class="hero has-text-centered ">
-    <div class="hero-body">
-      <p class="title">
-        About Us
-      </p>
-      <!-- Card -->
-
-      <div class="columns has-text-centered">
-        <div class="column">
-          <!-- Card - row 1, column 1 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="images/Erwan_Quintin_Headshot.jpg" alt="Erwan Quintin Headshot">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Professor Erwan Quintin
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <p>Erwan Quintin is a professor in and chair of the Department of Finance, Investment, and Banking. He
-                  is also the Nathan S. Brand Chair in Finance. He came to Wisconsin in 2010 from the Federal Reserve
-                  Bank of Dallas, where he had worked as a senior economist and policy advisor since 2000. His research
-                  lies at the intersection of Financial Economics and Macroeconomics. Quintin earned his Ph.D. in
-                  Economics from the University of Minnesota.</p>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <a href="http://erwan.marginalq.com/" class="card-footer-item">Personal Website</a>
-            </footer>
-          </div><br>
-          <!-- Card - row 2, column 1 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="images/1602030362021.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">Declan Nashold
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Hi, I'm a student at University of Wisconsin-Madison studying Operations and Technology
-                Management, Information Systems, and Computer Science.
-              </div>
-            </div>
-            <footer class="card-footer">
-              <a href="https://www.linkedin.com/in/declan-nashold/" class="card-footer-item">LinkedIn</a>
-            </footer>
-          </div>
-        </div>
-
-        <div class="column">
-          <!-- Card - row 1, column 2 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="images/Stefan_Picture.JPG" alt="Stefan Picture">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Stefan Theiss
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Hi, my name is Stefan. I'm an Information Systems and OTM major at UW Madison and
-                will be graduating after this semester. I am hoping to obtain a business analyst
-                position for post-grad employment.
-              </div>
-            </div>
-            <footer class="card-footer">
-              <a href="https://www.linkedin.com/in/stefan-theiss-107480181/" class="card-footer-item">LinkedIn</a>
-            </footer>
-          </div><br>
-          <!-- Card - row 2, column 2 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="images/spencer_picture.jpg" alt="Placeholder image">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Spencer Hikade
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Hi! My name is Spencer and I am a senior studying Management and Human Resources and Information
-                Systems. I enjoy disc golfing and playing music for various groups back home, and I look forward to
-                working in
-                Human Resources Analytics after graduation.
-              </div>
-            </div>
-            <footer class="card-footer">
-              <!-- PUT LINKEDIN IN HREF -->
-              <a href="https://www.linkedin.com/in/spencer-hikade-932057174/" class="card-footer-item">LinkedIn</a>
-            </footer>
-          </div>
-        </div>
-        <div class="column">
-          <!-- Card - row 1, column 3 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="images/guell_headshot.jpg" alt="Mason Guell Photo">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Mason Guell
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <p>Hey, I'm Mason Guell and I will be graduating this year with majors in Finance, Risk
-                  Management, and
-                  Information Systems. My hobbies include staying active, hanging with friends,
-                  reading, and travelling.
-                  After gradauation, I will be in Milwaukee working for an Investment Bank.</p>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <a href="https://www.linkedin.com/in/mason-guell/" class="card-footer-item">LinkedIn</a>
-            </footer>
-          </div><br>
-
-          <!-- Card - row 2, column 3 -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="images/Tanner_Headshot.JPG" alt="Photo of Tanner Wagner-Durr">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Tanner Wagner-Durr
-              </p>
-              <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <p>Hi, my name is Tanner, and I'm a senior majoring in Finance, Economics, and
-                  Information Systems! In my free time, I enjoy sailing, skiing, crypto investing, and
-                  watching Badger sporting events.</p>
-              </div>
-            </div>
-            <footer class="card-footer">>
-              <a href="https://www.linkedin.com/in/tannerwagner-durr/" class="card-footer-item">LinkedIn</a>
-            </footer>
-          </div>
-        </div>
-
+        </button>
       </div>
-    </div>
+    </section>
+    <!-- About Us -->
+    <section class="hero has-text-centered ">
+      <div class="hero-body">
+        <p class="title">
+          About Us
+        </p>
+        <!-- Card -->
 
-    </div>
-  </section>
+        <div class="columns has-text-centered">
+          <div class="column">
+            <!-- Card - row 1, column 1 -->
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="images/Erwan_Quintin_Headshot.jpg" alt="Erwan Quintin Headshot">
+                </figure>
+              </div>
+              <header class="card-header">
+                <p class="card-header-title">
+                  Professor Erwan Quintin
+                </p>
+                <button class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <p>Erwan Quintin is a professor in and chair of the Department of Finance, Investment, and Banking. He
+                    is also the Nathan S. Brand Chair in Finance. He came to Wisconsin in 2010 from the Federal Reserve
+                    Bank of Dallas, where he had worked as a senior economist and policy advisor since 2000. His
+                    research
+                    lies at the intersection of Financial Economics and Macroeconomics. Quintin earned his Ph.D. in
+                    Economics from the University of Minnesota.</p>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="http://erwan.marginalq.com/" class="card-footer-item">Personal Website</a>
+              </footer>
+            </div><br>
+            <!-- Card - row 2, column 1 -->
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="images/1602030362021.png" alt="Placeholder image">
+                </figure>
+              </div>
+              <header class="card-header">
+                <p class="card-header-title">Declan Nashold
+                </p>
+                <button class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  Hi, I'm a student at University of Wisconsin-Madison studying Operations and Technology
+                  Management, Information Systems, and Computer Science.
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="https://www.linkedin.com/in/declan-nashold/" class="card-footer-item">LinkedIn</a>
+              </footer>
+            </div>
+          </div>
 
-  <!-- footer -->
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p> <strong>&copy; Copyright 2022</strong> Declan Nashold, Mason Guell, Spencer Hikade, Stefan Theiss, and
-        Tanner
-        Wagner-Durr. </p>
-      <p>Developed for Prof. Erwan Quintin for use by the students, alumni, staff, and faculty of the University of
-        Wisconsin-Madison.</p>
-      <p>View the source code of this project on <a href="https://github.com/stheiss25/Group-Project-424">GitHub</a>
-      </p>
-    </div>
-  </footer>
+          <div class="column">
+            <!-- Card - row 1, column 2 -->
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="images/Stefan_Picture.JPG" alt="Stefan Picture">
+                </figure>
+              </div>
+              <header class="card-header">
+                <p class="card-header-title">
+                  Stefan Theiss
+                </p>
+                <button class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  Hi, my name is Stefan. I'm an Information Systems and OTM major at UW Madison and
+                  will be graduating after this semester. I am hoping to obtain a business analyst
+                  position for post-grad employment.
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="https://www.linkedin.com/in/stefan-theiss-107480181/" class="card-footer-item">LinkedIn</a>
+              </footer>
+            </div><br>
+            <!-- Card - row 2, column 2 -->
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="images/spencer_picture.jpg" alt="Placeholder image">
+                </figure>
+              </div>
+              <header class="card-header">
+                <p class="card-header-title">
+                  Spencer Hikade
+                </p>
+                <button class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  Hi! My name is Spencer and I am a senior studying Management and Human Resources and Information
+                  Systems. I enjoy disc golfing and playing music for various groups back home, and I look forward to
+                  working in
+                  Human Resources Analytics after graduation.
+                </div>
+              </div>
+              <footer class="card-footer">
+                <!-- PUT LINKEDIN IN HREF -->
+                <a href="https://www.linkedin.com/in/spencer-hikade-932057174/" class="card-footer-item">LinkedIn</a>
+              </footer>
+            </div>
+          </div>
+          <div class="column">
+            <!-- Card - row 1, column 3 -->
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="images/guell_headshot.jpg" alt="Mason Guell Photo">
+                </figure>
+              </div>
+              <header class="card-header">
+                <p class="card-header-title">
+                  Mason Guell
+                </p>
+                <button class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <p>Hey, I'm Mason Guell and I will be graduating this year with majors in Finance, Risk
+                    Management, and
+                    Information Systems. My hobbies include staying active, hanging with friends,
+                    reading, and travelling.
+                    After gradauation, I will be in Milwaukee working for an Investment Bank.</p>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="https://www.linkedin.com/in/mason-guell/" class="card-footer-item">LinkedIn</a>
+              </footer>
+            </div><br>
+
+            <!-- Card - row 2, column 3 -->
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="images/Tanner_Headshot.JPG" alt="Photo of Tanner Wagner-Durr">
+                </figure>
+              </div>
+              <header class="card-header">
+                <p class="card-header-title">
+                  Tanner Wagner-Durr
+                </p>
+                <button class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <p>Hi, my name is Tanner, and I'm a senior majoring in Finance, Economics, and
+                    Information Systems! In my free time, I enjoy sailing, skiing, crypto investing, and
+                    watching Badger sporting events.</p>
+                </div>
+              </div>
+              <footer class="card-footer">>
+                <a href="https://www.linkedin.com/in/tannerwagner-durr/" class="card-footer-item">LinkedIn</a>
+              </footer>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p> <strong>&copy; Copyright 2022</strong> Declan Nashold, Mason Guell, Spencer Hikade, Stefan Theiss, and
+          Tanner
+          Wagner-Durr. </p>
+        <p>Developed for Prof. Erwan Quintin for use by the students, alumni, staff, and faculty of the University of
+          Wisconsin-Madison.</p>
+        <p>View the source code of this project on <a href="https://github.com/stheiss25/Group-Project-424">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </div>
 
   <!-- sign-up modal -->
   <div id="sign_up" class="modal">
@@ -561,7 +567,7 @@
           <!-- continue button -->
           <div class="level-right">
             <!-- TODO add link to table page -->
-            <button class="button is-light">Looks Good, Show Table</button>
+            <button class="button is-light" id="outputbtn">Looks Good, Show Table</button>
           </div>
 
         </div>
