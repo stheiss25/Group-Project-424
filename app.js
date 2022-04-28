@@ -80,7 +80,7 @@ homebtn.addEventListener('click', () => {
     console.log('home works')
 
 })
-console.log(savedbtn)
+
 savedbtn.addEventListener('click', () => {
     console.log('saved works')
     // homecontent.classList.add('is-hidden')
