@@ -79,10 +79,11 @@ let homecontent = document.querySelector('#homecontent')
 
 // test btns
 homebtn.addEventListener('click', () => {
-    homecontent.classList.remove('is-hidden')
+    // homecontent.classList.remove('is-hidden')
+    console.log('home works')
 
 })
-
+console.log(savedbtn)
 savedbtn.addEventListener('click', () => {
     console.log('saved works')
     // homecontent.classList.add('is-hidden')
