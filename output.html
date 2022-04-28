@@ -62,155 +62,144 @@
         </div>
     </nav>
 
-    <!-- Go Back to Edit Inputs Hero -->
-    <section class="hero has-text-centered has-background-grey-lighter">
-        <div class="hero-body">
-            <!-- FIXME: Need to combine with code in index.html so you have access to the input form -->
-            <a class="js-modal-trigger button go_back" id="go_back_button" data-target="bond_input">
-                <span class="icon">
-                    <i class="fa-regular fa-circle-up"></i>
-                </span>
-            </a>
-            <p>Edit Inputs</p>
+    <div class="" id="outputcontent">
+        <!-- Go Back to Edit Inputs Hero -->
+        <section class="hero has-text-centered has-background-grey-lighter">
+            <div class="hero-body">
+                <!-- FIXME: Need to combine with code in index.html so you have access to the input form -->
+                <a class="js-modal-trigger button go_back" id="go_back_button" data-target="bond_input">
+                    <span class="icon">
+                        <i class="fa-regular fa-circle-up"></i>
+                    </span>
+                </a>
+                <p>Edit Inputs</p>
 
-        </div>
-    </section>
-
-    <!-- Output Hero -->
-    <section class="hero has-text-centered has-background-white">
-        <div class="hero-body">
-            <p>Congrats! Here's your debt payment table:</p>
-            <!-- FIXME - Add JS to create the table -->
-            <p>Insert table here with JS</p>
-            <div class="columns mt-1">
-
-                <!-- blank columns for spacing -->
-                <div class="column"></div>
-                <div class="column"></div>
-
-                <!-- column with buttons -->
-                <div class="column">
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="js-modal-trigger button has-background-danger-dark has-text-white"
-                                data-target="save_modal">
-                                <p>Save for Later</p>
-                            </button>
-                        </div>
-                        <div class="control">
-                            <button class="js-modal-trigger button has-background-danger-dark has-text-white"
-                                data-target="export_modal">
-                                <p>Export Data</p>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- blank columns for spacing -->
-                <div class="column"></div>
-                <div class="column"></div>
             </div>
+        </section>
 
+        <!-- Output Hero -->
+        <section class="hero has-text-centered has-background-white">
+            <div class="hero-body">
+                <p>Congrats! Here's your debt payment table:</p>
+                <!-- FIXME - Add JS to create the table -->
+                <p>Insert table here with JS</p>
+                <div class="columns mt-1">
+
+                    <!-- blank columns for spacing -->
+                    <div class="column"></div>
+                    <div class="column"></div>
+
+                    <!-- column with buttons -->
+                    <div class="column">
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="js-modal-trigger button has-background-danger-dark has-text-white"
+                                    data-target="save_modal">
+                                    <p>Save for Later</p>
+                                </button>
+                            </div>
+                            <div class="control">
+                                <button class="js-modal-trigger button has-background-danger-dark has-text-white"
+                                    data-target="export_modal">
+                                    <p>Export Data</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- blank columns for spacing -->
+                    <div class="column"></div>
+                    <div class="column"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- save to my account modal -->
+        <div class="modal" id="save_modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Save To My Account</p>
+                    <button class="delete" id="save_modalx"></button>
+                </header>
+
+                <section class="modal-card-body">
+                    <!-- Content ... -->
+                    <form id="save_form">
+                        <div class="field">
+                            <label class="label">File Name</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="Input File Name Here" id="file_name">
+                            </div>
+                        </div>
+
+                        <!-- save errors -->
+                        <div id="save_error" class="has-text-danger">
+
+                        </div>
+
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-light">Save</button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-danger is-light">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
         </div>
-    </section>
 
-    <!-- save to my account modal -->
-    <div class="modal" id="save_modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Save To My Account</p>
-                <button class="delete" id="save_modalx"></button>
-            </header>
 
-            <section class="modal-card-body">
-                <!-- Content ... -->
-                <form id="save_form">
-                    <div class="field">
-                        <label class="label">File Name</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="Input File Name Here" id="file_name">
+        <!-- export modal -->
+        <div class="modal" id="export_modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Export</p>
+                    <button class="delete" id="export_modalx"></button>
+                </header>
+
+                <section class="modal-card-body">
+                    <!-- Content ... -->
+                    <form id="export_form">
+                        <div class="field">
+                            <label class="label">File Name</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="Input File Name Here" id="file_name">
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- save errors -->
-                    <div id="save_error" class="has-text-danger">
+                        <!-- export errors -->
+                        <div id="export_error" class="has-text-danger">
 
-                    </div>
-
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-light">Save</button>
                         </div>
-                        <div class="control">
-                            <button class="button is-danger is-light">Cancel</button>
+
+
+                        <div class="field is-grouped columns mt-2">
+                            <div class="control column">
+                                <button class="button is-danger is-light">Cancel</button>
+                            </div>
+
+                            <div class="column">
+                            </div>
+
+                            <div class="control column">
+                                <button class="button is-light">Export as .pdf</button>
+                            </div>
+
+                            <div class="control column">
+                                <button class="button is-light">Export as .csv</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </section>
+
+                    </form>
+                </section>
+            </div>
         </div>
+
     </div>
-
-
-    <!-- export modal -->
-    <div class="modal" id="export_modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Export</p>
-                <button class="delete" id="export_modalx"></button>
-            </header>
-
-            <section class="modal-card-body">
-                <!-- Content ... -->
-                <form id="export_form">
-                    <div class="field">
-                        <label class="label">File Name</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="Input File Name Here" id="file_name">
-                        </div>
-                    </div>
-
-                    <!-- export errors -->
-                    <div id="export_error" class="has-text-danger">
-
-                    </div>
-
-
-                    <div class="field is-grouped columns mt-2">
-                        <div class="control column">
-                            <button class="button is-danger is-light">Cancel</button>
-                        </div>
-
-                        <div class="column">
-                        </div>
-
-                        <div class="control column">
-                            <button class="button is-light">Export as .pdf</button>
-                        </div>
-
-                        <div class="control column">
-                            <button class="button is-light">Export as .csv</button>
-                        </div>
-                    </div>
-
-                </form>
-            </section>
-        </div>
-    </div>
-
-    <!-- footer -->
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p> <strong>&copy; Copyright 2022</strong> Declan Nashold, Mason Guell, Spencer Hikade, Stefan Theiss, and
-                Tanner
-                Wagner-Durr. </p>
-            <p>Developed for Prof. Erwan Quintin for use by the students, alumni, and faculty of the University of
-                Wisconsin-Madison.</p>
-            <p>View the source code of this project on <a
-                    href="https://github.com/stheiss25/Group-Project-424">GitHub</a>
-            </p>
-        </div>
-    </footer>
 
 
 

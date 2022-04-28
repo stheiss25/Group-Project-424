@@ -75,23 +75,40 @@ let createbtn = document.querySelector('#createbtn')
 let ouputbtn = document.querySelector('#outputbtn')
 
 let homecontent = document.querySelector('#homecontent')
+let savedcontent = document.querySelector('#savedcontent')
+let createcontent = document.querySelector('#createcontent')
+let outputcontent = document.querySelector('#outputcontent')
 
 homebtn.addEventListener('click', () => {
     // console.log('home works')
     homecontent.classList.remove('is-hidden')
+    savedcontent.classList.add('is-hidden')
+    createcontent.classList.add('is-hidden')
+    outputcontent.classList.add('is-hidden')
 })
 
 savedbtn.addEventListener('click', () => {
     // console.log('saved works')
     homecontent.classList.add('is-hidden')
+    savedcontent.classList.remove('is-hidden')
+    createcontent.classList.add('is-hidden')
+    outputcontent.classList.add('is-hidden')
 })
 
 createbtn.addEventListener('click', () => {
-    console.log('create works')
+    // console.log('create works')
+    homecontent.classList.add('is-hidden')
+    savedcontent.classList.add('is-hidden')
+    createcontent.classList.remove('is-hidden')
+    outputcontent.classList.add('is-hidden')
 })
 
 outputbtn.addEventListener('click', () => {
-    console.log('output works')
+    // console.log('output works')
+    homecontent.classList.add('is-hidden')
+    savedcontent.classList.add('is-hidden')
+    createcontent.classList.add('is-hidden')
+    outputcontent.classList.remove('is-hidden')
 })
 
 //num js (numpy for JS)

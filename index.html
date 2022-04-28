@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <!-- numjs -->
   <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2a3bcdcb2.js" crossorigin="anonymous"></script>
 
   <style>
     .navbar-brand {
@@ -344,6 +346,407 @@
     </div>
   </div>
 
+  <!-- saved bonds page -->
+  <div class="is-hidden" id="savedcontent">
+    <div class="columns mt-5">
+      <div class="column is-2">
+
+      </div>
+      <div class="column">
+        <h1 class="title has-text-centered">
+          Saved Bond Sheets
+        </h1>
+        <div class="box">
+
+          <div class="field is-grouped">
+            <div class="control">
+              <label class="label">Date</label>
+
+              <div class="control">
+                <div class="select">
+                  <select>
+                    <option>Select dropdown</option>
+                    <option>With options</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="control">
+              <label class="label">Name</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Input Name of File">
+              </div>
+
+            </div>
+            <!-- TODO figure out how to get this button to align properly -->
+            <div class="control">
+              <button class="button is-danger">Submit</button>
+            </div>
+
+          </div>
+        </div>
+        <div class="box">
+          <table class="table is-fullwidth is-striped">
+            <thead>
+              <th>Name </th>
+              <th>Date Created</th>
+              <th></th>
+              <th></th>
+            </thead>
+            <tbody>
+              <!-- Example Row -->
+              <tr>
+                <th>
+                  <div class="content is-large">Test</div>
+                </th>
+                <th>
+                  <div class="content is-large">10/12/2022</div>
+                </th>
+                <th>
+                  <div class="button">
+                    <div class="content is-large">View</div>
+                  </div>
+                </th>
+                <th>
+                  <div class="button">
+                    <div class="content is-large">Download</div>
+                  </div>
+                </th>
+              </tr>
+              <!-- Example Row -->
+              <tr>
+                <th>
+                  <div class="content is-large">Test</div>
+                </th>
+                <th>
+                  <div class="content is-large">10/12/2022</div>
+                </th>
+                <th>
+                  <div class="button">
+                    <div class="content is-large">View</div>
+                  </div>
+                </th>
+                <th>
+                  <div class="button">
+                    <div class="content is-large">Download</div>
+                  </div>
+                </th>
+              </tr>
+              <!-- Example Row -->
+              <tr>
+                <th>
+                  <div class="content is-large">Test</div>
+                </th>
+                <th>
+                  <div class="content is-large">10/12/2022</div>
+                </th>
+                <th>
+                  <div class="button">
+                    <div class="content is-large">View</div>
+                  </div>
+                </th>
+                <th>
+                  <div class="button">
+                    <div class="content is-large">Download</div>
+                  </div>
+                </th>
+              </tr>
+              <!-- Example Row -->
+              <tr>
+                <th>
+                  <div class="content is-large">Test</div>
+                </th>
+                <th>
+                  <div class="content is-large">10/12/2022</div>
+                </th>
+                <th>
+                  <div class="button">
+                    <div class="content is-large">View</div>
+                  </div>
+                </th>
+                <th>
+                  <div class="button">
+                    <div class="content is-large">Download</div>
+                  </div>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="column is-2">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- create bond content -->
+  <div class="is-hidden" id="createcontent">
+    <div class="columns m-4">
+      <div class="column is-4">
+        <div class="box has-background-light">
+          <h1 class="subtitle has-text-centered">
+            Information
+          </h1>
+          <div class="box">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Initial Loan Size</bold>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Balloon Payment</bold>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Number of Periods</bold>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Interest per Period</bold>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Payments per Period</bold>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Number of Growth Regimes</bold>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="column">
+        <div class="box has-background-light">
+          <!-- Initial Loan Size -->
+          <h1 class="subtitle has-text-centered">Bond Specifications</h1>
+          <div class="field ">
+            <label class="label ">Initial Loan Size:</label>
+
+            <div class="control">
+              <input class="input" id="loan_size" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
+            </div>
+          </div>
+
+          <!-- Balloon payment -->
+          <div class="field">
+
+
+            <label class="label">Balloon Payment:</label>
+            <div class="control">
+              <input class="input" id="balloon_payment" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
+            </div>
+
+          </div>
+
+          <!-- Number of periods -->
+          <div class="field">
+
+
+            <label class="label">Number of Periods:</label>
+
+            <div class="control">
+              <input class="input is-right" id="periods" type="text" placeholder="Enter a number (e.g. 1)">
+            </div>
+
+          </div>
+
+          <!-- Interest per period -->
+          <div class="field ">
+
+
+            <label class="label">Interest per Period:</label>
+
+            <div class="control">
+              <input class="input is-right" id="interest" type="text" placeholder="Enter a decimal (e.g. 0.01 for 1%)">
+            </div>
+
+          </div>
+
+          <!-- Number of payments -->
+          <div class="field ">
+
+
+            <label class="label">Payments per Period:</label>
+
+            <div class="control">
+              <input class="input is-right" id="payments" type="text" placeholder="Enter a number (e.g. 1)">
+            </div>
+
+          </div>
+
+          <!-- growth regimes -->
+          <div class="field ">
+
+
+            <label class="label"># of growth regimes:</label>
+            <div class="control">
+              <input class="input is-right" id="growth" type="text" placeholder="Enter a number (e.g. 1)">
+            </div>
+
+          </div>
+          <!-- Submit button -->
+          <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+              <button class="js-modal-trigger button" data-target="graph">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-danger adv">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column is-4">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- output content -->
+  <div class="is-hidden" id="outputcontent">
+    <!-- Go Back to Edit Inputs Hero -->
+    <section class="hero has-text-centered has-background-grey-lighter">
+      <div class="hero-body">
+        <!-- FIXME: Need to combine with code in index.html so you have access to the input form -->
+        <a class="js-modal-trigger button go_back" id="go_back_button" data-target="bond_input">
+          <span class="icon">
+            <i class="fa-regular fa-circle-up"></i>
+          </span>
+        </a>
+        <p>Edit Inputs</p>
+
+      </div>
+    </section>
+
+    <!-- Output Hero -->
+    <section class="hero has-text-centered has-background-white">
+      <div class="hero-body">
+        <p>Congrats! Here's your debt payment table:</p>
+        <!-- FIXME - Add JS to create the table -->
+        <p>Insert table here with JS</p>
+        <div class="columns mt-1">
+
+          <!-- blank columns for spacing -->
+          <div class="column"></div>
+          <div class="column"></div>
+
+          <!-- column with buttons -->
+          <div class="column">
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="js-modal-trigger button has-background-danger-dark has-text-white"
+                  data-target="save_modal">
+                  <p>Save for Later</p>
+                </button>
+              </div>
+              <div class="control">
+                <button class="js-modal-trigger button has-background-danger-dark has-text-white"
+                  data-target="export_modal">
+                  <p>Export Data</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- blank columns for spacing -->
+          <div class="column"></div>
+          <div class="column"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- save to my account modal -->
+    <div class="modal" id="save_modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Save To My Account</p>
+          <button class="delete" id="save_modalx"></button>
+        </header>
+
+        <section class="modal-card-body">
+          <!-- Content ... -->
+          <form id="save_form">
+            <div class="field">
+              <label class="label">File Name</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Input File Name Here" id="file_name">
+              </div>
+            </div>
+
+            <!-- save errors -->
+            <div id="save_error" class="has-text-danger">
+
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-light">Save</button>
+              </div>
+              <div class="control">
+                <button class="button is-danger is-light">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+
+
+    <!-- export modal -->
+    <div class="modal" id="export_modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Export</p>
+          <button class="delete" id="export_modalx"></button>
+        </header>
+
+        <section class="modal-card-body">
+          <!-- Content ... -->
+          <form id="export_form">
+            <div class="field">
+              <label class="label">File Name</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Input File Name Here" id="file_name">
+              </div>
+            </div>
+
+            <!-- export errors -->
+            <div id="export_error" class="has-text-danger">
+
+            </div>
+
+
+            <div class="field is-grouped columns mt-2">
+              <div class="control column">
+                <button class="button is-danger is-light">Cancel</button>
+              </div>
+
+              <div class="column">
+              </div>
+
+              <div class="control column">
+                <button class="button is-light">Export as .pdf</button>
+              </div>
+
+              <div class="control column">
+                <button class="button is-light">Export as .csv</button>
+              </div>
+            </div>
+
+          </form>
+        </section>
+      </div>
+    </div>
+
+  </div>
+
   <!-- footer -->
   <footer class="footer">
     <div class="content has-text-centered">
@@ -447,116 +850,6 @@
     </div>
   </div>
 
-  <!-- Bond input modal -->
-  <div id="bond_input" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-
-
-
-
-        <p class="has-text-centered">
-          <h1 class="title has-text-centered">
-            Enter Bond Information Below!
-          </h1>
-          <h2 class="subtitle has-text-centered">
-            For the best user experience, sign in to save your results.
-
-          </h2>
-          <div class="field is-grouped is-grouped-centered">
-            <div class="control">
-              <button class="js-modal-trigger button is-light adv" data-target="log_in">Log-In</button>
-            </div>
-            <div class="control">
-              <button class="js-modal-trigger button is-light adv" data-target="sign_up">Sign-Up</button>
-            </div>
-          </div>
-        </p>
-
-        <!-- Initial Loan Size -->
-        <div class="field ">
-          <label class="label ">Initial Loan Size:</label>
-
-          <div class="control">
-            <input class="input" id="loan_size" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
-          </div>
-        </div>
-
-        <!-- Balloon payment -->
-        <div class="field">
-
-
-          <label class="label">Balloon Payment:</label>
-          <div class="control">
-            <input class="input" id="balloon_payment" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
-          </div>
-
-        </div>
-
-        <!-- Number of periods -->
-        <div class="field">
-
-
-          <label class="label">Number of Periods:</label>
-
-          <div class="control">
-            <input class="input is-right" id="periods" type="text" placeholder="Enter a number (e.g. 1)">
-          </div>
-
-        </div>
-
-        <!-- Interest per period -->
-        <div class="field ">
-
-
-          <label class="label">Interest per Period:</label>
-
-          <div class="control">
-            <input class="input is-right" id="interest" type="text" placeholder="Enter a decimal (e.g. 0.01 for 1%)">
-          </div>
-
-        </div>
-
-        <!-- Number of payments -->
-        <div class="field ">
-
-
-          <label class="label">Payments per Period:</label>
-
-          <div class="control">
-            <input class="input is-right" id="payments" type="text" placeholder="Enter a number (e.g. 1)">
-          </div>
-
-        </div>
-
-        <!-- growth regimes -->
-        <div class="field ">
-
-
-          <label class="label"># of growth regimes:</label>
-          <div class="control">
-            <input class="input is-right" id="growth" type="text" placeholder="Enter a number (e.g. 1)">
-          </div>
-
-        </div>
-
-        <!-- Submit button -->
-        <div class="field is-grouped is-grouped-centered">
-          <div class="control">
-            <button class="js-modal-trigger button is-light" data-target="graph">Submit</button>
-          </div>
-          <div class="control">
-            <button class="button is-danger is-light adv">Cancel</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <button class="modal-close is-large" aria-label="close"></button>
-  </div>
-
   <!-- graph modal -->
   <div id="graph" class="modal">
     <div class="modal-background"></div>
@@ -577,7 +870,7 @@
           <!-- continue button -->
           <div class="level-right">
             <!-- TODO add link to table page -->
-            <button class="button is-light">Looks Good, Show Table</button>
+            <button class="adv button is-light" id="outputbtn">Looks Good, Show Table</button>
           </div>
 
         </div>
