@@ -1,0 +1,4 @@
+1) https://www.addictivetips.com/windows-tips/fix-running-scripts-is-disabled-on-this-system-powershell-on-windows-10/#:~:text=To%20fix%20the%20%E2%80%9Crunning%20scripts%20is%20disabled%20on,you%20will%20be%20able%20to%20run%20the%20script.
+2) https://stackoverflow.com/questions/65267651/how-to-install-numjs-for-web-development
+3) <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script> (added to HTML)
+4) npm install --save-dev financial (in PowerShell)
