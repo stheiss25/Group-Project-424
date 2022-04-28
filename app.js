@@ -78,7 +78,6 @@ let outputbtn = document.querySelector('#outputbtn')
 homebtn.addEventListener('click', () => {
     // homecontent.classList.remove('is-hidden')
     console.log('home works')
-
 })
 
 savedbtn.addEventListener('click', () => {
@@ -86,6 +85,14 @@ savedbtn.addEventListener('click', () => {
     // homecontent.classList.add('is-hidden')
 })
 
+createbtn.addEventListener('click', () => {
+    console.log('create works')
+    // homecontent.classList.add('is-hidden')
+})
+
+outputbtn.addEventListener('click', () => {
+    console.log('output works')
+})
 
 //num js (numpy for JS)
 var a = nj.array([2, 3, 4])
