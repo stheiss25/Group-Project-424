@@ -78,3 +78,7 @@ let outputbtn = document.querySelector('#outputbtn')
 homebtn.addEventListener('click', () => {
     console.log('home works')
 })
+
+//num js (numpy for JS)
+var a = nj.array([2, 3, 4])
+console.log("num js output", a)
