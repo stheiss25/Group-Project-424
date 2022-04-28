@@ -87,3 +87,11 @@ savedbtn.addEventListener('click', () => {
     console.log('saved works')
     // homecontent.classList.add('is-hidden')
 })
+
+
+//num js (numpy for JS)
+var a = nj.array([2, 3, 4])
+console.log("num js output", a)
+
+//npm financial
+import * as npf from "financial";
