@@ -74,9 +74,6 @@ let savedbtn = document.querySelector('#savedbtn')
 let createbtn = document.querySelector('#createbtn')
 let outputbtn = document.querySelector('#outputbtn')
 
-// page contents
-let homecontent = document.querySelector('#homecontent')
-
 // test btns
 homebtn.addEventListener('click', () => {
     // homecontent.classList.remove('is-hidden')

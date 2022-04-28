@@ -36,7 +36,7 @@
         <a class="btn navbar-item has-text-white" id="homebt">
           Home
         </a>
-        <a class="navbar-item has-text-white" id="savedbt">
+        <a href="savedbonds.html" class="navbar-item has-text-white" id="savedbtn">
           Saved Bonds
         </a>
         <a href="createbond.html" class="navbar-item has-text-white" id="createbtn">
@@ -63,696 +63,574 @@
     </div>
   </nav>
 
-  <!-- home page -->
-  <div id="homecontent">
-    <!-- Hero -->
-    <section class="hero has-text-centered has-background-grey-lighter">
-      <div class="hero-body">
-        <p class="title">
-          Welcome to the Universal Bond Calculator
-        </p>
-        <p class="subtitle">
-          This application outputs bond payment data based on the bond inputs that you specify. <br>
-          In order to save your work, please create an account or log in<br> <br>
-        </p>
-        <button class="js-modal-trigger  button is-larger has-background-danger-dark is-large" data-target="bond_input">
-          <p class="has-text-white">
-            Get Started
+  <<<<<<< HEAD <!-- home page -->
+    <div id="homecontent">
+      =======
+      <div id="home">
+        >>>>>>> parent of d0f03c1 (started one-page app)
+        <!-- Hero -->
+        <section class="hero has-text-centered has-background-grey-lighter">
+          <div class="hero-body">
+            <p class="title">
+              Welcome to the Universal Bond Calculator
+            </p>
+            <p class="subtitle">
+              This application outputs bond payment data based on the bond inputs that you specify. <br>
+              In order to save your work, please create an account or log in<br> <br>
+            </p>
+            <button class="js-modal-trigger  button is-larger has-background-danger-dark is-large"
+              data-target="bond_input">
+              <p class="has-text-white">
+                Get Started
+              </p>
+
+            </button>
+          </div>
+        </section>
+        <!-- About Us -->
+        <section class="hero has-text-centered ">
+          <div class="hero-body">
+            <p class="title">
+              About Us
+            </p>
+            <!-- Card -->
+
+            <div class="columns has-text-centered">
+              <div class="column">
+                <!-- Card - row 1, column 1 -->
+                <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img src="images/Erwan_Quintin_Headshot.jpg" alt="Erwan Quintin Headshot">
+                    </figure>
+                  </div>
+                  <header class="card-header">
+                    <p class="card-header-title">
+                      Professor Erwan Quintin
+                    </p>
+                    <button class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      <p>Erwan Quintin is a professor in and chair of the Department of Finance, Investment, and
+                        Banking. He
+                        is also the Nathan S. Brand Chair in Finance. He came to Wisconsin in 2010 from the Federal
+                        Reserve
+                        Bank of Dallas, where he had worked as a senior economist and policy advisor since 2000. His
+                        research
+                        lies at the intersection of Financial Economics and Macroeconomics. Quintin earned his Ph.D. in
+                        Economics from the University of Minnesota.</p>
+                    </div>
+                  </div>
+                  <footer class="card-footer">
+                    <a href="http://erwan.marginalq.com/" class="card-footer-item">Personal Website</a>
+                  </footer>
+                </div><br>
+                <!-- Card - row 2, column 1 -->
+                <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img src="images/1602030362021.png" alt="Placeholder image">
+                    </figure>
+                  </div>
+                  <header class="card-header">
+                    <p class="card-header-title">Declan Nashold
+                    </p>
+                    <button class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      Hi, I'm a student at University of Wisconsin-Madison studying Operations and Technology
+                      Management, Information Systems, and Computer Science.
+                    </div>
+                  </div>
+                  <footer class="card-footer">
+                    <a href="https://www.linkedin.com/in/declan-nashold/" class="card-footer-item">LinkedIn</a>
+                  </footer>
+                </div>
+              </div>
+
+              <div class="column">
+                <!-- Card - row 1, column 2 -->
+                <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img src="images/Stefan_Picture.JPG" alt="Stefan Picture">
+                    </figure>
+                  </div>
+                  <header class="card-header">
+                    <p class="card-header-title">
+                      Stefan Theiss
+                    </p>
+                    <button class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      Hi, my name is Stefan. I'm an Information Systems and OTM major at UW Madison and
+                      will be graduating after this semester. I am hoping to obtain a business analyst
+                      position for post-grad employment.
+                    </div>
+                  </div>
+                  <footer class="card-footer">
+                    <a href="https://www.linkedin.com/in/stefan-theiss-107480181/" class="card-footer-item">LinkedIn</a>
+                  </footer>
+                </div><br>
+                <!-- Card - row 2, column 2 -->
+                <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img src="images/spencer_picture.jpg" alt="Placeholder image">
+                    </figure>
+                  </div>
+                  <header class="card-header">
+                    <p class="card-header-title">
+                      Spencer Hikade
+                    </p>
+                    <button class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      Hi! My name is Spencer and I am a senior studying Management and Human Resources and Information
+                      Systems. I enjoy disc golfing and playing music for various groups back home, and I look forward
+                      to
+                      working in
+                      Human Resources Analytics after graduation.
+                    </div>
+                  </div>
+                  <footer class="card-footer">
+                    <!-- PUT LINKEDIN IN HREF -->
+                    <a href="https://www.linkedin.com/in/spencer-hikade-932057174/"
+                      class="card-footer-item">LinkedIn</a>
+                  </footer>
+                </div>
+              </div>
+              <div class="column">
+                <!-- Card - row 1, column 3 -->
+                <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img src="images/guell_headshot.jpg" alt="Mason Guell Photo">
+                    </figure>
+                  </div>
+                  <header class="card-header">
+                    <p class="card-header-title">
+                      Mason Guell
+                    </p>
+                    <button class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      <p>Hey, I'm Mason Guell and I will be graduating this year with majors in Finance, Risk
+                        Management, and
+                        Information Systems. My hobbies include staying active, hanging with friends,
+                        reading, and travelling.
+                        After gradauation, I will be in Milwaukee working for an Investment Bank.</p>
+                    </div>
+                  </div>
+                  <footer class="card-footer">
+                    <a href="https://www.linkedin.com/in/mason-guell/" class="card-footer-item">LinkedIn</a>
+                  </footer>
+                </div><br>
+
+                <!-- Card - row 2, column 3 -->
+                <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img src="images/Tanner_Headshot.JPG" alt="Photo of Tanner Wagner-Durr">
+                    </figure>
+                  </div>
+                  <header class="card-header">
+                    <p class="card-header-title">
+                      Tanner Wagner-Durr
+                    </p>
+                    <button class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      <p>Hi, my name is Tanner, and I'm a senior majoring in Finance, Economics, and
+                        Information Systems! In my free time, I enjoy sailing, skiing, crypto investing, and
+                        watching Badger sporting events.</p>
+                    </div>
+                  </div>
+                  <footer class="card-footer">>
+                    <a href="https://www.linkedin.com/in/tannerwagner-durr/" class="card-footer-item">LinkedIn</a>
+                  </footer>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+        <!-- footer -->
+        <footer class="footer">
+          <div class="content has-text-centered">
+            <p> <strong>&copy; Copyright 2022</strong> Declan Nashold, Mason Guell, Spencer Hikade, Stefan Theiss, and
+              Tanner
+              Wagner-Durr. </p>
+            <p>Developed for Prof. Erwan Quintin for use by the students, alumni, staff, and faculty of the University
+              of
+              Wisconsin-Madison.</p>
+            <p>View the source code of this project on <a
+                href="https://github.com/stheiss25/Group-Project-424">GitHub</a>
+            </p>
+          </div>
+        </footer>
+      </div>
+
+      <!-- sign-up modal -->
+      <div id="sign_up" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="box">
+            <button class="modal-close is-large" aria-label="close"></button>
+            <h1 class="title is-4">Sign up</h1>
+            <form id="signup_form">
+              <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv"
+                  data-target="log_in">Log
+                  in</a>.</h2>
+
+              <!-- Name input -->
+              <div class="field">
+                <label class="label">Name: </label>
+                <div class="control">
+                  <input type="text" class="input" id="signup_name" placeholder="Enter your name">
+                </div>
+              </div>
+
+
+              <!-- Class input -->
+              <div class="field">
+                <label class="label">Class: </label>
+                <div class="control">
+                  <input type="text" class="input" id="signup_class"
+                    placeholder="For which class are you using this calculator?">
+                </div>
+              </div>
+
+              <!-- email input -->
+              <div class="field">
+                <label class="label">Email: </label>
+                <div class="control">
+                  <input type="text" id="signup_email" class="input" placeholder="Enter email address">
+                </div>
+              </div>
+
+              <!-- password input -->
+              <div class="field">
+                <label class="label">Password: </label>
+                <div class="control">
+                  <input type="password" id="signup_password" class="input" placeholder="Enter password">
+                </div>
+              </div>
+
+              <!-- submit button -->
+              <br>
+              <div class="has-text-left">
+                <button type="submit" class="button is-danger">Sign Up</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    <!-- log in modal -->
+    <div id="log_in" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <h1 class="title is-4">Log in</h1>
+          <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign_up">Sign
+              up</a>.</h2>
+          <form action="" id="log_in_form" class="mb-0 mt-2 loggedin">
+            <!-- email input -->
+            <div class="field">
+              <label class="label">Email: </label>
+              <div class="control">
+                <input type="email" class="input" id="login_email" placeholder="Enter email address">
+              </div>
+            </div>
+
+            <!-- password input -->
+            <div class="field">
+              <label class="label">Password: </label>
+              <div class="control">
+                <input type="password" class="input" id="login_password" placeholder="Enter password">
+              </div>
+            </div>
+
+            <!-- submit button -->
+            <br>
+            <div class="has-text-left">
+              <button type="submit" class="button is-danger">Log in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <!-- account-info modal -->
+    <div id="account_info" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <button class="modal-close is-large" aria-label="close"></button>
+          <h1 class="title is-4">Account Information</h1>
+          <form action="" id="change_info" class="mb-0 mt-2 loggedin">
+            <!-- Name input -->
+            <div class="field">
+              <label class="label">Name: </label>
+              <div class="control">
+                <input type="text" class="input" id="change_name" placeholder="Change your name">
+              </div>
+            </div>
+
+
+            <!-- Class input -->
+            <div class="field">
+              <label class="label">Class: </label>
+              <div class="control">
+                <input type="text" class="input" id="change_class"
+                  placeholder="For which class are you using this calculator?">
+              </div>
+            </div>
+
+            <!-- email input -->
+            <div class="field">
+              <label class="label">Email: </label>
+              <div class="control">
+                <input type="email" class="input" id="change_email" placeholder="Change email address">
+              </div>
+            </div>
+
+            <!-- password input -->
+            <div class="field">
+              <label class="label">Password: </label>
+              <div class="control">
+                <input type="password" class="input" id="change_password" placeholder="Change your password">
+              </div>
+            </div>
+
+            <!-- submit button -->
+            <br>
+            <div class="has-text-left">
+              <button type="submit" class="button is-danger">Log in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bond input modal -->
+    <div id="bond_input" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+
+
+
+
+          <p class="has-text-centered">
+            <h1 class="title has-text-centered">
+              Enter Bond Information Below!
+            </h1>
+            <h2 class="subtitle has-text-centered">
+              For the best user experience, sign in to save your results.
+
+            </h2>
+            <div class="field is-grouped is-grouped-centered">
+              <div class="control">
+                <button class="js-modal-trigger button is-light adv" data-target="log_in">Log-In</button>
+              </div>
+              <div class="control">
+                <button class="js-modal-trigger button is-light adv" data-target="sign_up">Sign-Up</button>
+              </div>
+            </div>
           </p>
 
-        </button>
-      </div>
-    </section>
-    <!-- About Us -->
-    <section class="hero has-text-centered ">
-      <div class="hero-body">
-        <p class="title">
-          About Us
-        </p>
-        <!-- Card -->
+          <!-- Initial Loan Size -->
+          <div class="field ">
+            <label class="label ">Initial Loan Size:</label>
 
-        <div class="columns has-text-centered">
-          <div class="column">
-            <!-- Card - row 1, column 1 -->
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="images/Erwan_Quintin_Headshot.jpg" alt="Erwan Quintin Headshot">
-                </figure>
-              </div>
-              <header class="card-header">
-                <p class="card-header-title">
-                  Professor Erwan Quintin
-                </p>
-                <button class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  <p>Erwan Quintin is a professor in and chair of the Department of Finance, Investment, and Banking. He
-                    is also the Nathan S. Brand Chair in Finance. He came to Wisconsin in 2010 from the Federal Reserve
-                    Bank of Dallas, where he had worked as a senior economist and policy advisor since 2000. His
-                    research
-                    lies at the intersection of Financial Economics and Macroeconomics. Quintin earned his Ph.D. in
-                    Economics from the University of Minnesota.</p>
-                </div>
-              </div>
-              <footer class="card-footer">
-                <a href="http://erwan.marginalq.com/" class="card-footer-item">Personal Website</a>
-              </footer>
-            </div><br>
-            <!-- Card - row 2, column 1 -->
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="images/1602030362021.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <header class="card-header">
-                <p class="card-header-title">Declan Nashold
-                </p>
-                <button class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  Hi, I'm a student at University of Wisconsin-Madison studying Operations and Technology
-                  Management, Information Systems, and Computer Science.
-                </div>
-              </div>
-              <footer class="card-footer">
-                <a href="https://www.linkedin.com/in/declan-nashold/" class="card-footer-item">LinkedIn</a>
-              </footer>
-            </div>
-          </div>
-
-          <div class="column">
-            <!-- Card - row 1, column 2 -->
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="images/Stefan_Picture.JPG" alt="Stefan Picture">
-                </figure>
-              </div>
-              <header class="card-header">
-                <p class="card-header-title">
-                  Stefan Theiss
-                </p>
-                <button class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  Hi, my name is Stefan. I'm an Information Systems and OTM major at UW Madison and
-                  will be graduating after this semester. I am hoping to obtain a business analyst
-                  position for post-grad employment.
-                </div>
-              </div>
-              <footer class="card-footer">
-                <a href="https://www.linkedin.com/in/stefan-theiss-107480181/" class="card-footer-item">LinkedIn</a>
-              </footer>
-            </div><br>
-            <!-- Card - row 2, column 2 -->
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="images/spencer_picture.jpg" alt="Placeholder image">
-                </figure>
-              </div>
-              <header class="card-header">
-                <p class="card-header-title">
-                  Spencer Hikade
-                </p>
-                <button class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  Hi! My name is Spencer and I am a senior studying Management and Human Resources and Information
-                  Systems. I enjoy disc golfing and playing music for various groups back home, and I look forward to
-                  working in
-                  Human Resources Analytics after graduation.
-                </div>
-              </div>
-              <footer class="card-footer">
-                <!-- PUT LINKEDIN IN HREF -->
-                <a href="https://www.linkedin.com/in/spencer-hikade-932057174/" class="card-footer-item">LinkedIn</a>
-              </footer>
-            </div>
-          </div>
-          <div class="column">
-            <!-- Card - row 1, column 3 -->
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="images/guell_headshot.jpg" alt="Mason Guell Photo">
-                </figure>
-              </div>
-              <header class="card-header">
-                <p class="card-header-title">
-                  Mason Guell
-                </p>
-                <button class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  <p>Hey, I'm Mason Guell and I will be graduating this year with majors in Finance, Risk
-                    Management, and
-                    Information Systems. My hobbies include staying active, hanging with friends,
-                    reading, and travelling.
-                    After gradauation, I will be in Milwaukee working for an Investment Bank.</p>
-                </div>
-              </div>
-              <footer class="card-footer">
-                <a href="https://www.linkedin.com/in/mason-guell/" class="card-footer-item">LinkedIn</a>
-              </footer>
-            </div><br>
-
-            <!-- Card - row 2, column 3 -->
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="images/Tanner_Headshot.JPG" alt="Photo of Tanner Wagner-Durr">
-                </figure>
-              </div>
-              <header class="card-header">
-                <p class="card-header-title">
-                  Tanner Wagner-Durr
-                </p>
-                <button class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  <p>Hi, my name is Tanner, and I'm a senior majoring in Finance, Economics, and
-                    Information Systems! In my free time, I enjoy sailing, skiing, crypto investing, and
-                    watching Badger sporting events.</p>
-                </div>
-              </div>
-              <footer class="card-footer">>
-                <a href="https://www.linkedin.com/in/tannerwagner-durr/" class="card-footer-item">LinkedIn</a>
-              </footer>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </section>
-
-    <!-- footer -->
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p> <strong>&copy; Copyright 2022</strong> Declan Nashold, Mason Guell, Spencer Hikade, Stefan Theiss, and
-          Tanner
-          Wagner-Durr. </p>
-        <p>Developed for Prof. Erwan Quintin for use by the students, alumni, staff, and faculty of the University of
-          Wisconsin-Madison.</p>
-        <p>View the source code of this project on <a href="https://github.com/stheiss25/Group-Project-424">GitHub</a>
-        </p>
-      </div>
-    </footer>
-  </div>
-
-  <!-- saved bonds page -->
-  <div id="savedcontent">
-    <!-- body -->
-    <div class="columns mt-5">
-      <div class="column is-2">
-
-      </div>
-      <div class="column">
-        <h1 class="title has-text-centered">
-          Saved Bond Sheets
-        </h1>
-        <div class="box">
-
-          <div class="field is-grouped">
             <div class="control">
-              <label class="label">Date</label>
-
-              <div class="control">
-                <div class="select">
-                  <select>
-                    <option>Select dropdown</option>
-                    <option>With options</option>
-                  </select>
-                </div>
-              </div>
+              <input class="input" id="loan_size" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
             </div>
-            <div class="control">
-              <label class="label">Name</label>
-              <div class="control">
-                <input class="input" type="text" placeholder="Input Name of File">
-              </div>
-
-            </div>
-            <!-- TODO figure out how to get this button to align properly -->
-            <div class="control">
-              <button class="button is-danger">Submit</button>
-            </div>
-
           </div>
-        </div>
-        <div class="box">
-          <table class="table is-fullwidth is-striped">
-            <thead>
-              <th>Name </th>
-              <th>Date Created</th>
-              <th></th>
-              <th></th>
-            </thead>
-            <tbody>
-              <!-- Example Row -->
-              <tr>
-                <th>
-                  <div class="content is-large">Test</div>
-                </th>
-                <th>
-                  <div class="content is-large">10/12/2022</div>
-                </th>
-                <th>
-                  <div class="button">
-                    <div class="content is-large">View</div>
-                  </div>
-                </th>
-                <th>
-                  <div class="button">
-                    <div class="content is-large">Download</div>
-                  </div>
-                </th>
-              </tr>
-              <!-- Example Row -->
-              <tr>
-                <th>
-                  <div class="content is-large">Test</div>
-                </th>
-                <th>
-                  <div class="content is-large">10/12/2022</div>
-                </th>
-                <th>
-                  <div class="button">
-                    <div class="content is-large">View</div>
-                  </div>
-                </th>
-                <th>
-                  <div class="button">
-                    <div class="content is-large">Download</div>
-                  </div>
-                </th>
-              </tr>
-              <!-- Example Row -->
-              <tr>
-                <th>
-                  <div class="content is-large">Test</div>
-                </th>
-                <th>
-                  <div class="content is-large">10/12/2022</div>
-                </th>
-                <th>
-                  <div class="button">
-                    <div class="content is-large">View</div>
-                  </div>
-                </th>
-                <th>
-                  <div class="button">
-                    <div class="content is-large">Download</div>
-                  </div>
-                </th>
-              </tr>
-              <!-- Example Row -->
-              <tr>
-                <th>
-                  <div class="content is-large">Test</div>
-                </th>
-                <th>
-                  <div class="content is-large">10/12/2022</div>
-                </th>
-                <th>
-                  <div class="button">
-                    <div class="content is-large">View</div>
-                  </div>
-                </th>
-                <th>
-                  <div class="button">
-                    <div class="content is-large">Download</div>
-                  </div>
-                </th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="column is-2">
 
-      </div>
-    </div>
-  </div>
-
-  <!-- sign-up modal -->
-  <div id="sign_up" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-        <button class="modal-close is-large" aria-label="close"></button>
-        <h1 class="title is-4">Sign up</h1>
-        <form id="signup_form">
-          <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv" data-target="log_in">Log
-              in</a>.</h2>
-
-          <!-- Name input -->
+          <!-- Balloon payment -->
           <div class="field">
-            <label class="label">Name: </label>
+
+
+            <label class="label">Balloon Payment:</label>
             <div class="control">
-              <input type="text" class="input" id="signup_name" placeholder="Enter your name">
+              <input class="input" id="balloon_payment" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
             </div>
+
           </div>
 
-
-          <!-- Class input -->
+          <!-- Number of periods -->
           <div class="field">
-            <label class="label">Class: </label>
+
+
+            <label class="label">Number of Periods:</label>
+
             <div class="control">
-              <input type="text" class="input" id="signup_class"
-                placeholder="For which class are you using this calculator?">
+              <input class="input is-right" id="periods" type="text" placeholder="Enter a number (e.g. 1)">
             </div>
+
           </div>
 
-          <!-- email input -->
-          <div class="field">
-            <label class="label">Email: </label>
+          <!-- Interest per period -->
+          <div class="field ">
+
+
+            <label class="label">Interest per Period:</label>
+
             <div class="control">
-              <input type="text" id="signup_email" class="input" placeholder="Enter email address">
+              <input class="input is-right" id="interest" type="text" placeholder="Enter a decimal (e.g. 0.01 for 1%)">
             </div>
+
           </div>
 
-          <!-- password input -->
-          <div class="field">
-            <label class="label">Password: </label>
+          <!-- Number of payments -->
+          <div class="field ">
+
+
+            <label class="label">Payments per Period:</label>
+
             <div class="control">
-              <input type="password" id="signup_password" class="input" placeholder="Enter password">
+              <input class="input is-right" id="payments" type="text" placeholder="Enter a number (e.g. 1)">
             </div>
+
           </div>
 
-          <!-- submit button -->
-          <br>
-          <div class="has-text-left">
-            <button type="submit" class="button is-danger">Sign Up</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+          <!-- growth regimes -->
+          <div class="field ">
 
 
-  <!-- log in modal -->
-  <div id="log_in" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-        <h1 class="title is-4">Log in</h1>
-        <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign_up">Sign
-            up</a>.</h2>
-        <form action="" id="log_in_form" class="mb-0 mt-2 loggedin">
-          <!-- email input -->
-          <div class="field">
-            <label class="label">Email: </label>
+            <label class="label"># of growth regimes:</label>
             <div class="control">
-              <input type="email" class="input" id="login_email" placeholder="Enter email address">
+              <input class="input is-right" id="growth" type="text" placeholder="Enter a number (e.g. 1)">
             </div>
+
           </div>
 
-          <!-- password input -->
-          <div class="field">
-            <label class="label">Password: </label>
-            <div class="control">
-              <input type="password" class="input" id="login_password" placeholder="Enter password">
-            </div>
-          </div>
-
-          <!-- submit button -->
-          <br>
-          <div class="has-text-left">
-            <button type="submit" class="button is-danger">Log in</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <button class="modal-close is-large" aria-label="close"></button>
-  </div>
-
-  <!-- account-info modal -->
-  <div id="account_info" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-        <button class="modal-close is-large" aria-label="close"></button>
-        <h1 class="title is-4">Account Information</h1>
-        <form action="" id="change_info" class="mb-0 mt-2 loggedin">
-          <!-- Name input -->
-          <div class="field">
-            <label class="label">Name: </label>
-            <div class="control">
-              <input type="text" class="input" id="change_name" placeholder="Change your name">
-            </div>
-          </div>
-
-
-          <!-- Class input -->
-          <div class="field">
-            <label class="label">Class: </label>
-            <div class="control">
-              <input type="text" class="input" id="change_class"
-                placeholder="For which class are you using this calculator?">
-            </div>
-          </div>
-
-          <!-- email input -->
-          <div class="field">
-            <label class="label">Email: </label>
-            <div class="control">
-              <input type="email" class="input" id="change_email" placeholder="Change email address">
-            </div>
-          </div>
-
-          <!-- password input -->
-          <div class="field">
-            <label class="label">Password: </label>
-            <div class="control">
-              <input type="password" class="input" id="change_password" placeholder="Change your password">
-            </div>
-          </div>
-
-          <!-- submit button -->
-          <br>
-          <div class="has-text-left">
-            <button type="submit" class="button is-danger">Log in</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bond input modal -->
-  <div id="bond_input" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-
-
-
-
-        <p class="has-text-centered">
-          <h1 class="title has-text-centered">
-            Enter Bond Information Below!
-          </h1>
-          <h2 class="subtitle has-text-centered">
-            For the best user experience, sign in to save your results.
-
-          </h2>
+          <!-- Submit button -->
           <div class="field is-grouped is-grouped-centered">
             <div class="control">
-              <button class="js-modal-trigger button is-light adv" data-target="log_in">Log-In</button>
+              <button class="js-modal-trigger button is-light" data-target="graph">Submit</button>
             </div>
             <div class="control">
-              <button class="js-modal-trigger button is-light adv" data-target="sign_up">Sign-Up</button>
+              <button class="button is-danger is-light adv">Cancel</button>
             </div>
           </div>
-        </p>
-
-        <!-- Initial Loan Size -->
-        <div class="field ">
-          <label class="label ">Initial Loan Size:</label>
-
-          <div class="control">
-            <input class="input" id="loan_size" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
-          </div>
-        </div>
-
-        <!-- Balloon payment -->
-        <div class="field">
-
-
-          <label class="label">Balloon Payment:</label>
-          <div class="control">
-            <input class="input" id="balloon_payment" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
-          </div>
 
         </div>
+      </div>
 
-        <!-- Number of periods -->
-        <div class="field">
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
 
-
-          <label class="label">Number of Periods:</label>
-
-          <div class="control">
-            <input class="input is-right" id="periods" type="text" placeholder="Enter a number (e.g. 1)">
+    <!-- graph modal -->
+    <div id="graph" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <h1 class="title is-4">Bond Payment Graph</h1>
+          <br>
+          <div class="field has-text-centered">
+            <p>Graph goes here</p>
           </div>
+          <br>
+          <div class="level">
+            <!-- back to inputs -->
+            <div class="level-left">
+              <a class="adv h3 is-5 has-text-danger">Back to inputs</a>
+            </div>
 
-        </div>
+            <!-- continue button -->
+            <div class="level-right">
+              <!-- TODO add link to table page -->
+              <button class="button is-light" id="outputbtn">Looks Good, Show Table</button>
+            </div>
 
-        <!-- Interest per period -->
-        <div class="field ">
-
-
-          <label class="label">Interest per Period:</label>
-
-          <div class="control">
-            <input class="input is-right" id="interest" type="text" placeholder="Enter a decimal (e.g. 0.01 for 1%)">
           </div>
 
         </div>
-
-        <!-- Number of payments -->
-        <div class="field ">
-
-
-          <label class="label">Payments per Period:</label>
-
-          <div class="control">
-            <input class="input is-right" id="payments" type="text" placeholder="Enter a number (e.g. 1)">
-          </div>
-
-        </div>
-
-        <!-- growth regimes -->
-        <div class="field ">
-
-
-          <label class="label"># of growth regimes:</label>
-          <div class="control">
-            <input class="input is-right" id="growth" type="text" placeholder="Enter a number (e.g. 1)">
-          </div>
-
-        </div>
-
-        <!-- Submit button -->
-        <div class="field is-grouped is-grouped-centered">
-          <div class="control">
-            <button class="js-modal-trigger button is-light" data-target="graph">Submit</button>
-          </div>
-          <div class="control">
-            <button class="button is-danger is-light adv">Cancel</button>
-          </div>
-        </div>
-
       </div>
     </div>
 
-    <button class="modal-close is-large" aria-label="close"></button>
-  </div>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 
-  <!-- graph modal -->
-  <div id="graph" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-        <h1 class="title is-4">Bond Payment Graph</h1>
-        <br>
-        <div class="field has-text-centered">
-          <p>Graph goes here</p>
-        </div>
-        <br>
-        <div class="level">
-          <!-- back to inputs -->
-          <div class="level-left">
-            <a class="adv h3 is-5 has-text-danger">Back to inputs</a>
-          </div>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
 
-          <!-- continue button -->
-          <div class="level-right">
-            <!-- TODO add link to table page -->
-            <button class="button is-light" id="outputbtn">Looks Good, Show Table</button>
-          </div>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
 
-        </div>
+    <script>
+      // TODO
+      // Copy **only** your firebaseConfig from Google Firebae and add it below
 
-      </div>
-    </div>
-  </div>
+      // Your web app's Firebase configuration 
+      // Import the functions you need from the SDKs you need
 
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
 
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBdU9fKpt_UXOCqiSZikUS01RxmrvX8vnI",
+        authDomain: "universalbondcalculator.firebaseapp.com",
+        projectId: "universalbondcalculator",
+        storageBucket: "universalbondcalculator.appspot.com",
+        messagingSenderId: "374853779066",
+        appId: "1:374853779066:web:0448ac5ea3b2fa467305c3"
+      };
 
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      // define authentication variable
+      let auth = firebase.auth();
+      let db = firebase.firestore();
 
-  <script>
-    // TODO
-    // Copy **only** your firebaseConfig from Google Firebae and add it below
+      // define a storage reference
+      let ref = firebase.storage().ref();
+    </script>
 
-    // Your web app's Firebase configuration 
-    // Import the functions you need from the SDKs you need
-
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyBdU9fKpt_UXOCqiSZikUS01RxmrvX8vnI",
-      authDomain: "universalbondcalculator.firebaseapp.com",
-      projectId: "universalbondcalculator",
-      storageBucket: "universalbondcalculator.appspot.com",
-      messagingSenderId: "374853779066",
-      appId: "1:374853779066:web:0448ac5ea3b2fa467305c3"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    // define authentication variable
-    let auth = firebase.auth();
-    let db = firebase.firestore();
-
-    // define a storage reference
-    let ref = firebase.storage().ref();
-  </script>
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
 
