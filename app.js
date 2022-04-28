@@ -82,3 +82,6 @@ homebtn.addEventListener('click', () => {
 //num js (numpy for JS)
 var a = nj.array([2, 3, 4])
 console.log("num js output", a)
+
+//npm financial
+import * as npf from "financial";
