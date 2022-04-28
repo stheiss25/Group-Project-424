@@ -70,10 +70,33 @@ function exportCSV(data) {
 
 // btns for navigation
 let homebtn = document.querySelector('#homebtn')
+let savedbtn = document.querySelector('#savedbtn')
+let createbtn = document.querySelector('#createbtn')
+let ouputbtn = document.querySelector('#outputbtn')
 
-// //num js (numpy for JS)
-// var a = nj.array([2, 3, 4])
+let homecontent = document.querySelector('#homecontent')
+
+homebtn.addEventListener('click', () => {
+    // console.log('home works')
+    homecontent.classList.remove('is-hidden')
+})
+
+savedbtn.addEventListener('click', () => {
+    // console.log('saved works')
+    homecontent.classList.add('is-hidden')
+})
+
+createbtn.addEventListener('click', () => {
+    console.log('create works')
+})
+
+outputbtn.addEventListener('click', () => {
+    console.log('output works')
+})
+
+//num js (numpy for JS)
+var a = nj.array([2, 3, 4])
 // console.log("num js output", a)
 
-// //npm financial
+//npm financial
 // import * as npf from "financial";
