@@ -116,6 +116,6 @@ var a = nj.array([2, 3, 4])
 console.log("num js output", a)
 
 //npm financial
-import {
-    pv
-} from "./node_modules/financial";
+// import {
+//     pv
+// } from "./node_modules/financial";

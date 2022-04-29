@@ -1,0 +1,61 @@
+{
+  "extends": [
+    "plugin:flowtype/recommended",
+    "airbnb"
+  ],
+
+  "rules": {
+    "camelcase": "off",
+    "curly": "off",
+    "comma-dangle": ["error", "always-multiline"],
+
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+        "FunctionExpression": {
+          "parameters": "first"
+        }
+      }
+    ],
+    "jsx-a11y/anchor-has-content": "off",
+    "jsx-a11y/href-no-hash": "off",
+    "no-undef": "warn",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": "warn",
+    "object-curly-spacing": "off",
+    "operator-linebreak": ["error", "before"],
+
+    "quotes": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js"
+        ]
+      }
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "parser": "babel-eslint",
+  "root": true,
+  "env": {
+    "jasmine": true,
+    "jest": true,
+    "es6": true
+  },
+  "plugins": [
+    "flowtype"
+  ]
+}
