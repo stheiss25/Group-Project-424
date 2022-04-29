@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <!-- numjs -->
   <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+  <!-- npf -->
+  <script src="https://www.npmcdn.com/financial@0.1.3/dist/financial.cjs.production.min.js"></script>
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a2a3bcdcb2.js" crossorigin="anonymous"></script>
 
@@ -920,7 +922,14 @@
     let ref = firebase.storage().ref();
   </script>
 
-  <script src="app.js"></script>
+  <!-- FLAG maybe get rid of type module -->
+  <script>
+    var exports = {};
+  </script>
+  <script>
+    src = "index.js"
+  </script>
+  <script type="module" src="app.js"></script>
 
 </body>
 
