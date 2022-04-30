@@ -12,7 +12,7 @@
   <script src="https://www.npmcdn.com/financial@0.1.3/dist/financial.cjs.production.min.js"></script>
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a2a3bcdcb2.js" crossorigin="anonymous"></script>
-
+  <link rel="icon" type="image/x-icon" href="/images/calculator-outline-filled.png">
   <style>
     .navbar-brand {
       width: 5%;
@@ -601,6 +601,30 @@
         <p>Congrats! Here's your debt payment table:</p>
         <!-- FIXME - Add JS to create the table -->
         <p>Insert table here with JS</p>
+        <table class="table" id="bond_table">
+          <thead>
+            <tr>
+              <th>
+                Month
+              </th>
+              <th>
+                Initial Balance
+              </th>
+              <th>
+                Payment
+              </th>
+              <th>
+                Interest
+              </th>
+              <th>
+                Final Balance
+              </th>
+            </tr>
+          </thead>
+          <tbody id="table_body">
+
+          </tbody>
+        </table>
         <div class="columns mt-1">
 
           <!-- blank columns for spacing -->
@@ -658,7 +682,7 @@
 
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-light">Save</button>
+                <button class="button is-light" id="final_save_btn">Save</button>
               </div>
               <div class="control">
                 <button class="button is-danger is-light">Cancel</button>
@@ -909,7 +933,17 @@
   db.collection('users').get().then(response => {
     console.log(response.docs[0].data());
   })
+  let final_save_btn = document.getElementById("final_save_btn")
 
+  function saveBond() {
+    console.log("ffffff")
+    db.collection("saved_bonds").add({
+      test: "testtttt"
+    }).then(console.log("ffffff"))
+  }
+  final_save_btn.addEventListener('click', function () {
+    saveBond()
+  })
   document.addEventListener('DOMContentLoaded', () => {
     // Functions to open and close a modal
     function openModal($el) {
@@ -925,6 +959,7 @@
         closeModal($modal);
       });
     }
+
 
     // Add a click event on buttons to open a specific modal
     (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
@@ -1082,11 +1117,11 @@
 
 
   // function getTable(principal, int_rate, term_length, balloon_payment, growth_rate) {
-  let bnow = 500000
-  let rate = .07
-  let term = 10
+  let bnow = 100000000
+  let rate = .10
+  let term = 5
   let balloon = 0
-  let growth = 0.005
+  let growth = 0.00
 
   let month = [term * 12]
   let cf_pattern = [term * 12]
