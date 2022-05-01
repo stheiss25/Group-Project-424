@@ -119,3 +119,49 @@ console.log("num js output", a)
 // import {
 //     pv
 // } from "./node_modules/financial";
+
+// Sign Up Modal
+// grab the button
+var signup = document.querySelector("#signup");
+// attach click event
+signup.addEventListener('click', function () {
+    //grab the modal
+    var mymodal = document.querySelector("#sign_up_modal");
+    //add the is active class
+    mymodal.classList.add('is-active');
+})
+//attach event on modal background
+//grab the modal background
+var modalbg = document.querySelector("#signupmodalbg");
+modalbg.addEventListener('click', function () {
+    mymodal.classList.remove('is-active');
+})
+
+
+// Log in Modal
+// grab the button
+var login = document.querySelector("#login");
+// attach click event
+login.addEventListener('click', function () {
+    //grab the modeal
+    var loginmodal = document.querySelector("#login_modal");
+    //add the is active class
+    loginmodal.classList.add('is-active');
+})
+//attach event on modal background
+//grab the modal background
+var loginmodalbg = document.querySelector("#loginmodalbg");
+loginmodalbg.addEventListener('click', function () {
+    loginmodal.classList.remove('is-active');
+})
+
+//sign out
+let logoutbtn = document.querySelector('#logoutbtn');
+
+//attach a click event
+logoutbtn.addEventListener('click', () => {
+    auth.signOut()
+        .then((msg) => {
+            console.log("user signed out!");
+        })
+})
