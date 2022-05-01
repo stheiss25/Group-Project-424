@@ -527,7 +527,8 @@
 
             <label class="label"># of growth regimes:</label>
             <div class="control">
-              <input class="input is-right" id="growth" type="text" placeholder="Enter a number (e.g. 1)">
+              <input class="input is-right" id="growth" type="text"
+                placeholder="Enter a rate followed by length e.g. (5 10) followed by a comma for seperate regimes (Max: 5)">
             </div>
 
           </div>
@@ -1131,76 +1132,83 @@
   })
 
 
-  // function getTable(principal, int_rate, term_length, balloon_payment, growth_rate) {
+  // function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
   let bnow = 100000000
+  // let bnow = principal
   let rate = .10
+  // let rate = int_rate
+  let numPayments = 12
+  // let numPayments = payments_per_period
   let term = 5
-  let balloon = 0
-  let growth = 0.00
+  // let term = periods
+  let balloon = 20000000
+  // let balloon = balloon_payment
+  let regime_to_split = "5 10, 0 20, -5 20"
+  // let regime_to_split = regimes
 
-  let month = [term * 12]
-  let cf_pattern = [term * 12]
-  for (let i = 0; i < term * 12; i++) {
-    month[i] = i + 1
-    cf_pattern[i] = 1
-  }
-  for (let i = 0; i < term * 12; i++) {
-    cf_pattern[i + 1] = cf_pattern[i] * (1 + growth)
-  }
-  console.log(cf_pattern[119])
-
-  let npv = getNPV(rate / 12, 0, cf_pattern)
-  let f = npv / (1 + rate / 12)
-  console.log(npv)
-  // npv is 114.27269606595011
-
-  console.log(f)
-  //113.60997123375321
-
-  let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
-
-  let payment = [term * 12]
-
-  for (let i = 0; i < term * 12; i++) {
-    payment[i] = payment1 * cf_pattern[i]
+  let regime_array = regime_to_split.split(",")
+  let shape = Array(regime_array.length)
+  for (let i = 0; i < regime_array.length; i++) {
+    shape[i] = regime_array[i].split(" ")
+    shape[i][0] = Number(shape[i][0])
+    shape[i][1] = Number(shape[i][1])
   }
 
-  let startprincipal = [term * 12]
-  let endprincipal = [term * 12]
-  let interestpath = [term * 12]
-  for (let i = 0; i < term * 12; i++) {
-    startprincipal[i] = bnow
-    endprincipal[i] = 1
-    interestpath[i] = 1
-  }
+  let termLen = term * numPayments
+  let month = Array(termLen).fill(null).map((_, i) => i + 1)
+  let cf_pattern = Array(termLen).fill(1)
+  let regime = 0
+  let switch1 = shape[0][1]
 
-  for (let i = 0; i < term * 12; i++) {
-    interestpath[i] = startprincipal[i] * rate / 12
-    endprincipal[i] = startprincipal[i] + interestpath[i] - payment[i]
 
-    if (i < term * 12 - 1) {
-      startprincipal[i + 1] = endprincipal[i]
+
+  for (let i = 1; i < termLen; i++) {
+    cf_pattern[i] = cf_pattern[i - 1] * (1 + shape[regime][0] / 100)
+    if (i == switch1 - 1 && regime < shape.length - 1) {
+      regime = regime + 1
+      switch1 = switch1 + shape[regime][1]
     }
   }
 
-  console.log(startprincipal)
-  let my_table = [term * 12]
+  let npv = getNPV(rate / 12, cf_pattern)
+  let f = npv / (1 + (rate / 12))
+
+  let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
+
+  let payment = Array(termLen)
+
+  for (let i = 0; i < termLen; i++) {
+    payment[i] = payment1 * cf_pattern[i]
+  }
+
+  let startprincipal = Array(termLen)
+  let endprincipal = Array(termLen)
+  let interestpath = Array(termLen)
+  for (let i = 0; i < termLen; i++) {
+    if (i == 0) {
+      startprincipal[0] = bnow
+    } else {
+      startprincipal[i] = endprincipal[i - 1]
+    }
+    interestpath[i] = startprincipal[i] * rate / 12
+    endprincipal[i] = startprincipal[i] + interestpath[i] - payment[i]
+  }
+
+  let my_table = Array(termLen)
 
   for (let i = 0; i < term * 12; i++) {
     my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
   }
   console.log(my_table)
 
-
-
-  function getNPV(rate, initialCost, cashFlows) {
-    var npv = initialCost;
+  function getNPV(rate, cashFlows) {
+    var npv = 0;
 
     for (var i = 1; i < cashFlows.length; i++) {
-      npv += cashFlows[i] / Math.pow(rate + 1, i + 1);
+      npv += cashFlows[i] / Math.pow(rate + 1, i);
     }
 
-    npv += cashFlows[0] / (rate + 1)
+    npv += cashFlows[0]
 
     return npv;
   }
