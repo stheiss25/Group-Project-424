@@ -55,6 +55,8 @@ Sprint 2: <https://drive.google.com/drive/folders/15Kuv8nTL9IbHKDhzxHJ23XLJTfrqd
 Sprint 1: <https://docs.google.com/spreadsheets/d/1DnBN8hUAmY5jjvbUIzr4kAhf0SAFI_6Sxoo62p2LzHQ/edit?usp=sharing>
 <br />
 Sprint 2: <https://docs.google.com/spreadsheets/d/1FCx4BsVXJPCNUJxFw725CTdSkovlxUMUEnz5t3Vz4qs/edit?usp=sharing>
+<br />
+Sprint 3: <https://docs.google.com/spreadsheets/d/17Z4LfJQvED0hhIzEgNNsgx18nc5V7zx8zdIr33wFzZ4/edit?usp=sharing>
 
 ### Sprint 1 Review:
     What did we learn from doing our first sprint?
