@@ -1,36 +1,9 @@
-function calcBondInformation(bnow, balloon, periods, nper, rper, nregims) {
-    let rnow = rper / nper;
-    let term = periods * nper;
-    let ib = [term];
-    let fb = [term];
-    let intpayment = [term];
-
-    paymentshape = [term]
-    regime = 0
-    change = shape[0][1]
-
-    for (let i = 0; i < term; i++) {
-        paymentshape[i] = paymentshape[i - 1] * (1 + shape[regime][0] / 100)
-        if (i == change - 1 && regime < nregims - 1) {
-            regime = regime + 1
-            change = change + shape[regime][1]
-        }
+function createTable(nper, periods, ib, actualpayments, intpayment, fb) {
+    
+    for(let i = 0; i < periods*nper; i++){
+        tablebody.innerHTML += ("<tr><td>" + (i+1) + "</td>" + "<td>" + ib[i] + "</td>" + "<td>" + actualpayments[i] + "</td>" + "<td>" + intpayment[i] + "</td>" + "<td>" + fb[i] + "</td>" + "</tr>")
     }
 
-    let F = getNPV(rnow, ib, )
-    //this the bond factor
-    //warning: npv does not discount first payment in numpy-financial unlike excel
-
-
-    for (let i = 0; i < term; i++) {
-        if (i == 0) {
-            ib[i] = bnow
-        } else {
-            ib[i] = fb[i - 1]
-        }
-        intpayment[i] = ib[i] * rnow / 100
-        fb[i] = ib[i] + intpayment[i] - actualpayments[i]
-    }
 }
 /**
  * Calculates the Net Present Value of a given initial investment
