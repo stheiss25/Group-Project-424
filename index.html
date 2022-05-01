@@ -249,7 +249,7 @@
                       watching Badger sporting events.</p>
                   </div>
                 </div>
-                <footer class="card-footer">>
+                <footer class="card-footer">
                   <a href="https://www.linkedin.com/in/tannerwagner-durr/" class="card-footer-item">LinkedIn</a>
                 </footer>
               </div>
@@ -616,31 +616,8 @@
       <div class="hero-body">
         <p>Congrats! Here's your debt payment table:</p>
         <!-- FIXME - Add JS to create the table -->
-        <p>Insert table here with JS</p>
-        <table class="table" id="bond_table">
-          <thead>
-            <tr>
-              <th>
-                Month
-              </th>
-              <th>
-                Initial Balance
-              </th>
-              <th>
-                Payment
-              </th>
-              <th>
-                Interest
-              </th>
-              <th>
-                Final Balance
-              </th>
-            </tr>
-          </thead>
-          <tbody id="table_body">
 
-          </tbody>
-        </table>
+
         <div class="columns mt-1">
 
           <!-- blank columns for spacing -->
@@ -663,6 +640,30 @@
                 </button>
               </div>
             </div>
+            <table class="table" id="bond_table">
+              <thead>
+                <tr>
+                  <th>
+                    Month
+                  </th>
+                  <th>
+                    Initial Balance
+                  </th>
+                  <th>
+                    Payment
+                  </th>
+                  <th>
+                    Interest
+                  </th>
+                  <th>
+                    Final Balance
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="table_body">
+
+              </tbody>
+            </table>
           </div>
           <!-- blank columns for spacing -->
           <div class="column"></div>
@@ -1211,5 +1212,11 @@
     npv += cashFlows[0]
 
     return npv;
+  }
+
+  tablebody = document.getElementById("table_body")
+  for (let i = 0; i < term * numPayments; i++) {
+    tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + startprincipal[i] + "</td>" + "<td>" + payment[
+      i] + "</td>" + "<td>" + interestpath[i] + "</td>" + "<td>" + endprincipal[i] + "</td>" + "</tr>")
   }
 </script>
