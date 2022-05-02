@@ -56,6 +56,8 @@ Note - this document was prepared as a markdown file to make for easier viewing 
 
     7. As a student, I want to read helpful tips and definitions of unfamiliar terms so that I can increase my understanding of bonds.
     
+    8. As a student, I want the application to have a well-designed user interface to make my experience as stress-free as possible.
+    
     
 ### Breaking Down User Stories:
 Sprint 1: <https://docs.google.com/document/d/1zpM0-rGJCFcx12HlnaGQqWUM8hSjBiEHii0vRbWfhK8/edit?usp=sharing>
