@@ -419,7 +419,8 @@ outputbtn.addEventListener('click', (e) => {
     let numPayments = Number(document.getElementById("payments").value)
     let term = Number(document.getElementById("periods").value)
     let balloon = Number(document.getElementById("balloon_payment").value)
-    let regime_to_split = "5 20, 0 20, -5 20"
+    // let regime_to_split = "5 20, 0 20, -5 20"
+    let regime_to_split = document.getElementById("growth").value
     getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
     //below is for spencer
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
@@ -472,9 +473,6 @@ function getPaymentShape(term, numPayments, regimes) {
 }
 
 function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
-    console.log("FfffffASfasdasd" + my_table)
-    console.log(principal)
-    console.log(balloon_payment)
     //let bnow = 100000000
     let bnow = principal
     //let rate = .10
@@ -537,7 +535,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     my_table = Array(termLen)
 
     for (let i = 0; i < term * 12; i++) {
-        my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
+        my_table[i] = [month[i], Number(startprincipal[i].toFixed(2)).toLocaleString('en-US'), payment[i], interestpath[i], endprincipal[i]]
     }
     console.log(my_table)
 
@@ -556,8 +554,9 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     let tablebody = document.getElementById("table_body")
 
     for (let i = 0; i < term * numPayments; i++) {
-        tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + startprincipal[i] + "</td>" + "<td>" + payment[
-            i] + "</td>" + "<td>" + interestpath[i] + "</td>" + "<td>" + endprincipal[i] + "</td>" + "</tr>")
+        tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + Number(startprincipal[i].toFixed(2)).toLocaleString('en-US') + "</td>" + "<td>" + Number(payment[
+                i].toFixed(2)).toLocaleString('en-US') + "</td>" + "<td>" + Number(interestpath[i].toFixed(2)).toLocaleString('en-US') + "</td>" +
+            "<td>" + Number(endprincipal[i].toFixed(2)).toLocaleString('en-US') + "</td>" + "</tr>")
     }
 }
 
