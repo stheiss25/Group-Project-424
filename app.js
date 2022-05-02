@@ -43,6 +43,7 @@ function exportCSV(data) {
 
 // btns for navigation
 let homebtn = document.querySelector('#homebtn')
+let homebtnlogo = document.querySelector('#homebtnlogo')
 let savedbtn = document.querySelector('#savedbtn')
 let createbtn = document.querySelector('#createbtn')
 let ouputbtn = document.querySelector('#outputbtn')
@@ -54,6 +55,14 @@ let outputcontent = document.querySelector('#outputcontent')
 
 homebtn.addEventListener('click', () => {
     // console.log('home works')
+    homecontent.classList.remove('is-hidden')
+    savedcontent.classList.add('is-hidden')
+    createcontent.classList.add('is-hidden')
+    outputcontent.classList.add('is-hidden')
+})
+
+homebtnlogo.addEventListener('click', () => {
+    // console.log('home logo works')
     homecontent.classList.remove('is-hidden')
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')

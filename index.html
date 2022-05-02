@@ -20,13 +20,17 @@
       width: 5%;
       margin-bottom: 8;
     }
+
+    .sameheight {
+      height: 100%;
+    }
   </style>
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
+    <div class="navbar-brand" id="homebtnlogo">
       <a>
         <img src="images/Wisconsin-Crest-Logo.png" width="85%" height="15%">
       </a>
@@ -102,7 +106,7 @@
           <div class="columns has-text-centered">
             <div class="column">
               <!-- Card - row 1, column 1 -->
-              <div class="card">
+              <div class="card ">
                 <div class="card-image">
                   <figure class="image is-4by3">
                     <img src="images/Erwan_Quintin_Headshot.jpg" alt="Erwan Quintin Headshot">
@@ -456,17 +460,13 @@
 
   <!-- create bond content -->
   <div class="is-hidden" id="createcontent">
-    <div class="columns m-4">
-      <!-- spacing -->
-      <!-- <div class="column is-1">
-
-      </div> -->
+    <div class="columns m-4 ">
 
       <div class="column is-5">
-        <div class="box has-background-light">
+        <div class="box has-background-light sameheight">
           <!-- Initial Loan Size -->
-          <h1 class="subtitle has-text-centered">Bond Specifications</h1>
-          <div class="field ">
+          <h1 class="subtitle has-text-centered has-text-weight-bold">Bond Specifications</h1>
+          <div class="field">
             <label class="label ">Initial Loan Size:</label>
 
             <div class="control">
@@ -476,8 +476,6 @@
 
           <!-- Balloon payment -->
           <div class="field">
-
-
             <label class="label">Balloon Payment:</label>
             <div class="control">
               <input class="input" id="balloon_payment" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
@@ -487,8 +485,6 @@
 
           <!-- Number of periods -->
           <div class="field">
-
-
             <label class="label">Number of Periods:</label>
 
             <div class="control">
@@ -498,9 +494,7 @@
           </div>
 
           <!-- Interest per period -->
-          <div class="field ">
-
-
+          <div class="field">
             <label class="label">Interest per Period:</label>
 
             <div class="control">
@@ -510,9 +504,7 @@
           </div>
 
           <!-- Number of payments -->
-          <div class="field ">
-
-
+          <div class="field">
             <label class="label">Payments per Period:</label>
 
             <div class="control">
@@ -522,9 +514,7 @@
           </div>
 
           <!-- growth regimes -->
-          <div class="field ">
-
-
+          <div class="field">
             <label class="label"># of growth regimes:</label>
             <div class="control">
               <input class="input is-right" id="growth" type="text"
@@ -544,9 +534,9 @@
         </div>
       </div>
 
-      <div class="column is-7">
-        <div class="box has-background-light">
-          <h1 class="subtitle has-text-centered">
+      <div class="column is-7 sameheight">
+        <div class="box has-background-light sameheight">
+          <h1 class="subtitle has-text-centered has-text-weight-bold">
             Information
           </h1>
           <div class="box p-3 mt-3 mb-3">
