@@ -369,17 +369,7 @@ logoutbtn.addEventListener('click', () => {
         })
 })
 
-let final_save_btn = document.getElementById("final_save_btn")
 
-function saveBond() {
-    console.log("ffffff")
-    db.collection("saved_bonds").add({
-        test: "testtttt"
-    }).then(console.log("ffffff"))
-}
-final_save_btn.addEventListener('click', function () {
-    saveBond()
-})
 
 // Navbar Burger (for small screens)
 document.addEventListener('DOMContentLoaded', () => {
@@ -410,17 +400,43 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-var my_table = [7]
+var my_table = []
+var principal = 0
+var int_rate = 0
+var numPayments = 0
+var term = 0
+var balloon = 0
+var regime_to_split = ""
+//implement balloon
+
+let final_save_btn = document.getElementById("final_save_btn")
+function saveBond() {
+    console.log("ffffff")
+    db.collection("saved_bonds").add({
+        email: userCredentials.user.email,
+        timestamp: Date.now(),
+        principal: principal,
+        int_rate: int_rate,
+        numPayments: numPayments,
+        term: term,
+        balloon: balloon,
+        regime_to_split: regime_to_split
+    }).then(console.log("ffffff"))
+}
+final_save_btn.addEventListener('click', function () {
+    saveBond()
+})
+
 let outputbtn = document.getElementById("outputbtn")
 outputbtn.addEventListener('click', (e) => {
     console.log("fffffffffffasdasdasdasdasd")
-    let principal = Number(document.getElementById("loan_size").value)
-    let int_rate = Number(document.getElementById("interest").value)
-    let numPayments = Number(document.getElementById("payments").value)
-    let term = Number(document.getElementById("periods").value)
-    let balloon = Number(document.getElementById("balloon_payment").value)
+    principal = Number(document.getElementById("loan_size").value)
+    int_rate = Number(document.getElementById("interest").value)
+    numPayments = Number(document.getElementById("payments").value)
+    term = Number(document.getElementById("periods").value)
+    balloon = Number(document.getElementById("balloon_payment").value)
     // let regime_to_split = "5 20, 0 20, -5 20"
-    let regime_to_split = document.getElementById("growth").value
+    regime_to_split = document.getElementById("growth").value
     getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
     //below is for spencer
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
