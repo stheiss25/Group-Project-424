@@ -8,6 +8,25 @@ Note - this document was prepared as a markdown file to make for easier viewing 
 ### Link to Trello board: 
 <https://trello.com/b/mnX6w6yF/spring-2022-is424-term-project>
 
+### Sprint 3 Tasks (From Trello Board)
+- Code export as .csv
+- Add favicon to page
+- Code basic helpers/definitions for each item on input
+- Code save bonds
+- Code export as pdf
+- Fix Navbar
+- Toggle buttons based on guest/signed in
+- Finish coding navigation
+- Code Bond Table Output
+- Code Bond Shape Graph
+- Code Input Validation
+- Fix Edit Account Info Code
+- Test final application to ensure it is working properly
+- Fix About Us Cards
+- Include Payment Shape Input
+- Figure out .00 stuff for bond output
+
+
 ### Sprint 2 Tasks (From Trello Board)
 - Level 0 Data Flow Diagram
 - Level 1 Data Flow Diagram
