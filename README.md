@@ -68,6 +68,8 @@ Sprint 3: <https://docs.google.com/document/d/1dZbvPtiqtLDXPGXMzMAQe47HEHve1tRpE
 Sprint 1: <https://drive.google.com/file/d/1wtKKPvKWAoWWu-5SsB9LcZZu1F0HU1bz/view?usp=sharing>
 <br />
 Sprint 2: <https://drive.google.com/drive/folders/15Kuv8nTL9IbHKDhzxHJ23XLJTfrqdJp0?usp=sharing>
+<br />
+Sprint 3: <https://drive.google.com/drive/folders/1MJFbT5lNtb5LejQSEJjnaj4AvwEcvFqr?usp=sharing>
 
 ### GitHub repo link:
 <https://github.com/stheiss25/Group-Project-424>
