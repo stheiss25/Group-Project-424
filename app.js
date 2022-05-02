@@ -410,11 +410,13 @@ var regime_to_split = ""
 //implement balloon
 
 let final_save_btn = document.getElementById("final_save_btn")
+let save_modal = document.getElementById("save_modal")
 function saveBond() {
-    console.log("ffffff")
+    let name = document.getElementById("file_name").value
     db.collection("saved_bonds").add({
-        email: userCredentials.user.email,
-        timestamp: Date.now(),
+        file_name: name,
+        email: firebase.auth().currentUser.email,
+        date: new Date().toLocaleDateString(),
         principal: principal,
         int_rate: int_rate,
         numPayments: numPayments,
@@ -423,7 +425,8 @@ function saveBond() {
         regime_to_split: regime_to_split
     }).then(console.log("ffffff"))
 }
-final_save_btn.addEventListener('click', function () {
+save_modal.addEventListener('submit', (e) => {
+    e.preventDefault()
     saveBond()
 })
 
