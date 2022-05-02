@@ -55,13 +55,13 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="js-modal-trigger button is-light" data-target="sign_up">
+          <a class="js-modal-trigger button is-light" data-target="sign_up_modal">
             Sign up
           </a>
-          <a class="js-modal-trigger button is-light" data-target="log_in">
+          <a class=" js-modal-trigger button is-light" data-target="login_modal">
             Log in
           </a>
-          <a class="js-modal-trigger button is-light" data-target="account_info">
+          <a class=" js-modal-trigger button is-light" data-target="account_info">
             Account Info
           </a>
         </div>
@@ -249,7 +249,7 @@
                       watching Badger sporting events.</p>
                   </div>
                 </div>
-                <footer class="card-footer">>
+                <footer class="card-footer">
                   <a href="https://www.linkedin.com/in/tannerwagner-durr/" class="card-footer-item">LinkedIn</a>
                 </footer>
               </div>
@@ -265,7 +265,7 @@
 
 
     <!-- sign-up modal -->
-    <div id="sign_up" class="modal">
+    <div id="sign_up_modal" class="modal">
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="box">
@@ -616,8 +616,8 @@
       <div class="hero-body">
         <p>Congrats! Here's your debt payment table:</p>
         <!-- FIXME - Add JS to create the table -->
-        <p>Insert table here with JS</p>
-        
+
+
         <div class="columns mt-1">
 
           <!-- blank columns for spacing -->
@@ -661,7 +661,7 @@
                 </tr>
               </thead>
               <tbody id="table_body">
-    
+
               </tbody>
             </table>
           </div>
@@ -776,14 +776,14 @@
 
 
   <!-- log in modal -->
-  <div id="log_in" class="modal">
+  <div id="login_modal" class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
       <div class="box">
         <h1 class="title is-4">Log in</h1>
         <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign_up">Sign
             up</a>.</h2>
-        <form action="" id="log_in_form" class="mb-0 mt-2 loggedin">
+        <form action="" id="login_form" class="mb-0 mt-2 loggedin">
           <!-- email input -->
           <div class="field">
             <label class="label">Email: </label>
@@ -1011,7 +1011,7 @@
   });
 
 
-  let login_form = document.querySelector('#log_in_form');
+  let login_form = document.querySelector('#login_form');
   login_form.addEventListener('submit', (e) => {
     e.preventDefault();
     let email_ = document.querySelector('#login_email').value;
@@ -1037,7 +1037,7 @@
   signup_form.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    var sign_up_modal = document.querySelector("#sign_up");
+    var sign_up_modal = document.querySelector("#sign_up_modal");
 
 
     let name = document.querySelector('#signup_name').value;
@@ -1100,11 +1100,11 @@
       });
   }
 
-  let log_in = document.querySelector("#log_in_form");
+  let log_in = document.querySelector("#login_form");
 
   log_in.addEventListener('submit', (e) => {
-    var login_modal = document.querySelector("#log_in");
-    login_modal.classList.remove('is-active');
+    var log_in_modal = document.querySelector("#login");
+    log_in_modal.classList.remove('is-active');
   })
 
 
@@ -1237,8 +1237,10 @@
   }
 
   tablebody = document.getElementById("table_body")
-  for(let i = 0; i < term*numPayments; i++){
-        tablebody.innerHTML += ("<tr><td>" + (i+1) + "</td>" + "<td>" + Number(startprincipal[i].toFixed(2)).toLocaleString("en-US") + "</td>" + "<td>" + Number(payment[i].toFixed(2)).toLocaleString("en-US") + "</td>" + "<td>" + Number(interestpath[i].toFixed(2)).toLocaleString("en-US") + "</td>" + "<td>" + Number(endprincipal[i].toFixed(2)).toLocaleString("en-US") + "</td>" + "</tr>")
+
+  for (let i = 0; i < term * numPayments; i++) {
+    tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + startprincipal[i] + "</td>" + "<td>" + payment[
+      i] + "</td>" + "<td>" + interestpath[i] + "</td>" + "<td>" + endprincipal[i] + "</td>" + "</tr>")
   }
 }
 
