@@ -1,10 +1,3 @@
-function createTable(nper, periods, ib, actualpayments, intpayment, fb) {
-
-    for (let i = 0; i < periods * nper; i++) {
-        tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + ib[i] + "</td>" + "<td>" + actualpayments[i] + "</td>" + "<td>" + intpayment[i] + "</td>" + "<td>" + fb[i] + "</td>" + "</tr>")
-    }
-
-}
 /**
  * Calculates the Net Present Value of a given initial investment
  * cost and an array of cash flow values with the specified discount rate.
@@ -85,7 +78,7 @@ createbtn.addEventListener('click', () => {
     outputcontent.classList.add('is-hidden')
 })
 
-outputbtn.addEventListener('click', () => {
+ouputbtn.addEventListener('click', () => {
     // console.log('output works')
     homecontent.classList.add('is-hidden')
     savedcontent.classList.add('is-hidden')
@@ -102,8 +95,8 @@ console.log("num js output", a)
 //     pv
 // } from "./node_modules/financial";
 
-// Sign Up Modal
-// grab the button
+//Sign Up Modal
+//grab the button
 var signup = document.querySelector("#signup");
 // attach click event
 signup.addEventListener('click', function () {
@@ -120,8 +113,8 @@ modalbg.addEventListener('click', function () {
 })
 
 
-// Log in Modal
-// grab the button
+//Log in Modal
+//grab the button
 var login = document.querySelector("#login");
 // attach click event
 login.addEventListener('click', function () {
@@ -328,7 +321,7 @@ change_info.addEventListener('submit', (e) => {
         }
     })
 
-    updateinfo(main_user_id, new_name, new_class, new_email, new_password)
+    updateInfo(main_user_id, new_name, new_class, new_email, new_password)
 
     change_modal.classList.remove('is-active');
     e.preventDefault();
@@ -336,8 +329,8 @@ change_info.addEventListener('submit', (e) => {
 
 
 
-
-outputbtn = document.getElementById("outputbtn")
+var my_table = [7]
+let outputbtn = document.getElementById("outputbtn")
 outputbtn.addEventListener('click', (e) => {
     console.log("fffffffffffasdasdasdasdasd")
     let principal = Number(document.getElementById("loan_size").value)
@@ -351,10 +344,12 @@ outputbtn.addEventListener('click', (e) => {
     let graph = getPaymentShape(term, numPayments, regime_to_split)
 })
 
-let my_table = []
-exportbtn = document.getElementById("export_button")
+let exportbtn = document.getElementById("export_button")
 exportbtn.addEventListener('click', (e) => {
     console.log("exporting table to CSV....")
+    my_table.unshift(["Month", "Initial Balance", "Payment", "Interest", "Final Balance"])
+    my_table.unshift(["","","Debt Payment Table", "",""])
+    
     exportCSV(my_table)
 })
 
@@ -395,7 +390,8 @@ function getPaymentShape(term, numPayments, regimes) {
 }
 
 
-function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes, my_table) {
+function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
+    console.log("FfffffASfasdasd" + my_table)
     console.log(principal)
     console.log(balloon_payment)
     //let bnow = 100000000
@@ -478,7 +474,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
         return npv;
     }
 
-    tablebody = document.getElementById("table_body")
+    let tablebody = document.getElementById("table_body")
 
     for (let i = 0; i < term * numPayments; i++) {
         tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + startprincipal[i] + "</td>" + "<td>" + payment[
