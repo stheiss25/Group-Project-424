@@ -159,6 +159,7 @@ savedbtn.addEventListener('click', () => {
     savedcontent.classList.remove('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
+    displaySavedBonds()
 })
 
 createbtn.addEventListener('click', () => {
@@ -634,3 +635,26 @@ tograph.addEventListener('click', () => {
 })
 // x = term
 // y = numPaymentsx
+
+//put bond info into saved bonds table
+var saved_bond_table = document.getElementById("saved_bond_table")
+var saved_matched_bonds
+function displaySavedBonds(){
+    db.collection("saved_bonds").get().then(doc => {
+        saved_matched_bonds = []
+        doc.forEach(entry => {
+            if(entry.data().email == firebase.auth().currentUser.email){
+                saved_matched_bonds.push(entry.data())
+
+            }
+        })
+        console.log(saved_matched_bonds)
+        for(let i = 0; i < saved_matched_bonds.length; i++){
+            saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name + "</div></th>" + "<th><div>"+ saved_matched_bonds[i].date + "</th></div></tr>"
+        }
+
+
+    })
+
+
+}
