@@ -1,5 +1,5 @@
 # Universal Bond Calculator README
-Note - this document was prepared as a markdown file to make for easier viewing on GitHub. If your device is unable to open this file for grading, just change the file extension to ".txt".
+Note - this document was prepared as a markdown file to make for easier viewing on GitHub. If your device is unable to open this file for grading, just change the file extension to ".txt" or download the ".txt" version of this file instead.
 
 
 ### Link to JustInMind Prototypes:
