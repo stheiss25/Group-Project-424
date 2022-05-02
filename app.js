@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
         const modal = $trigger.dataset.target;
         const $target = document.getElementById(modal);
-        console.log($target);
+        // console.log($target);
 
         $trigger.addEventListener('click', () => {
             openModal($target);
@@ -85,6 +85,33 @@ function exportCSV(data) {
 // for hiding buttons when logged in
 let loggedoutlinks = document.querySelectorAll('.loggedout');
 let loggedinlinks = document.querySelectorAll('.loggedin');
+
+// function to see if user is signed in and what they can see
+function hideButtons(user) {
+    //check if user is passed to the function (user is signed in)
+    if (user) {
+        // show all the loggedin links
+        loggedinlinks.forEach((link) => {
+            link.classList.remove('is-hidden');
+        })
+
+        // hide all the loggedout links
+        loggedoutlinks.forEach((link) => {
+            link.classList.add('is-hidden');
+        })
+    }
+    // no user is passed to the function (user is signed out)
+    else {
+        // show all the loggedout links
+        loggedoutlinks.forEach((link) => {
+            link.classList.remove('is-hidden');
+        })
+        // hide all the loggedin links
+        loggedinlinks.forEach((link) => {
+            link.classList.add('is-hidden');
+        })
+    }
+}
 
 // btns for navigation
 let homebtn = document.querySelector('#homebtn')
@@ -142,133 +169,6 @@ ouputbtn.addEventListener('click', () => {
 var a = nj.array([2, 3, 4])
 console.log("num js output", a)
 
-//Sign Up Modal
-//grab the button
-var signup = document.querySelector("#signup");
-// attach click event
-signup.addEventListener('click', function () {
-    //grab the modal
-    var mymodal = document.querySelector("#sign_up_modal");
-    //add the is active class
-    mymodal.classList.add('is-active');
-})
-//attach event on modal background
-//grab the modal background
-var modalbg = document.querySelector("#signupmodalbg");
-modalbg.addEventListener('click', function () {
-    mymodal.classList.remove('is-active');
-})
-
-
-//Log in Modal
-//grab the button
-var login = document.querySelector("#login");
-// attach click event
-login.addEventListener('click', function () {
-    //grab the modal
-    var loginmodal = document.querySelector("#login_modal");
-    //add the is active class
-    loginmodal.classList.add('is-active');
-})
-//attach event on modal background
-//grab the modal background
-var loginmodalbg = document.querySelector("#loginmodalbg");
-loginmodalbg.addEventListener('click', function () {
-    loginmodal.classList.remove('is-active');
-})
-
-//Account Info Modal
-//grab the button
-var account = document.querySelector("#acctinfo");
-// attach click event
-account.addEventListener('click', function () {
-    //grab the modal
-    var accountmodal = document.querySelector("#account_info");
-    //add the is active class
-    accountmodal.classList.add('is-active');
-})
-//attach event on modal background
-//grab the modal background
-var accountinfobg = document.querySelector("#accountinfobg");
-accountinfobg.addEventListener('click', function () {
-    accountmodal.classList.remove('is-active');
-})
-
-//sign out
-let logoutbtn = document.querySelector('#logout');
-
-//attach a click event
-logoutbtn.addEventListener('click', () => {
-    auth.signOut()
-        .then((msg) => {
-            console.log("user signed out!");
-        })
-})
-
-
-db.collection('users').get().then(response => {
-    console.log(response.docs[0].data());
-})
-let final_save_btn = document.getElementById("final_save_btn")
-
-function saveBond() {
-    console.log("ffffff")
-    db.collection("saved_bonds").add({
-        test: "testtttt"
-    }).then(console.log("ffffff"))
-}
-final_save_btn.addEventListener('click', function () {
-    saveBond()
-})
-
-let login_form = document.querySelector('#login_form');
-login_form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let email_ = document.querySelector('#login_email').value;
-    let password_ = document.querySelector('#login_password').value;
-    auth.signInWithEmailAndPassword(email_, password_)
-        .then((userCredentials) => {
-            console.log(userCredentials.user.email + " with the id " + userCredentials.user.uid + " is logged in");
-            // user_id = userCredentials.user.uid;
-            my_login_modal.classList.remove('is-active');
-            login_form.reset();
-            welcome_user();
-        })
-        .catch((e) => {
-
-        })
-
-
-})
-
-// Navbar Burger (for small screens)
-document.addEventListener('DOMContentLoaded', () => {
-
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-
-        // Add a click event on each of them
-        $navbarBurgers.forEach(el => {
-            el.addEventListener('click', () => {
-
-                console.log("burger CLICKED!")
-                // Get the target from the "data-target" attribute
-                const target = el.dataset.target;
-                const $target = document.getElementById(target);
-
-                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                el.classList.toggle('is-active');
-                $target.classList.toggle('is-active');
-
-            });
-        });
-    }
-
-});
-
 // signup
 let signup_form = document.querySelector('#signup_form')
 
@@ -296,11 +196,9 @@ signup_form.addEventListener('submit', (e) => {
         db.collection("users").add(user).then((data) => {
             console.log("User added to database");
         })
-        signup_form.reset()
     })
 
-
-
+    signup_form.reset()
     sign_up_modal.classList.remove('is-active');
 })
 
@@ -338,13 +236,6 @@ function updateInfo(id, new_name, new_class, new_email, new_password) {
         });
 }
 
-let log_in = document.querySelector("#login_form");
-
-log_in.addEventListener('submit', (e) => {
-    var log_in_modal = document.querySelector("#login");
-    log_in_modal.classList.remove('is-active');
-})
-
 
 let change_info = document.querySelector("#change_info");
 
@@ -370,6 +261,140 @@ change_info.addEventListener('submit', (e) => {
     e.preventDefault();
 })
 
+let login_form = document.querySelector('#login_form');
+login_form.addEventListener('submit', (e) => {
+
+    var my_login_modal = document.querySelector("#login_modal");
+
+    e.preventDefault();
+    let email_ = document.querySelector('#login_email').value;
+    let password_ = document.querySelector('#login_password').value;
+    auth.signInWithEmailAndPassword(email_, password_)
+        .then((userCredentials) => {
+            console.log(userCredentials.user.email + " with the id " + userCredentials.user.uid + " is logged in");
+            // user_id = userCredentials.user.uid;
+
+            welcome_user();
+        })
+        .catch((e) => {
+
+        })
+    login_form.reset();
+    my_login_modal.classList.remove('is-active');
+
+})
+
+//Sign Up Modal
+//grab the button
+var signup = document.querySelector("#signup");
+// attach click event
+signup.addEventListener('click', function () {
+    //grab the modal
+    var mymodal = document.querySelector("#sign_up_modal");
+    //add the is active class
+    mymodal.classList.add('is-active');
+
+    //attach event on modal background
+    //grab the modal background
+    var modalbg = document.querySelector("#signupmodalbg");
+    modalbg.addEventListener('click', function () {
+        mymodal.classList.remove('is-active');
+    })
+})
+
+
+
+//Log in Modal
+//grab the button
+var login = document.querySelector("#login");
+// attach click event
+login.addEventListener('click', function () {
+    //grab the modal
+    var loginmodal = document.querySelector("#login_modal");
+    //add the is active class
+    loginmodal.classList.add('is-active');
+
+    //attach event on modal background
+    //grab the modal background
+    var loginmodalbg = document.querySelector("#loginmodalbg");
+    loginmodalbg.addEventListener('click', function () {
+        loginmodal.classList.remove('is-active');
+    })
+})
+
+
+//Account Info Modal
+//grab the button
+var account = document.querySelector("#acctinfo");
+// attach click event
+account.addEventListener('click', function () {
+    //grab the modal
+    var accountmodal = document.querySelector("#account_info");
+    //add the is active class
+    accountmodal.classList.add('is-active');
+
+    //attach event on modal background
+    //grab the modal background
+    var accountinfobg = document.querySelector("#accountinfobg");
+    accountinfobg.addEventListener('click', function () {
+        accountmodal.classList.remove('is-active');
+    })
+})
+
+//sign out
+let logoutbtn = document.querySelector('#logout');
+
+//attach a click event
+logoutbtn.addEventListener('click', () => {
+    auth.signOut()
+        .then((msg) => {
+            console.log("user signed out!");
+        })
+})
+
+
+db.collection('users').get().then(response => {
+    console.log(response.docs[0].data());
+})
+let final_save_btn = document.getElementById("final_save_btn")
+
+function saveBond() {
+    console.log("ffffff")
+    db.collection("saved_bonds").add({
+        test: "testtttt"
+    }).then(console.log("ffffff"))
+}
+final_save_btn.addEventListener('click', function () {
+    saveBond()
+})
+
+// Navbar Burger (for small screens)
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+
+                console.log("burger CLICKED!")
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+
+            });
+        });
+    }
+
+});
 
 
 var my_table = [7]

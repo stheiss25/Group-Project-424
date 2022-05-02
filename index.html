@@ -59,16 +59,16 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="js-modal-trigger button is-light" data-target="sign_up_modal" id="signup">
+          <a class="js-modal-trigger button is-light loggedout" data-target="sign_up_modal" id="signup">
             Sign up
           </a>
-          <a class=" js-modal-trigger button is-light" data-target="login_modal" id="login">
+          <a class=" js-modal-trigger button is-light loggedout" data-target="login_modal" id="login">
             Log in
           </a>
-          <a class=" js-modal-trigger button is-light" data-target="account_info" id="acctinfo">
+          <a class=" js-modal-trigger button is-light loggedin" data-target="account_info" id="acctinfo">
             Account Info
           </a>
-          <a class="button is-light" id="logout">
+          <a class="button is-light loggedin" id="logout">
             Log out
           </a>
         </div>
@@ -347,7 +347,7 @@
       <div class="box">
         <button class="modal-close is-large" aria-label="close"></button>
         <h1 class="title is-4">Log in</h1>
-        <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign_up">Sign
+        <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign_up_modal">Sign
             up</a>.</h2>
         <form action="" id="login_form" class="mb-0 mt-2">
           <!-- email input -->
