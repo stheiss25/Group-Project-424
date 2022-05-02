@@ -113,6 +113,17 @@ function hideButtons(user) {
     }
 }
 
+auth.onAuthStateChanged((user) => {
+    // check if user is signed in or signed out
+    if (user) {
+        console.log('user is now signed in!')
+        hideButtons(user);
+    } else {
+        console.log('user is now signed out!');
+        hideButtons();
+    }
+})
+
 // btns for navigation
 let homebtn = document.querySelector('#homebtn')
 let homebtnlogo = document.querySelector('#homebtnlogo')
@@ -164,10 +175,10 @@ ouputbtn.addEventListener('click', () => {
     createcontent.classList.add('is-hidden')
     outputcontent.classList.remove('is-hidden')
 })
-
-//num js (numpy for JS)
-var a = nj.array([2, 3, 4])
-console.log("num js output", a)
+// TODO
+// //num js (numpy for JS)
+// var a = nj.array([2, 3, 4])
+// console.log("num js output", a)
 
 // signup
 let signup_form = document.querySelector('#signup_form')
@@ -182,6 +193,7 @@ signup_form.addEventListener('submit', (e) => {
     let email = document.querySelector('#signup_email').value;
     let s_class = document.querySelector('#signup_class').value;
     let password = document.querySelector('#signup_password').value;
+    let user = {}
 
     auth.createUserWithEmailAndPassword(email, password).then((userCredential) => {
         console.log('user created successfully');
@@ -353,9 +365,9 @@ logoutbtn.addEventListener('click', () => {
 })
 
 
-db.collection('users').get().then(response => {
-    console.log(response.docs[0].data());
-})
+// db.collection('users').get().then(response => {
+//     console.log(response.docs[0].data());
+// })
 let final_save_btn = document.getElementById("final_save_btn")
 
 function saveBond() {
