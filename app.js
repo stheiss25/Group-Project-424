@@ -422,7 +422,8 @@ outputbtn.addEventListener('click', (e) => {
     let regime_to_split = "5 20, 0 20, -5 20"
     getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
     //below is for spencer
-    let graph = getPaymentShape(term, numPayments, regime_to_split)
+    let graph1 = getPaymentShape(term, numPayments, regime_to_split)
+    console.log(graph1)
 })
 
 let exportbtn = document.getElementById("export_button")
@@ -435,7 +436,7 @@ exportbtn.addEventListener('click', (e) => {
 })
 
 //// for Spencer 
-getPaymentShape(5, 12, "5 20, 0 20, -5 20")
+// getPaymentShape(5, 12, "5 20, 0 20, -5 20")
 
 function getPaymentShape(term, numPayments, regimes) {
     let regime_to_split = "5 20, 0 20, -5 20"
@@ -559,3 +560,49 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
             i] + "</td>" + "<td>" + interestpath[i] + "</td>" + "<td>" + endprincipal[i] + "</td>" + "</tr>")
     }
 }
+
+// graph display on modal
+let tograph = document.querySelector('#tograph')
+
+tograph.addEventListener('click', () => {
+    console.log('load graph')
+
+    let principal = Number(document.getElementById("loan_size").value)
+    let int_rate = Number(document.getElementById("interest").value)
+    let numPayments = Number(document.getElementById("payments").value)
+    let term = Number(document.getElementById("periods").value)
+    let balloon = Number(document.getElementById("balloon_payment").value)
+    let regime_to_split = "5 20, 0 20, -5 20"
+    // getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
+
+    let graph1 = getPaymentShape(term, numPayments, regime_to_split)
+    console.log(graph1)
+
+    var c = new CanvasJS.Chart('graphdisplay', {
+        zoomEnabled: true,
+
+        axisX: {
+            title: 'X axis',
+            interval: 1
+        },
+        axisY: {
+            title: 'Y axis'
+        },
+        data: [{
+            type: 'line',
+            xValueType: 'area',
+            dataPoints: [{
+                    x: 1,
+                    y: 1
+                },
+                {
+                    x: 2,
+                    y: 2
+                },
+            ]
+        }]
+    })
+    c.render()
+})
+// x = term
+// y = numPaymentsx
