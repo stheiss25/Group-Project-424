@@ -115,3 +115,6 @@ e. Are you satisfied with what you already completed?
 f. Which group was invited? What are your observations/notes? 
 Everybody was present?
 - We invited group 7 to analyze our sprint review. What we observed was that Group 7 had a great sense of what they do well and what they need to improve upon. Group 7 has excellent communication and project management skills. They made effective use of their standups and were in constant contact with each other. They recognized some inexperience in Javascript but made sure adjust accordingly. They were all present.
+
+### Sprint 3 Review
+FIXME: NEED TO ADD!
