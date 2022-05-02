@@ -472,8 +472,8 @@ exportbtn.addEventListener('click', (e) => {
 // getPaymentShape(5, 12, "5 20, 0 20, -5 20")
 
 function getPaymentShape(term, numPayments, regimes) {
-    let regime_to_split = "5 20, 0 20, -5 20"
-    // let regime_to_split = regimes
+    // let regime_to_split = "5 20, 0 20, -5 20"
+    let regime_to_split = regimes
 
     let regime_array = regime_to_split.split(",")
     let shape = Array(regime_array.length)
@@ -600,7 +600,7 @@ tograph.addEventListener('click', () => {
 
     let numPayments = Number(document.getElementById("payments").value)
     let term = Number(document.getElementById("periods").value)
-    let regime_to_split = "5 20, 0 20, -5 20"
+    let regime_to_split = document.getElementById("growth").value
     // getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
 
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
