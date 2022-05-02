@@ -248,7 +248,6 @@ function updateInfo(id, new_name, new_class, new_email, new_password) {
         });
 }
 
-
 let change_info = document.querySelector("#change_info");
 
 change_info.addEventListener('submit', (e) => {
@@ -263,7 +262,7 @@ change_info.addEventListener('submit', (e) => {
     userdata.forEach((user) => {
         if (auth.currentUser.uid == user.data().id) {
             main_user = user;
-            main_user_id = db.collection("Users").doc(user.id);
+            main_user_id = db.collection("users").doc(user.id);
         }
     })
 
@@ -314,8 +313,6 @@ signup.addEventListener('click', function () {
     })
 })
 
-
-
 //Log in Modal
 //grab the button
 var login = document.querySelector("#login");
@@ -333,7 +330,6 @@ login.addEventListener('click', function () {
         loginmodal.classList.remove('is-active');
     })
 })
-
 
 //Account Info Modal
 //grab the button
@@ -364,10 +360,6 @@ logoutbtn.addEventListener('click', () => {
         })
 })
 
-
-// db.collection('users').get().then(response => {
-//     console.log(response.docs[0].data());
-// })
 let final_save_btn = document.getElementById("final_save_btn")
 
 function saveBond() {
@@ -469,7 +461,6 @@ function getPaymentShape(term, numPayments, regimes) {
     return graph_info;
 }
 
-
 function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
     console.log("FfffffASfasdasd" + my_table)
     console.log(principal)
@@ -500,8 +491,6 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     let cf_pattern = Array(termLen).fill(1)
     let regime = 0
     let switch1 = shape[0][1]
-
-
 
     for (let i = 1; i < termLen; i++) {
         cf_pattern[i] = cf_pattern[i - 1] * (1 + shape[regime][0] / 100)
