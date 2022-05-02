@@ -1,5 +1,5 @@
 # Universal Bond Calculator README
-Note - this document was prepared as a markdown file to make for easier viewing on GitHub. If your device is unable to open this file for grading, just change the file extension to ".txt".
+Note - this document was prepared as a markdown file to make for easier viewing on GitHub. If your device is unable to open this file for grading, just change the file extension to ".txt" or download the ".txt" version of this file instead.
 
 
 ### Link to JustInMind Prototypes:
@@ -119,4 +119,21 @@ Everybody was present?
 - We invited group 7 to analyze our sprint review. What we observed was that Group 7 had a great sense of what they do well and what they need to improve upon. Group 7 has excellent communication and project management skills. They made effective use of their standups and were in constant contact with each other. They recognized some inexperience in Javascript but made sure adjust accordingly. They were all present.
 
 ### Sprint 3 Review
-FIXME: NEED TO ADD!
+Sprint 3 Review
+a. What did you learn from doing our first sprint?
+- From our first sprint, we learned the importance of allocating tasks evenly. Our team did a great job of communicating and making sure work was done evenly.
+
+b. What did go well? Why?
+- What went well was our functionality of our app. We are proud of the features and the overall functionality of it.
+
+c. What didn’t go well? Why not?
+-	What didn’t go well was accounting for other exams and projects this sprint. This sprint was heavy for other class work. We got our work done, but we did not manage our time particularly well.
+
+d. How can you make things better next time?
+-	We will make sure we stick to our planned scheduled.
+
+e. Are you satisfied with what you already completed?
+-	I am very satisfied with what we accomplished this sprint. Our project management schedule was not adhered to as close as we would've liked but we are very proud of our web app.
+
+f. Which group was invited? What are your observations/notes? 
+- We invited group 7 to analyze our sprint review. Group 7 had a great method of staying on track. This was their most successful sprint in terms of project management and communication. They were all present.
