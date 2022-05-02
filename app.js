@@ -130,6 +130,7 @@ let homebtnlogo = document.querySelector('#homebtnlogo')
 let savedbtn = document.querySelector('#savedbtn')
 let createbtn = document.querySelector('#createbtn')
 let ouputbtn = document.querySelector('#outputbtn')
+let startbtn = document.querySelector('#startbtn')
 
 let homecontent = document.querySelector('#homecontent')
 let savedcontent = document.querySelector('#savedcontent')
@@ -174,6 +175,14 @@ ouputbtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.remove('is-hidden')
+})
+
+startbtn.addEventListener('click', () => {
+    // console.log('startbtn works')
+    homecontent.classList.add('is-hidden')
+    savedcontent.classList.add('is-hidden')
+    createcontent.classList.remove('is-hidden')
+    outputcontent.classList.add('is-hidden')
 })
 // TODO
 // //num js (numpy for JS)
