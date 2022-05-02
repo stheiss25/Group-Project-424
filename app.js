@@ -226,6 +226,34 @@ login_form.addEventListener('submit', (e) => {
 
 })
 
+// Navbar Burger (for small screens)
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+
+                console.log("burger CLICKED!")
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+
+            });
+        });
+    }
+
+});
+
 // signup
 let signup_form = document.querySelector('#signup_form')
 
@@ -348,8 +376,8 @@ let exportbtn = document.getElementById("export_button")
 exportbtn.addEventListener('click', (e) => {
     console.log("exporting table to CSV....")
     my_table.unshift(["Month", "Initial Balance", "Payment", "Interest", "Final Balance"])
-    my_table.unshift(["","","Debt Payment Table", "",""])
-    
+    my_table.unshift(["", "", "Debt Payment Table", "", ""])
+
     exportCSV(my_table)
 })
 
