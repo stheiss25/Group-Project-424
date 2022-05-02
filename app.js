@@ -566,17 +566,35 @@ let tograph = document.querySelector('#tograph')
 tograph.addEventListener('click', () => {
     console.log('load graph')
 
-    let principal = Number(document.getElementById("loan_size").value)
-    let int_rate = Number(document.getElementById("interest").value)
     let numPayments = Number(document.getElementById("payments").value)
     let term = Number(document.getElementById("periods").value)
-    let balloon = Number(document.getElementById("balloon_payment").value)
     let regime_to_split = "5 20, 0 20, -5 20"
     // getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
 
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
-    console.log(graph1)
+    console.log(graph1[2][0])
+    let xarray = []
+    let yarray = []
 
+    // x vals
+    for (let i = 0; i < graph1.length; i++) {
+        xarray.push(graph1[i][0])
+    }
+
+    // y vals
+    for (let i = 0; i < graph1.length; i++) {
+        yarray.push(graph1[i][1])
+    }
+
+    let dp = []
+    for (let j = 0; j < xarray.length; j++) {
+        dp.push({
+            x: xarray[j],
+            y: yarray[j]
+        })
+    }
+
+    // display graph
     var c = new CanvasJS.Chart('graphdisplay', {
         zoomEnabled: true,
 
@@ -590,15 +608,7 @@ tograph.addEventListener('click', () => {
         data: [{
             type: 'line',
             xValueType: 'area',
-            dataPoints: [{
-                    x: 1,
-                    y: 1
-                },
-                {
-                    x: 2,
-                    y: 2
-                },
-            ]
+            dataPoints: dp
         }]
     })
     c.render()
