@@ -635,7 +635,7 @@
               </div>
               <div class="control">
                 <button class="js-modal-trigger button has-background-danger-dark has-text-white"
-                  data-target="export_modal">
+                  data-target="export_modal" id = "export_button">
                   <p>Export Data</p>
                 </button>
               </div>
@@ -1131,26 +1131,48 @@
     change_modal.classList.remove('is-active');
     e.preventDefault();
   })
+  
+  
+  
 
+  outputbtn = document.getElementById("outputbtn")
+  outputbtn.addEventListener('click', (e) =>{
+      console.log("fffffffffffasdasdasdasdasd")
+      let principal = Number(document.getElementById("loan_size").value)
+      let int_rate = Number(document.getElementById("interest").value)
+      let numPayments = Number(document.getElementById("payments").value)
+      let term = Number(document.getElementById("periods").value)
+      let balloon = Number(document.getElementById("balloon_payment").value)
+      let regime_to_split = "5 20, 0 20, -5 20"
+      getTable(principal,int_rate,numPayments,term,balloon,regime_to_split)
+  })
 
-  // function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
-  let bnow = 100000000
-  // let bnow = principal
-  let rate = .10
-  // let rate = int_rate
-  let numPayments = 12
-  // let numPayments = payments_per_period
-  let term = 5
-  // let term = periods
-  let balloon = 20000000
-  // let balloon = balloon_payment
-  let regime_to_split = "5 10, 0 20, -5 20"
-  // let regime_to_split = regimes
+  let my_table = []
+  exportbtn = document.getElementById("export_button")
+  exportbtn.addEventListener('click', (e) =>{
+    console.log("exporting table to CSV....")
+    exportCSV(my_table)
+  })
+  function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes, my_table) {
+  console.log(principal)
+  console.log(balloon_payment)
+  //let bnow = 100000000
+  let bnow = principal
+  //let rate = .10
+  let rate = int_rate
+  //let numPayments = 12
+  let numPayments = payments_per_period
+  //let term = 5
+  let term = periods
+  //let balloon = 20000000
+  let balloon = balloon_payment
+  //let regime_to_split = "5 10, 0 20, -5 20"
+  let regime_to_split = regimes
 
   let regime_array = regime_to_split.split(",")
   let shape = Array(regime_array.length)
   for (let i = 0; i < regime_array.length; i++) {
-    shape[i] = regime_array[i].split(" ")
+    shape[i] = regime_array[i].trim().split(" ")
     shape[i][0] = Number(shape[i][0])
     shape[i][1] = Number(shape[i][1])
   }
@@ -1175,7 +1197,7 @@
   let f = npv / (1 + (rate / 12))
 
   let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
-
+  console.log(f, npv)
   let payment = Array(termLen)
 
   for (let i = 0; i < termLen; i++) {
@@ -1195,7 +1217,7 @@
     endprincipal[i] = startprincipal[i] + interestpath[i] - payment[i]
   }
 
-  let my_table = Array(termLen)
+  my_table = Array(termLen)
 
   for (let i = 0; i < term * 12; i++) {
     my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
@@ -1216,6 +1238,9 @@
 
   tablebody = document.getElementById("table_body")
   for(let i = 0; i < term*numPayments; i++){
-        tablebody.innerHTML += ("<tr><td>" + (i+1) + "</td>" + "<td>" + startprincipal[i] + "</td>" + "<td>" + payment[i] + "</td>" + "<td>" + interestpath[i] + "</td>" + "<td>" + endprincipal[i] + "</td>" + "</tr>")
+        tablebody.innerHTML += ("<tr><td>" + (i+1) + "</td>" + "<td>" + Number(startprincipal[i].toFixed(2)).toLocaleString("en-US") + "</td>" + "<td>" + Number(payment[i].toFixed(2)).toLocaleString("en-US") + "</td>" + "<td>" + Number(interestpath[i].toFixed(2)).toLocaleString("en-US") + "</td>" + "<td>" + Number(endprincipal[i].toFixed(2)).toLocaleString("en-US") + "</td>" + "</tr>")
   }
+}
+
+
 </script>
