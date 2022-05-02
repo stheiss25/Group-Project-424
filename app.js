@@ -159,6 +159,7 @@ savedbtn.addEventListener('click', () => {
     savedcontent.classList.remove('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
+    displaySavedBonds()
 })
 
 createbtn.addEventListener('click', () => {
@@ -369,17 +370,7 @@ logoutbtn.addEventListener('click', () => {
         })
 })
 
-let final_save_btn = document.getElementById("final_save_btn")
 
-function saveBond() {
-    console.log("ffffff")
-    db.collection("saved_bonds").add({
-        test: "testtttt"
-    }).then(console.log("ffffff"))
-}
-final_save_btn.addEventListener('click', function () {
-    saveBond()
-})
 
 // Navbar Burger (for small screens)
 document.addEventListener('DOMContentLoaded', () => {
@@ -410,17 +401,46 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-var my_table = [7]
+var my_table = []
+var principal = 0
+var int_rate = 0
+var numPayments = 0
+var term = 0
+var balloon = 0
+var regime_to_split = ""
+//implement balloon
+
+let final_save_btn = document.getElementById("final_save_btn")
+let save_modal = document.getElementById("save_modal")
+function saveBond() {
+    let name = document.getElementById("file_name").value
+    db.collection("saved_bonds").add({
+        file_name: name,
+        email: firebase.auth().currentUser.email,
+        date: new Date().toLocaleDateString(),
+        principal: principal,
+        int_rate: int_rate,
+        numPayments: numPayments,
+        term: term,
+        balloon: balloon,
+        regime_to_split: regime_to_split
+    }).then(console.log("ffffff"))
+}
+save_modal.addEventListener('submit', (e) => {
+    e.preventDefault()
+    saveBond()
+})
+
 let outputbtn = document.getElementById("outputbtn")
 outputbtn.addEventListener('click', (e) => {
     console.log("fffffffffffasdasdasdasdasd")
-    let principal = Number(document.getElementById("loan_size").value)
-    let int_rate = Number(document.getElementById("interest").value)
-    let numPayments = Number(document.getElementById("payments").value)
-    let term = Number(document.getElementById("periods").value)
-    let balloon = Number(document.getElementById("balloon_payment").value)
+    principal = Number(document.getElementById("loan_size").value)
+    int_rate = Number(document.getElementById("interest").value)
+    numPayments = Number(document.getElementById("payments").value)
+    term = Number(document.getElementById("periods").value)
+    balloon = Number(document.getElementById("balloon_payment").value)
     // let regime_to_split = "5 20, 0 20, -5 20"
-    let regime_to_split = document.getElementById("growth").value
+    regime_to_split = document.getElementById("growth").value
     getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
     //below is for spencer
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
@@ -615,3 +635,26 @@ tograph.addEventListener('click', () => {
 })
 // x = term
 // y = numPaymentsx
+
+//put bond info into saved bonds table
+var saved_bond_table = document.getElementById("saved_bond_table")
+var saved_matched_bonds
+function displaySavedBonds(){
+    db.collection("saved_bonds").get().then(doc => {
+        saved_matched_bonds = []
+        doc.forEach(entry => {
+            if(entry.data().email == firebase.auth().currentUser.email){
+                saved_matched_bonds.push(entry.data())
+
+            }
+        })
+        console.log(saved_matched_bonds)
+        for(let i = 0; i < saved_matched_bonds.length; i++){
+            saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name + "</div></th>" + "<th><div>"+ saved_matched_bonds[i].date + "</th></div></tr>"
+        }
+
+
+    })
+
+
+}
