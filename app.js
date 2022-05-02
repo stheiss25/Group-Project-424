@@ -1,36 +1,9 @@
-function calcBondInformation(bnow, balloon, periods, nper, rper, nregims) {
-    let rnow = rper / nper;
-    let term = periods * nper;
-    let ib = [term];
-    let fb = [term];
-    let intpayment = [term];
-
-    paymentshape = [term]
-    regime = 0
-    change = shape[0][1]
-
-    for (let i = 0; i < term; i++) {
-        paymentshape[i] = paymentshape[i - 1] * (1 + shape[regime][0] / 100)
-        if (i == change - 1 && regime < nregims - 1) {
-            regime = regime + 1
-            change = change + shape[regime][1]
-        }
+function createTable(nper, periods, ib, actualpayments, intpayment, fb) {
+    
+    for(let i = 0; i < periods*nper; i++){
+        tablebody.innerHTML += ("<tr><td>" + (i+1) + "</td>" + "<td>" + ib[i] + "</td>" + "<td>" + actualpayments[i] + "</td>" + "<td>" + intpayment[i] + "</td>" + "<td>" + fb[i] + "</td>" + "</tr>")
     }
 
-    let F = getNPV(rnow, ib, )
-    //this the bond factor
-    //warning: npv does not discount first payment in numpy-financial unlike excel
-
-
-    for (let i = 0; i < term; i++) {
-        if (i == 0) {
-            ib[i] = bnow
-        } else {
-            ib[i] = fb[i - 1]
-        }
-        intpayment[i] = ib[i] * rnow / 100
-        fb[i] = ib[i] + intpayment[i] - actualpayments[i]
-    }
 }
 /**
  * Calculates the Net Present Value of a given initial investment
@@ -128,3 +101,49 @@ console.log("num js output", a)
 // import {
 //     pv
 // } from "./node_modules/financial";
+
+// Sign Up Modal
+// grab the button
+var signup = document.querySelector("#signup");
+// attach click event
+signup.addEventListener('click', function () {
+    //grab the modal
+    var mymodal = document.querySelector("#sign_up_modal");
+    //add the is active class
+    mymodal.classList.add('is-active');
+})
+//attach event on modal background
+//grab the modal background
+var modalbg = document.querySelector("#signupmodalbg");
+modalbg.addEventListener('click', function () {
+    mymodal.classList.remove('is-active');
+})
+
+
+// Log in Modal
+// grab the button
+var login = document.querySelector("#login");
+// attach click event
+login.addEventListener('click', function () {
+    //grab the modeal
+    var loginmodal = document.querySelector("#login_modal");
+    //add the is active class
+    loginmodal.classList.add('is-active');
+})
+//attach event on modal background
+//grab the modal background
+var loginmodalbg = document.querySelector("#loginmodalbg");
+loginmodalbg.addEventListener('click', function () {
+    loginmodal.classList.remove('is-active');
+})
+
+//sign out
+let logoutbtn = document.querySelector('#logoutbtn');
+
+//attach a click event
+logoutbtn.addEventListener('click', () => {
+    auth.signOut()
+        .then((msg) => {
+            console.log("user signed out!");
+        })
+})

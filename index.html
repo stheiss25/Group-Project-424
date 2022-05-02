@@ -59,13 +59,13 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="js-modal-trigger button is-light" data-target="sign_up">
+          <a class="js-modal-trigger button is-light" data-target="sign_up_modal">
             Sign up
           </a>
-          <a class="js-modal-trigger button is-light" data-target="log_in">
+          <a class=" js-modal-trigger button is-light" data-target="login_modal">
             Log in
           </a>
-          <a class="js-modal-trigger button is-light" data-target="account_info">
+          <a class=" js-modal-trigger button is-light" data-target="account_info">
             Account Info
           </a>
         </div>
@@ -253,7 +253,7 @@
                       watching Badger sporting events.</p>
                   </div>
                 </div>
-                <footer class="card-footer">>
+                <footer class="card-footer">
                   <a href="https://www.linkedin.com/in/tannerwagner-durr/" class="card-footer-item">LinkedIn</a>
                 </footer>
               </div>
@@ -269,7 +269,7 @@
 
 
     <!-- sign-up modal -->
-    <div id="sign_up" class="modal">
+    <div id="sign_up_modal" class="modal">
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="box">
@@ -606,31 +606,8 @@
       <div class="hero-body">
         <p>Congrats! Here's your debt payment table:</p>
         <!-- FIXME - Add JS to create the table -->
-        <p>Insert table here with JS</p>
-        <table class="table" id="bond_table">
-          <thead>
-            <tr>
-              <th>
-                Month
-              </th>
-              <th>
-                Initial Balance
-              </th>
-              <th>
-                Payment
-              </th>
-              <th>
-                Interest
-              </th>
-              <th>
-                Final Balance
-              </th>
-            </tr>
-          </thead>
-          <tbody id="table_body">
 
-          </tbody>
-        </table>
+
         <div class="columns mt-1">
 
           <!-- blank columns for spacing -->
@@ -648,11 +625,35 @@
               </div>
               <div class="control">
                 <button class="js-modal-trigger button has-background-danger-dark has-text-white"
-                  data-target="export_modal">
+                  data-target="export_modal" id = "export_button">
                   <p>Export Data</p>
                 </button>
               </div>
             </div>
+            <table class="table" id="bond_table">
+              <thead>
+                <tr>
+                  <th>
+                    Month
+                  </th>
+                  <th>
+                    Initial Balance
+                  </th>
+                  <th>
+                    Payment
+                  </th>
+                  <th>
+                    Interest
+                  </th>
+                  <th>
+                    Final Balance
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="table_body">
+
+              </tbody>
+            </table>
           </div>
           <!-- blank columns for spacing -->
           <div class="column"></div>
@@ -765,14 +766,14 @@
 
 
   <!-- log in modal -->
-  <div id="log_in" class="modal">
+  <div id="login_modal" class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
       <div class="box">
         <h1 class="title is-4">Log in</h1>
         <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign_up">Sign
             up</a>.</h2>
-        <form action="" id="log_in_form" class="mb-0 mt-2 loggedin">
+        <form action="" id="login_form" class="mb-0 mt-2 loggedin">
           <!-- email input -->
           <div class="field">
             <label class="label">Email: </label>
@@ -1000,7 +1001,7 @@
   });
 
 
-  let login_form = document.querySelector('#log_in_form');
+  let login_form = document.querySelector('#login_form');
   login_form.addEventListener('submit', (e) => {
     e.preventDefault();
     let email_ = document.querySelector('#login_email').value;
@@ -1026,7 +1027,7 @@
   signup_form.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    var sign_up_modal = document.querySelector("#sign_up");
+    var sign_up_modal = document.querySelector("#sign_up_modal");
 
 
     let name = document.querySelector('#signup_name').value;
@@ -1089,11 +1090,11 @@
       });
   }
 
-  let log_in = document.querySelector("#log_in_form");
+  let log_in = document.querySelector("#login_form");
 
   log_in.addEventListener('submit', (e) => {
-    var login_modal = document.querySelector("#log_in");
-    login_modal.classList.remove('is-active');
+    var log_in_modal = document.querySelector("#login");
+    log_in_modal.classList.remove('is-active');
   })
 
 
@@ -1120,26 +1121,48 @@
     change_modal.classList.remove('is-active');
     e.preventDefault();
   })
+  
+  
+  
 
+  outputbtn = document.getElementById("outputbtn")
+  outputbtn.addEventListener('click', (e) =>{
+      console.log("fffffffffffasdasdasdasdasd")
+      let principal = Number(document.getElementById("loan_size").value)
+      let int_rate = Number(document.getElementById("interest").value)
+      let numPayments = Number(document.getElementById("payments").value)
+      let term = Number(document.getElementById("periods").value)
+      let balloon = Number(document.getElementById("balloon_payment").value)
+      let regime_to_split = "5 20, 0 20, -5 20"
+      getTable(principal,int_rate,numPayments,term,balloon,regime_to_split)
+  })
 
-  // function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
-  let bnow = 100000000
-  // let bnow = principal
-  let rate = .10
-  // let rate = int_rate
-  let numPayments = 12
-  // let numPayments = payments_per_period
-  let term = 5
-  // let term = periods
-  let balloon = 20000000
-  // let balloon = balloon_payment
-  let regime_to_split = "5 10, 0 20, -5 20"
-  // let regime_to_split = regimes
+  let my_table = []
+  exportbtn = document.getElementById("export_button")
+  exportbtn.addEventListener('click', (e) =>{
+    console.log("exporting table to CSV....")
+    exportCSV(my_table)
+  })
+  function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes, my_table) {
+  console.log(principal)
+  console.log(balloon_payment)
+  //let bnow = 100000000
+  let bnow = principal
+  //let rate = .10
+  let rate = int_rate
+  //let numPayments = 12
+  let numPayments = payments_per_period
+  //let term = 5
+  let term = periods
+  //let balloon = 20000000
+  let balloon = balloon_payment
+  //let regime_to_split = "5 10, 0 20, -5 20"
+  let regime_to_split = regimes
 
   let regime_array = regime_to_split.split(",")
   let shape = Array(regime_array.length)
   for (let i = 0; i < regime_array.length; i++) {
-    shape[i] = regime_array[i].split(" ")
+    shape[i] = regime_array[i].trim().split(" ")
     shape[i][0] = Number(shape[i][0])
     shape[i][1] = Number(shape[i][1])
   }
@@ -1164,7 +1187,7 @@
   let f = npv / (1 + (rate / 12))
 
   let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
-
+  console.log(f, npv)
   let payment = Array(termLen)
 
   for (let i = 0; i < termLen; i++) {
@@ -1184,7 +1207,7 @@
     endprincipal[i] = startprincipal[i] + interestpath[i] - payment[i]
   }
 
-  let my_table = Array(termLen)
+  my_table = Array(termLen)
 
   for (let i = 0; i < term * 12; i++) {
     my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
@@ -1202,4 +1225,14 @@
 
     return npv;
   }
+
+  tablebody = document.getElementById("table_body")
+
+  for (let i = 0; i < term * numPayments; i++) {
+    tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + startprincipal[i] + "</td>" + "<td>" + payment[
+      i] + "</td>" + "<td>" + interestpath[i] + "</td>" + "<td>" + endprincipal[i] + "</td>" + "</tr>")
+  }
+}
+
+
 </script>
