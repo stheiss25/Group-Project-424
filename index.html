@@ -635,7 +635,7 @@
               </div>
               <div class="control">
                 <button class="js-modal-trigger button has-background-danger-dark has-text-white"
-                  data-target="export_modal" id = "export_button">
+                  data-target="export_modal" id="export_button">
                   <p>Export Data</p>
                 </button>
               </div>
@@ -1131,118 +1131,156 @@
     change_modal.classList.remove('is-active');
     e.preventDefault();
   })
-  
-  
-  
+
+
+
 
   outputbtn = document.getElementById("outputbtn")
-  outputbtn.addEventListener('click', (e) =>{
-      console.log("fffffffffffasdasdasdasdasd")
-      let principal = Number(document.getElementById("loan_size").value)
-      let int_rate = Number(document.getElementById("interest").value)
-      let numPayments = Number(document.getElementById("payments").value)
-      let term = Number(document.getElementById("periods").value)
-      let balloon = Number(document.getElementById("balloon_payment").value)
-      let regime_to_split = "5 20, 0 20, -5 20"
-      getTable(principal,int_rate,numPayments,term,balloon,regime_to_split)
+  outputbtn.addEventListener('click', (e) => {
+    console.log("fffffffffffasdasdasdasdasd")
+    let principal = Number(document.getElementById("loan_size").value)
+    let int_rate = Number(document.getElementById("interest").value)
+    let numPayments = Number(document.getElementById("payments").value)
+    let term = Number(document.getElementById("periods").value)
+    let balloon = Number(document.getElementById("balloon_payment").value)
+    let regime_to_split = "5 20, 0 20, -5 20"
+    getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
+    //below is for spencer
+    let graph = getPaymentShape(term, numPayments, regime_to_split)
   })
 
   let my_table = []
   exportbtn = document.getElementById("export_button")
-  exportbtn.addEventListener('click', (e) =>{
+  exportbtn.addEventListener('click', (e) => {
     console.log("exporting table to CSV....")
     exportCSV(my_table)
   })
+
+  //// for Spencer 
+  getPaymentShape(5, 12, "5 20, 0 20, -5 20")
+
+  function getPaymentShape(term, numPayments, regimes) {
+    let regime_to_split = "5 20, 0 20, -5 20"
+    // let regime_to_split = regimes
+
+    let regime_array = regime_to_split.split(",")
+    let shape = Array(regime_array.length)
+    for (let i = 0; i < regime_array.length; i++) {
+      shape[i] = regime_array[i].trim().split(" ")
+      shape[i][0] = Number(shape[i][0])
+      shape[i][1] = Number(shape[i][1])
+    }
+    let termLen = term * numPayments
+    let month = Array(termLen).fill(null).map((_, i) => i + 1)
+    let cf_pattern = Array(termLen).fill(1)
+    let regime = 0
+    let switch1 = shape[0][1]
+
+    for (let i = 1; i < termLen; i++) {
+      cf_pattern[i] = cf_pattern[i - 1] * (1 + shape[regime][0] / 100)
+      if (i == switch1 - 1 && regime < shape.length - 1) {
+        regime = regime + 1
+        switch1 = switch1 + shape[regime][1]
+      }
+    }
+
+    let graph_info = Array(termLen)
+    for (let i = 0; i < termLen; i++) {
+      graph_info[i] = [i + 1, cf_pattern[i]]
+    }
+
+    return graph_info;
+  }
+
+
   function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes, my_table) {
-  console.log(principal)
-  console.log(balloon_payment)
-  //let bnow = 100000000
-  let bnow = principal
-  //let rate = .10
-  let rate = int_rate
-  //let numPayments = 12
-  let numPayments = payments_per_period
-  //let term = 5
-  let term = periods
-  //let balloon = 20000000
-  let balloon = balloon_payment
-  //let regime_to_split = "5 10, 0 20, -5 20"
-  let regime_to_split = regimes
+    console.log(principal)
+    console.log(balloon_payment)
+    //let bnow = 100000000
+    let bnow = principal
+    //let rate = .10
+    let rate = int_rate
+    //let numPayments = 12
+    let numPayments = payments_per_period
+    //let term = 5
+    let term = periods
+    //let balloon = 20000000
+    let balloon = balloon_payment
+    //let regime_to_split = "5 10, 0 20, -5 20"
+    let regime_to_split = regimes
 
-  let regime_array = regime_to_split.split(",")
-  let shape = Array(regime_array.length)
-  for (let i = 0; i < regime_array.length; i++) {
-    shape[i] = regime_array[i].trim().split(" ")
-    shape[i][0] = Number(shape[i][0])
-    shape[i][1] = Number(shape[i][1])
-  }
-
-  let termLen = term * numPayments
-  let month = Array(termLen).fill(null).map((_, i) => i + 1)
-  let cf_pattern = Array(termLen).fill(1)
-  let regime = 0
-  let switch1 = shape[0][1]
-
-
-
-  for (let i = 1; i < termLen; i++) {
-    cf_pattern[i] = cf_pattern[i - 1] * (1 + shape[regime][0] / 100)
-    if (i == switch1 - 1 && regime < shape.length - 1) {
-      regime = regime + 1
-      switch1 = switch1 + shape[regime][1]
-    }
-  }
-
-  let npv = getNPV(rate / 12, cf_pattern)
-  let f = npv / (1 + (rate / 12))
-
-  let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
-  console.log(f, npv)
-  let payment = Array(termLen)
-
-  for (let i = 0; i < termLen; i++) {
-    payment[i] = payment1 * cf_pattern[i]
-  }
-
-  let startprincipal = Array(termLen)
-  let endprincipal = Array(termLen)
-  let interestpath = Array(termLen)
-  for (let i = 0; i < termLen; i++) {
-    if (i == 0) {
-      startprincipal[0] = bnow
-    } else {
-      startprincipal[i] = endprincipal[i - 1]
-    }
-    interestpath[i] = startprincipal[i] * rate / 12
-    endprincipal[i] = startprincipal[i] + interestpath[i] - payment[i]
-  }
-
-  my_table = Array(termLen)
-
-  for (let i = 0; i < term * 12; i++) {
-    my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
-  }
-  console.log(my_table)
-
-  function getNPV(rate, cashFlows) {
-    var npv = 0;
-
-    for (var i = 1; i < cashFlows.length; i++) {
-      npv += cashFlows[i] / Math.pow(rate + 1, i);
+    let regime_array = regime_to_split.split(",")
+    let shape = Array(regime_array.length)
+    for (let i = 0; i < regime_array.length; i++) {
+      shape[i] = regime_array[i].trim().split(" ")
+      shape[i][0] = Number(shape[i][0])
+      shape[i][1] = Number(shape[i][1])
     }
 
-    npv += cashFlows[0]
+    let termLen = term * numPayments
+    let month = Array(termLen).fill(null).map((_, i) => i + 1)
+    let cf_pattern = Array(termLen).fill(1)
+    let regime = 0
+    let switch1 = shape[0][1]
 
-    return npv;
+
+
+    for (let i = 1; i < termLen; i++) {
+      cf_pattern[i] = cf_pattern[i - 1] * (1 + shape[regime][0] / 100)
+      if (i == switch1 - 1 && regime < shape.length - 1) {
+        regime = regime + 1
+        switch1 = switch1 + shape[regime][1]
+      }
+    }
+
+    let npv = getNPV(rate / 12, cf_pattern)
+    let f = npv / (1 + (rate / 12))
+
+    let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
+    console.log(f, npv)
+    let payment = Array(termLen)
+
+    for (let i = 0; i < termLen; i++) {
+      payment[i] = payment1 * cf_pattern[i]
+    }
+
+    let startprincipal = Array(termLen)
+    let endprincipal = Array(termLen)
+    let interestpath = Array(termLen)
+    for (let i = 0; i < termLen; i++) {
+      if (i == 0) {
+        startprincipal[0] = bnow
+      } else {
+        startprincipal[i] = endprincipal[i - 1]
+      }
+      interestpath[i] = startprincipal[i] * rate / 12
+      endprincipal[i] = startprincipal[i] + interestpath[i] - payment[i]
+    }
+
+    my_table = Array(termLen)
+
+    for (let i = 0; i < term * 12; i++) {
+      my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
+    }
+    console.log(my_table)
+
+    function getNPV(rate, cashFlows) {
+      var npv = 0;
+
+      for (var i = 1; i < cashFlows.length; i++) {
+        npv += cashFlows[i] / Math.pow(rate + 1, i);
+      }
+
+      npv += cashFlows[0]
+
+      return npv;
+    }
+
+    tablebody = document.getElementById("table_body")
+
+    for (let i = 0; i < term * numPayments; i++) {
+      tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + startprincipal[i] + "</td>" + "<td>" + payment[
+        i] + "</td>" + "<td>" + interestpath[i] + "</td>" + "<td>" + endprincipal[i] + "</td>" + "</tr>")
+    }
   }
-
-  tablebody = document.getElementById("table_body")
-
-  for (let i = 0; i < term * numPayments; i++) {
-    tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + startprincipal[i] + "</td>" + "<td>" + payment[
-      i] + "</td>" + "<td>" + interestpath[i] + "</td>" + "<td>" + endprincipal[i] + "</td>" + "</tr>")
-  }
-}
-
-
 </script>
