@@ -17,6 +17,54 @@ function getNPV(rate, initialCost, cashFlows) {
     return npv;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Functions to open and close a modal
+    function openModal($el) {
+        $el.classList.add('is-active');
+    }
+
+    function closeModal($el) {
+        $el.classList.remove('is-active');
+    }
+
+    function closeAllModals() {
+        (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+            closeModal($modal);
+        });
+    }
+
+
+    // Add a click event on buttons to open a specific modal
+    (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+        const modal = $trigger.dataset.target;
+        const $target = document.getElementById(modal);
+        console.log($target);
+
+        $trigger.addEventListener('click', () => {
+            openModal($target);
+        });
+    });
+
+    // Add a click event on various child elements to close the parent modal || .adv for closing modal to go to other modal
+    (document.querySelectorAll(
+        '.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .adv') || []).forEach((
+        $close) => {
+        const $target = $close.closest('.modal');
+
+        $close.addEventListener('click', () => {
+            closeModal($target);
+        });
+    });
+
+    // Add a keyboard event to close all modals
+    document.addEventListener('keydown', (event) => {
+        const e = event || window.event;
+
+        if (e.keyCode === 27) { // Escape key
+            closeAllModals();
+        }
+    });
+});
 
 //function to export data as CSV, should be used after button is clicked, data is a 2D array
 function exportCSV(data) {
@@ -33,6 +81,10 @@ function exportCSV(data) {
     document.body.appendChild(link);
     link.click();
 }
+
+// for hiding buttons when logged in
+let loggedoutlinks = document.querySelectorAll('.loggedout');
+let loggedinlinks = document.querySelectorAll('.loggedin');
 
 // btns for navigation
 let homebtn = document.querySelector('#homebtn')
@@ -90,11 +142,6 @@ ouputbtn.addEventListener('click', () => {
 var a = nj.array([2, 3, 4])
 console.log("num js output", a)
 
-//npm financial
-// import {
-//     pv
-// } from "./node_modules/financial";
-
 //Sign Up Modal
 //grab the button
 var signup = document.querySelector("#signup");
@@ -118,7 +165,7 @@ modalbg.addEventListener('click', function () {
 var login = document.querySelector("#login");
 // attach click event
 login.addEventListener('click', function () {
-    //grab the modeal
+    //grab the modal
     var loginmodal = document.querySelector("#login_modal");
     //add the is active class
     loginmodal.classList.add('is-active');
@@ -130,8 +177,25 @@ loginmodalbg.addEventListener('click', function () {
     loginmodal.classList.remove('is-active');
 })
 
+//Account Info Modal
+//grab the button
+var account = document.querySelector("#acctinfo");
+// attach click event
+account.addEventListener('click', function () {
+    //grab the modal
+    var accountmodal = document.querySelector("#account_info");
+    //add the is active class
+    accountmodal.classList.add('is-active');
+})
+//attach event on modal background
+//grab the modal background
+var accountinfobg = document.querySelector("#accountinfobg");
+accountinfobg.addEventListener('click', function () {
+    accountmodal.classList.remove('is-active');
+})
+
 //sign out
-let logoutbtn = document.querySelector('#logoutbtn');
+let logoutbtn = document.querySelector('#logout');
 
 //attach a click event
 logoutbtn.addEventListener('click', () => {
@@ -156,55 +220,6 @@ function saveBond() {
 final_save_btn.addEventListener('click', function () {
     saveBond()
 })
-document.addEventListener('DOMContentLoaded', () => {
-    // Functions to open and close a modal
-    function openModal($el) {
-        $el.classList.add('is-active');
-    }
-
-    function closeModal($el) {
-        $el.classList.remove('is-active');
-    }
-
-    function closeAllModals() {
-        (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-            closeModal($modal);
-        });
-    }
-
-
-    // Add a click event on buttons to open a specific modal
-    (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-        const modal = $trigger.dataset.target;
-        const $target = document.getElementById(modal);
-        console.log($target);
-
-        $trigger.addEventListener('click', () => {
-            openModal($target);
-        });
-    });
-
-    // Add a click event on various child elements to close the parent modal || .adv for closing modal to go to other modal
-    (document.querySelectorAll(
-        '.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .adv') || []).forEach((
-        $close) => {
-        const $target = $close.closest('.modal');
-
-        $close.addEventListener('click', () => {
-            closeModal($target);
-        });
-    });
-
-    // Add a keyboard event to close all modals
-    document.addEventListener('keydown', (event) => {
-        const e = event || window.event;
-
-        if (e.keyCode === 27) { // Escape key
-            closeAllModals();
-        }
-    });
-});
-
 
 let login_form = document.querySelector('#login_form');
 login_form.addEventListener('submit', (e) => {
@@ -348,8 +363,8 @@ let exportbtn = document.getElementById("export_button")
 exportbtn.addEventListener('click', (e) => {
     console.log("exporting table to CSV....")
     my_table.unshift(["Month", "Initial Balance", "Payment", "Interest", "Final Balance"])
-    my_table.unshift(["","","Debt Payment Table", "",""])
-    
+    my_table.unshift(["", "", "Debt Payment Table", "", ""])
+
     exportCSV(my_table)
 })
 
