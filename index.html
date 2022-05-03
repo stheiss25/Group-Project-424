@@ -16,7 +16,7 @@
   <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
-  
+
   <link rel="icon" type="image/x-icon" href="/images/calculator-outline-filled.png">
   <style>
     .navbar-brand {
@@ -391,7 +391,7 @@
         <form action="" id="change_info" class="mb-0 mt-2 loggedin">
           <!-- Name input -->
           <div class="field">
-            <label class="label">Name: </label>
+            <label class="label" id="name_label">Name: </label>
             <div class="control">
               <input type="text" class="input" id="change_name" placeholder="Change your name">
             </div>
@@ -400,7 +400,7 @@
 
           <!-- Class input -->
           <div class="field">
-            <label class="label">Class: </label>
+            <label class="label" id="class_label">Class: </label>
             <div class="control">
               <input type="text" class="input" id="change_class"
                 placeholder="For which class are you using this calculator?">
@@ -409,7 +409,7 @@
 
           <!-- email input -->
           <div class="field">
-            <label class="label">Email: </label>
+            <label class="label" id="email_label">Email: </label>
             <div class="control">
               <input type="email" class="input" id="change_email" placeholder="Change email address">
             </div>
@@ -417,7 +417,7 @@
 
           <!-- password input -->
           <div class="field">
-            <label class="label">Password: </label>
+            <label class="label" id="password_label">Password: </label>
             <div class="control">
               <input type="password" class="input" id="change_password" placeholder="Change your password">
             </div>
@@ -443,7 +443,7 @@
         <h1 class="title has-text-centered">
           Saved Bond Sheets
         </h1>
-        
+
         <div class="box">
           <table class="table is-fullwidth is-striped">
             <thead>
@@ -742,11 +742,11 @@
               </div>
 
               <div class="control column">
-                <button class="button is-light" id = "pdf_export">Export as .pdf</button>
+                <button class="button is-light" id="pdf_export">Export as .pdf</button>
               </div>
 
               <div class="control column">
-                <button class="button is-light" id = "export_csv">Export as .csv</button>
+                <button class="button is-light" id="export_csv">Export as .csv</button>
               </div>
             </div>
 
@@ -841,26 +841,21 @@
       let ref = firebase.storage().ref();
     </script>
 
-<<<<<<< HEAD
     <script type="module" src="app.js"></script>
+    <script>
+      window.jsPDF = window.jspdf.jsPDF;
+      var pdfexp = document.getElementById("pdf_export")
 
-=======
-  <script type="module" src="app.js"></script>
-  <script>
-    
-    window.jsPDF = window.jspdf.jsPDF;
-    var pdfexp = document.getElementById("pdf_export")
-    
-    pdfexp.addEventListener('click', (e) =>{
-      var pdf_doc = new jsPDF()
-      var name = document.getElementById("file_name_export").value
-      pdf_doc.autoTable({ html: '#bond_table' })
-      pdf_doc.save(name + '.pdf')
-      
-    })
-  
-  </script>
->>>>>>> 8bd2b57aa92f891e87f0f84a45a879ef07cfc31f
+      pdfexp.addEventListener('click', (e) => {
+        var pdf_doc = new jsPDF()
+        var name = document.getElementById("file_name_export").value
+        pdf_doc.autoTable({
+          html: '#bond_table'
+        })
+        pdf_doc.save(name + '.pdf')
+
+      })
+    </script>
 </body>
 
 </html>

@@ -239,8 +239,6 @@ signup_form.addEventListener('submit', (e) => {
 
 function updateInfo(id, new_name, new_class, new_email, new_password) {
 
-
-
     return id.update({
             name: new_name,
             password: new_password,
@@ -260,21 +258,33 @@ function updateInfo(id, new_name, new_class, new_email, new_password) {
 let change_info = document.querySelector("#change_info");
 
 change_info.addEventListener('submit', (e) => {
-    let change_modal = document.querySelector("account_info");
+
 
     let new_name = document.querySelector('#change_name').value;
     let new_class = document.querySelector('#change_class').value;
     let new_email = document.querySelector('#change_email').value;
     let new_password = document.querySelector('#change_password').value;
 
+    let current_name = document.getElementById("name_label")
+    let current_class = document.getElementById("class_label")
+    let current_email = document.getElementById("email_label")
+    let current_password = document.getElementById("password_label")
+
+
+
 
 
     let main_user_id = null;
     db.collection("users").get().then((data) => {
+
         let userdata = data.docs;
 
         userdata.forEach((user) => {
             if (auth.currentUser.uid == user.data().id) {
+                current_name.innerHTML = "Name: " + user.data().name
+                current_class.innerHTML = "Class: " + user.data().class
+                current_email.innerHTML = "Email: " + user.data().email
+                current_password.innerHTML = "Password: " + user.data().password
                 if (new_name == "") {
                     new_name = user.data().name
                 }
@@ -293,6 +303,15 @@ change_info.addEventListener('submit', (e) => {
         })
 
         updateInfo(main_user_id, new_name, new_class, new_email, new_password);
+        userdata.forEach((user) => {
+            if (auth.currentUser.uid == user.data().id) {
+                current_name.innerHTML = "Name: " + new_name
+                current_class.innerHTML = "Class: " + new_class
+                current_email.innerHTML = "Email: " + new_email
+                current_password.innerHTML = "Password: " + new_password
+            }
+
+        })
     })
     //change_modal.classList.remove('is-active');
     e.preventDefault();
@@ -366,6 +385,26 @@ account.addEventListener('click', function () {
     var accountmodal = document.querySelector("#account_info");
     //add the is active class
     accountmodal.classList.add('is-active');
+
+
+    let current_name = document.getElementById("name_label")
+    let current_class = document.getElementById("class_label")
+    let current_email = document.getElementById("email_label")
+    let current_password = document.getElementById("password_label")
+
+    db.collection("users").get().then((data) => {
+        let userdata = data.docs;
+        userdata.forEach((user) => {
+            if (auth.currentUser.uid == user.data().id) {
+                current_name.innerHTML = "Name: " + user.data().name
+                current_class.innerHTML = "Class: " + user.data().class
+                current_email.innerHTML = "Email: " + user.data().email
+                current_password.innerHTML = "Password: " + user.data().password
+            }
+
+        })
+    })
+
 
     //attach event on modal background
     //grab the modal background
