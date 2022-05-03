@@ -732,10 +732,19 @@ function displaySavedBonds(){
     }) 
 }
 
-    
-
 function createAndDownloadTable(data){
     
     getTable(data.principal,data.int_rate, data.numPayments, data.term, data.balloon, data.regime_to_split)
     exportCSV(my_table, data.file_name)
 }
+
+//go back/edit inputs
+var goback = document.getElementById("go_back_button")
+goback.addEventListener('click', (e) =>{
+    // console.log('create works')
+    homecontent.classList.add('is-hidden')
+    savedcontent.classList.add('is-hidden')
+    createcontent.classList.remove('is-hidden')
+    outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
+})
