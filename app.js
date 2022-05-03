@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //function to export data as CSV, should be used after button is clicked, data is a 2D array
-function exportCSV(data) {
+function exportCSV(data, name) {
     data.unshift(["Month", "Initial Balance", "Payment", "Interest", "Final Balance"])
     data.unshift(["", "", "Debt Payment Table", "", ""])
     let csv = "data:text/csv;charset=utf-8,";
@@ -79,7 +79,7 @@ function exportCSV(data) {
     //credit to isherwood on stack overflow
     var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "my_data.csv");
+    link.setAttribute("download", name + ".csv");
     document.body.appendChild(link);
     link.click();
 }
@@ -464,12 +464,13 @@ outputbtn.addEventListener('click', (e) => {
     console.log(graph1)
 })
 
-let exportbtn = document.getElementById("export_button")
+let exportbtn = document.getElementById("export_csv")
 exportbtn.addEventListener('click', (e) => {
     console.log("exporting table to CSV....")
+    let export_name = document.getElementById("file_name_export").value
     
 
-    exportCSV(my_table)
+    exportCSV(my_table, export_name)
 })
 
 //// for Spencer 
@@ -704,5 +705,5 @@ function displaySavedBonds(){
 function createAndDownloadTable(data){
     
     getTable(data.principal,data.int_rate, data.numPayments, data.term, data.balloon, data.regime_to_split)
-    exportCSV(my_table)
+    exportCSV(my_table, data.file_name)
 }
