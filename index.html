@@ -10,12 +10,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <!-- numjs -->
   <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
-  <!-- npf - NOT WORKING!!!
-  <script src="https://www.npmcdn.com/financial@0.1.3/dist/financial.cjs.production.min.js"></script> -->
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a2a3bcdcb2.js" crossorigin="anonymous"></script>
   <!-- Canvas.js -->
   <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+  
   <link rel="icon" type="image/x-icon" href="/images/calculator-outline-filled.png">
   <style>
     .navbar-brand {
@@ -60,8 +61,9 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
+        <h1 class="loggedin has-text-white" style="padding-right:20px;">Welcome!</h1>
         <div class="buttons">
-          <a class="js-modal-trigger button is-light loggedout" data-target="sign_up_modal" id="signup">
+          <a class=" js-modal-trigger button is-light loggedout" data-target="sign_up_modal" id="signup">
             Sign up
           </a>
           <a class=" js-modal-trigger button is-light loggedout" data-target="login_modal" id="login">
@@ -283,64 +285,64 @@
 
 
     </div>
+  </div>
 
+  <!-- sign-up modal -->
+  <div id="sign_up_modal" class="modal">
+    <div class="modal-background" id="signupmodalbg"></div>
+    <div class="modal-content">
+      <div class="box">
+        <button class="modal-close is-large" aria-label="close"></button>
+        <h1 class="title is-4">Sign up</h1>
+        <form id="signup_form">
+          <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv"
+              data-target="login_modal">Log
+              in</a>.</h2>
 
-    <!-- sign-up modal -->
-    <div id="sign_up_modal" class="modal">
-      <div class="modal-background" id="signupmodalbg"></div>
-      <div class="modal-content">
-        <div class="box">
-          <button class="modal-close is-large" aria-label="close"></button>
-          <h1 class="title is-4">Sign up</h1>
-          <form id="signup_form">
-            <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv"
-                data-target="login_modal">Log
-                in</a>.</h2>
-
-            <!-- Name input -->
-            <div class="field">
-              <label class="label">Name: </label>
-              <div class="control">
-                <input type="text" class="input" id="signup_name" placeholder="Enter your name">
-              </div>
+          <!-- Name input -->
+          <div class="field">
+            <label class="label">Name: </label>
+            <div class="control">
+              <input type="text" class="input" id="signup_name" placeholder="Enter your name">
             </div>
+          </div>
 
 
-            <!-- Class input -->
-            <div class="field">
-              <label class="label">Class: </label>
-              <div class="control">
-                <input type="text" class="input" id="signup_class"
-                  placeholder="For which class are you using this calculator?">
-              </div>
+          <!-- Class input -->
+          <div class="field">
+            <label class="label">Class: </label>
+            <div class="control">
+              <input type="text" class="input" id="signup_class"
+                placeholder="For which class are you using this calculator?">
             </div>
+          </div>
 
-            <!-- email input -->
-            <div class="field">
-              <label class="label">Email: </label>
-              <div class="control">
-                <input type="text" id="signup_email" class="input" placeholder="Enter email address">
-              </div>
+          <!-- email input -->
+          <div class="field">
+            <label class="label">Email: </label>
+            <div class="control">
+              <input type="text" id="signup_email" class="input" placeholder="Enter email address">
             </div>
+          </div>
 
-            <!-- password input -->
-            <div class="field">
-              <label class="label">Password: </label>
-              <div class="control">
-                <input type="password" id="signup_password" class="input" placeholder="Enter password">
-              </div>
+          <!-- password input -->
+          <div class="field">
+            <label class="label">Password: </label>
+            <div class="control">
+              <input type="password" id="signup_password" class="input" placeholder="Enter password">
             </div>
+          </div>
 
-            <!-- submit button -->
-            <br>
-            <div class="has-text-left">
-              <button type="submit" class="button is-danger">Sign Up</button>
-            </div>
-          </form>
-        </div>
+          <!-- submit button -->
+          <br>
+          <div class="has-text-left">
+            <button type="submit" class="button is-danger">Sign Up</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+
 
   <!-- log in modal -->
   <div id="login_modal" class="modal">
@@ -441,35 +443,7 @@
         <h1 class="title has-text-centered">
           Saved Bond Sheets
         </h1>
-        <div class="box">
-
-          <div class="field is-grouped">
-            <div class="control">
-              <label class="label">Date</label>
-
-              <div class="control">
-                <div class="select">
-                  <select>
-                    <option>Select dropdown</option>
-                    <option>With options</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="control">
-              <label class="label">Name</label>
-              <div class="control">
-                <input class="input" type="text" placeholder="Input Name of File">
-              </div>
-
-            </div>
-            <!-- TODO figure out how to get this button to align properly -->
-            <div class="control">
-              <button class="button is-danger">Submit</button>
-            </div>
-
-          </div>
-        </div>
+        
         <div class="box">
           <table class="table is-fullwidth is-striped">
             <thead>
@@ -478,9 +452,9 @@
               <th></th>
               <th></th>
             </thead>
-            <tbody id = "saved_bond_table">
+            <tbody id="saved_bond_table">
               <!-- JS insert rows -->
-              
+
             </tbody>
           </table>
         </div>
@@ -749,7 +723,7 @@
             <div class="field">
               <label class="label">File Name</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="Input File Name Here" id="file_name">
+                <input class="input" type="text" placeholder="Input File Name Here" id="file_name_export">
               </div>
             </div>
 
@@ -768,11 +742,11 @@
               </div>
 
               <div class="control column">
-                <button class="button is-light">Export as .pdf</button>
+                <button class="button is-light" id = "pdf_export">Export as .pdf</button>
               </div>
 
               <div class="control column">
-                <button class="button is-light">Export as .csv</button>
+                <button class="button is-light" id = "export_csv">Export as .csv</button>
               </div>
             </div>
 
@@ -867,8 +841,26 @@
       let ref = firebase.storage().ref();
     </script>
 
+<<<<<<< HEAD
     <script type="module" src="app.js"></script>
 
+=======
+  <script type="module" src="app.js"></script>
+  <script>
+    
+    window.jsPDF = window.jspdf.jsPDF;
+    var pdfexp = document.getElementById("pdf_export")
+    
+    pdfexp.addEventListener('click', (e) =>{
+      var pdf_doc = new jsPDF()
+      var name = document.getElementById("file_name_export").value
+      pdf_doc.autoTable({ html: '#bond_table' })
+      pdf_doc.save(name + '.pdf')
+      
+    })
+  
+  </script>
+>>>>>>> 8bd2b57aa92f891e87f0f84a45a879ef07cfc31f
 </body>
 
 </html>

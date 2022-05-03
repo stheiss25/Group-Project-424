@@ -1,3 +1,6 @@
+
+
+
 /**
  * Calculates the Net Present Value of a given initial investment
  * cost and an array of cash flow values with the specified discount rate.
@@ -67,7 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //function to export data as CSV, should be used after button is clicked, data is a 2D array
-function exportCSV(data) {
+function exportCSV(data, name) {
+    data.unshift(["Month", "Initial Balance", "Payment", "Interest", "Final Balance"])
+    data.unshift(["", "", "Debt Payment Table", "", ""])
     let csv = "data:text/csv;charset=utf-8,";
     for (let i = 0; i < data.length; i++) {
         csv += (data[i] + "\r\n");
@@ -77,7 +82,7 @@ function exportCSV(data) {
     //credit to isherwood on stack overflow
     var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "my_data.csv");
+    link.setAttribute("download", name + ".csv");
     document.body.appendChild(link);
     link.click();
 }
@@ -162,6 +167,8 @@ savedbtn.addEventListener('click', () => {
     savedcontent.classList.remove('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
+
     displaySavedBonds()
 })
 
@@ -449,6 +456,11 @@ save_modal.addEventListener('submit', (e) => {
 
 let outputbtn = document.getElementById("outputbtn")
 outputbtn.addEventListener('click', (e) => {
+<<<<<<< HEAD
+=======
+    isCreatingBond = true
+    console.log("fffffffffffasdasdasdasdasd")
+>>>>>>> 8bd2b57aa92f891e87f0f84a45a879ef07cfc31f
     principal = Number(document.getElementById("loan_size").value)
     int_rate = Number(document.getElementById("interest").value)
     numPayments = Number(document.getElementById("payments").value)
@@ -461,13 +473,19 @@ outputbtn.addEventListener('click', (e) => {
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
 })
 
-let exportbtn = document.getElementById("export_button")
+let exportbtn = document.getElementById("export_csv")
 exportbtn.addEventListener('click', (e) => {
+<<<<<<< HEAD
 
     my_table.unshift(["Month", "Initial Balance", "Payment", "Interest", "Final Balance"])
     my_table.unshift(["", "", "Debt Payment Table", "", ""])
+=======
+    console.log("exporting table to CSV....")
+    let export_name = document.getElementById("file_name_export").value
+    
+>>>>>>> 8bd2b57aa92f891e87f0f84a45a879ef07cfc31f
 
-    exportCSV(my_table)
+    exportCSV(my_table, export_name)
 })
 
 //// for Spencer 
@@ -506,8 +524,12 @@ function getPaymentShape(term, numPayments, regimes) {
     return graph_info;
 }
 
+var isCreatingBond = false
 function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
-    //let bnow = 100000000
+    let tablebody = document.getElementById("table_body")
+    tablebody.innerHTML = ""
+    console.log(regimes)
+    console.log("principal",principal)
     let bnow = principal
     //let rate = .10
     let rate = int_rate
@@ -568,7 +590,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     my_table = Array(termLen)
 
     for (let i = 0; i < term * 12; i++) {
-        my_table[i] = [month[i], Number(startprincipal[i].toFixed(2)).toLocaleString('en-US'), payment[i], interestpath[i], endprincipal[i]]
+        my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
     }
 
     function getNPV(rate, cashFlows) {
@@ -582,13 +604,15 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
 
         return npv;
     }
+    if(isCreatingBond == true){
+        
 
-    let tablebody = document.getElementById("table_body")
-
-    for (let i = 0; i < term * numPayments; i++) {
-        tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + Number(startprincipal[i].toFixed(2)).toLocaleString('en-US') + "</td>" + "<td>" + Number(payment[
-                i].toFixed(2)).toLocaleString('en-US') + "</td>" + "<td>" + Number(interestpath[i].toFixed(2)).toLocaleString('en-US') + "</td>" +
-            "<td>" + Number(endprincipal[i].toFixed(2)).toLocaleString('en-US') + "</td>" + "</tr>")
+        for (let i = 0; i < term * numPayments; i++) {
+            tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + Number(startprincipal[i].toFixed(2)).toLocaleString('en-US') + "</td>" + "<td>" + Number(payment[
+                    i].toFixed(2)).toLocaleString('en-US') + "</td>" + "<td>" + Number(interestpath[i].toFixed(2)).toLocaleString('en-US') + "</td>" +
+                "<td>" + Number(endprincipal[i].toFixed(2)).toLocaleString('en-US') + "</td>" + "</tr>")
+        }
+        isCreatingBond = false
     }
 }
 
@@ -672,22 +696,80 @@ function displaySavedBonds() {
         for(let i = 0; i < saved_matched_bonds.length; i++){
             saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name 
                                         + "</div></th>" + "<th><div class = 'content is-large'>"+ saved_matched_bonds[i].date 
-                                        + "</th></div>" + "<th><button class = 'button is-medium' id = 'temp_view_id'>View</button></th>"
-                                        + '<th><button class = "button is-medium"' +  'id = "temp_download_id"' + '>'  + 'Download</button></th></tr>'
+                                        + "</th></div>" + "<th><button class = 'button is-medium viewbtn' id = 'temp_view_id'>View</button></th>"
+                                        + '<th><button class = "button is-medium downloadbtn"' +  'id = "temp_download_id"' + '>'  + 'Download</button></th></tr>'
             document.getElementById('temp_download_id').id = ('download_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
-            document.getElementById('temp_view_id').id = ('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i])
+            document.getElementById('temp_view_id').id = ('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
+ 
+        }
+        //for downloading
+        var btns = document.getElementsByClassName('button is-medium downloadbtn')
+        console.log(btns)
+        btns = Array.from( btns )
+        console.log(btns)
+        btns.forEach(btn => {
 
-            document.getElementById('download_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp).addEventListener('click', (e) => {
+        btn.addEventListener('click', event => {
+            doc.forEach(entry => {
+                if(event.target.id == "download_"+entry.data().email+entry.data().timestamp){
+                    console.log(entry.data().file_name)
+                    createAndDownloadTable(entry.data())
+                }
+            })  
+        });
+        //for viewing
+        var vbtns = document.getElementsByClassName('button is-medium viewbtn')
+        console.log(vbtns)
+        vbtns = Array.from(vbtns)
+        console.log(vbtns)
+        vbtns.forEach(vbtn =>{
+            vbtn.addEventListener('click', event =>{
+               
+                doc.forEach(entry => {
+                    if(event.target.id == "view_"+entry.data().email+entry.data().timestamp){
+                        isCreatingBond = true
+                        console.log('output works')
+                        homecontent.classList.add('is-hidden')
+                        savedcontent.classList.add('is-hidden')
+                        createcontent.classList.add('is-hidden')
+                        outputcontent.classList.remove('is-hidden')
+                        saved_bond_table.innerHTML =""
+                        
+                        getTable(entry.data().principal, entry.data().int_rate, entry.data().numPayments,
+                                 entry.data().term, entry.data().balloon, entry.data().regime_to_split)
+                        
+                    }
+                })
                 
+
             })
-            document.getElementById('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp).addEventListener('click', (e) => {
-                
-            })
+<<<<<<< HEAD
 >>>>>>> a74b125475205bb2898d77480eba4f1ea4db31b5
         }
+=======
+        })
+>>>>>>> 8bd2b57aa92f891e87f0f84a45a879ef07cfc31f
 
 
-    })
-
-
+    });
+    }) 
 }
+
+function createAndDownloadTable(data){
+    
+    getTable(data.principal,data.int_rate, data.numPayments, data.term, data.balloon, data.regime_to_split)
+    exportCSV(my_table, data.file_name)
+}
+
+//go back/edit inputs
+var goback = document.getElementById("go_back_button")
+goback.addEventListener('click', (e) =>{
+    // console.log('create works')
+    homecontent.classList.add('is-hidden')
+    savedcontent.classList.add('is-hidden')
+    createcontent.classList.remove('is-hidden')
+    outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
+})
+
+
