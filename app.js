@@ -1,6 +1,3 @@
-
-
-
 /**
  * Calculates the Net Present Value of a given initial investment
  * cost and an array of cash flow values with the specified discount rate.
@@ -148,7 +145,7 @@ homebtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
-    saved_bond_table.innerHTML =""
+    saved_bond_table.innerHTML = ""
 })
 
 homebtnlogo.addEventListener('click', () => {
@@ -157,7 +154,7 @@ homebtnlogo.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
-    saved_bond_table.innerHTML =""
+    saved_bond_table.innerHTML = ""
 
 })
 
@@ -167,7 +164,7 @@ savedbtn.addEventListener('click', () => {
     savedcontent.classList.remove('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
-    saved_bond_table.innerHTML =""
+    saved_bond_table.innerHTML = ""
 
     displaySavedBonds()
 })
@@ -178,7 +175,7 @@ createbtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.remove('is-hidden')
     outputcontent.classList.add('is-hidden')
-    saved_bond_table.innerHTML =""
+    saved_bond_table.innerHTML = ""
 
 })
 
@@ -188,7 +185,7 @@ ouputbtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.remove('is-hidden')
-    saved_bond_table.innerHTML =""
+    saved_bond_table.innerHTML = ""
 
 })
 
@@ -198,7 +195,7 @@ startbtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.remove('is-hidden')
     outputcontent.classList.add('is-hidden')
-    saved_bond_table.innerHTML =""
+    saved_bond_table.innerHTML = ""
 
 })
 // TODO
@@ -311,7 +308,7 @@ login_form.addEventListener('submit', (e) => {
     let password_ = document.querySelector('#login_password').value;
     auth.signInWithEmailAndPassword(email_, password_)
         .then((userCredentials) => {
-            //    console.log(userCredentials.user.email + " with the id " + userCredentials.user.uid + " is logged in");
+            console.log(userCredentials.user.email + " with the id " + userCredentials.user.uid + " is logged in");
             // user_id = userCredentials.user.uid;
 
             welcome_user();
@@ -385,7 +382,7 @@ let logoutbtn = document.querySelector('#logout');
 logoutbtn.addEventListener('click', () => {
     auth.signOut()
         .then((msg) => {
-            //    console.log("user signed out!");
+            console.log("user signed out!");
         })
 })
 
@@ -404,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $navbarBurgers.forEach(el => {
             el.addEventListener('click', () => {
 
-                //     console.log("burger CLICKED!")
+                console.log("burger CLICKED!")
                 // Get the target from the "data-target" attribute
                 const target = el.dataset.target;
                 const $target = document.getElementById(target);
@@ -451,16 +448,13 @@ save_modal.addEventListener('submit', (e) => {
     e.preventDefault()
     saveBond()
     save_modal.classList.remove('is-active');
-    
+
 })
 
 let outputbtn = document.getElementById("outputbtn")
 outputbtn.addEventListener('click', (e) => {
-<<<<<<< HEAD
-=======
     isCreatingBond = true
     console.log("fffffffffffasdasdasdasdasd")
->>>>>>> 8bd2b57aa92f891e87f0f84a45a879ef07cfc31f
     principal = Number(document.getElementById("loan_size").value)
     int_rate = Number(document.getElementById("interest").value)
     numPayments = Number(document.getElementById("payments").value)
@@ -471,19 +465,14 @@ outputbtn.addEventListener('click', (e) => {
     getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
     //below is for spencer
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
+    console.log(graph1)
 })
 
 let exportbtn = document.getElementById("export_csv")
 exportbtn.addEventListener('click', (e) => {
-<<<<<<< HEAD
-
-    my_table.unshift(["Month", "Initial Balance", "Payment", "Interest", "Final Balance"])
-    my_table.unshift(["", "", "Debt Payment Table", "", ""])
-=======
     console.log("exporting table to CSV....")
     let export_name = document.getElementById("file_name_export").value
-    
->>>>>>> 8bd2b57aa92f891e87f0f84a45a879ef07cfc31f
+
 
     exportCSV(my_table, export_name)
 })
@@ -525,11 +514,12 @@ function getPaymentShape(term, numPayments, regimes) {
 }
 
 var isCreatingBond = false
+
 function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
     let tablebody = document.getElementById("table_body")
     tablebody.innerHTML = ""
     console.log(regimes)
-    console.log("principal",principal)
+    console.log("principal", principal)
     let bnow = principal
     //let rate = .10
     let rate = int_rate
@@ -568,6 +558,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     let f = npv / (1 + (rate / 12))
 
     let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
+    console.log(f, npv)
     let payment = Array(termLen)
 
     for (let i = 0; i < termLen; i++) {
@@ -592,6 +583,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     for (let i = 0; i < term * 12; i++) {
         my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
     }
+    console.log(my_table)
 
     function getNPV(rate, cashFlows) {
         var npv = 0;
@@ -604,8 +596,8 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
 
         return npv;
     }
-    if(isCreatingBond == true){
-        
+    if (isCreatingBond == true) {
+
 
         for (let i = 0; i < term * numPayments; i++) {
             tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + Number(startprincipal[i].toFixed(2)).toLocaleString('en-US') + "</td>" + "<td>" + Number(payment[
@@ -620,7 +612,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
 let tograph = document.querySelector('#tograph')
 
 tograph.addEventListener('click', () => {
-
+    console.log('load graph')
 
     let numPayments = Number(document.getElementById("payments").value)
     let term = Number(document.getElementById("periods").value)
@@ -688,88 +680,77 @@ function displaySavedBonds() {
 
             }
         })
-<<<<<<< HEAD
-        for (let i = 0; i < saved_matched_bonds.length; i++) {
-            saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name + "</div></th>" + "<th><div>" + saved_matched_bonds[i].date + "</th></div></tr>"
-=======
         console.log(saved_matched_bonds)
-        for(let i = 0; i < saved_matched_bonds.length; i++){
-            saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name 
-                                        + "</div></th>" + "<th><div class = 'content is-large'>"+ saved_matched_bonds[i].date 
-                                        + "</th></div>" + "<th><button class = 'button is-medium viewbtn' id = 'temp_view_id'>View</button></th>"
-                                        + '<th><button class = "button is-medium downloadbtn"' +  'id = "temp_download_id"' + '>'  + 'Download</button></th></tr>'
+        for (let i = 0; i < saved_matched_bonds.length; i++) {
+            saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name +
+                "</div></th>" + "<th><div class = 'content is-large'>" + saved_matched_bonds[i].date +
+                "</th></div>" + "<th><button class = 'button is-medium viewbtn' id = 'temp_view_id'>View</button></th>" +
+                '<th><button class = "button is-medium downloadbtn"' + 'id = "temp_download_id"' + '>' + 'Download</button></th></tr>'
             document.getElementById('temp_download_id').id = ('download_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
             document.getElementById('temp_view_id').id = ('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
- 
+
         }
         //for downloading
         var btns = document.getElementsByClassName('button is-medium downloadbtn')
         console.log(btns)
-        btns = Array.from( btns )
+        btns = Array.from(btns)
         console.log(btns)
         btns.forEach(btn => {
 
-        btn.addEventListener('click', event => {
-            doc.forEach(entry => {
-                if(event.target.id == "download_"+entry.data().email+entry.data().timestamp){
-                    console.log(entry.data().file_name)
-                    createAndDownloadTable(entry.data())
-                }
-            })  
-        });
-        //for viewing
-        var vbtns = document.getElementsByClassName('button is-medium viewbtn')
-        console.log(vbtns)
-        vbtns = Array.from(vbtns)
-        console.log(vbtns)
-        vbtns.forEach(vbtn =>{
-            vbtn.addEventListener('click', event =>{
-               
+            btn.addEventListener('click', event => {
                 doc.forEach(entry => {
-                    if(event.target.id == "view_"+entry.data().email+entry.data().timestamp){
-                        isCreatingBond = true
-                        console.log('output works')
-                        homecontent.classList.add('is-hidden')
-                        savedcontent.classList.add('is-hidden')
-                        createcontent.classList.add('is-hidden')
-                        outputcontent.classList.remove('is-hidden')
-                        saved_bond_table.innerHTML =""
-                        
-                        getTable(entry.data().principal, entry.data().int_rate, entry.data().numPayments,
-                                 entry.data().term, entry.data().balloon, entry.data().regime_to_split)
-                        
+                    if (event.target.id == "download_" + entry.data().email + entry.data().timestamp) {
+                        console.log(entry.data().file_name)
+                        createAndDownloadTable(entry.data())
                     }
                 })
-                
+            });
+            //for viewing
+            var vbtns = document.getElementsByClassName('button is-medium viewbtn')
+            console.log(vbtns)
+            vbtns = Array.from(vbtns)
+            console.log(vbtns)
+            vbtns.forEach(vbtn => {
+                vbtn.addEventListener('click', event => {
 
+                    doc.forEach(entry => {
+                        if (event.target.id == "view_" + entry.data().email + entry.data().timestamp) {
+                            isCreatingBond = true
+                            console.log('output works')
+                            homecontent.classList.add('is-hidden')
+                            savedcontent.classList.add('is-hidden')
+                            createcontent.classList.add('is-hidden')
+                            outputcontent.classList.remove('is-hidden')
+                            saved_bond_table.innerHTML = ""
+
+                            getTable(entry.data().principal, entry.data().int_rate, entry.data().numPayments,
+                                entry.data().term, entry.data().balloon, entry.data().regime_to_split)
+
+                        }
+                    })
+
+
+                })
             })
-<<<<<<< HEAD
->>>>>>> a74b125475205bb2898d77480eba4f1ea4db31b5
-        }
-=======
-        })
->>>>>>> 8bd2b57aa92f891e87f0f84a45a879ef07cfc31f
 
 
-    });
-    }) 
+        });
+    })
 }
 
-function createAndDownloadTable(data){
-    
-    getTable(data.principal,data.int_rate, data.numPayments, data.term, data.balloon, data.regime_to_split)
+function createAndDownloadTable(data) {
+
+    getTable(data.principal, data.int_rate, data.numPayments, data.term, data.balloon, data.regime_to_split)
     exportCSV(my_table, data.file_name)
 }
 
 //go back/edit inputs
 var goback = document.getElementById("go_back_button")
-goback.addEventListener('click', (e) =>{
+goback.addEventListener('click', (e) => {
     // console.log('create works')
     homecontent.classList.add('is-hidden')
     savedcontent.classList.add('is-hidden')
     createcontent.classList.remove('is-hidden')
     outputcontent.classList.add('is-hidden')
-    saved_bond_table.innerHTML =""
+    saved_bond_table.innerHTML = ""
 })
-
-
