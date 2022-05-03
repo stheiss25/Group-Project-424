@@ -797,75 +797,103 @@
     </div>
   </footer>
 
-  <!-- graph modal -->
+  <!-- graph modal  test-->
+  <!-- <div class="modal" id="graph">
+    <div class="modal-background"></div>
+    <div class="modal-content" style="width:50%">
+      <div class="box" style="height: 500px">
+        <h1 class="title is-4">Bond Payment Graph</h1>
+
+        <div class="container" style="outline:auto; height: 200%">
+          <div id="graphdisplay"></div>
+
+        </div>
+
+        <div class="columns" style="padding-top: 2%">
+          <div class="column is-half">
+            <a class="adv h3 is-5 has-text-danger has-text-left">Back to inputs</a>
+          </div>
+          <div class="column is-half has-text-right">
+            <button class="adv button is-light" id="outputbtn">Looks Good, Show Table</button>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+   -->
+
+
   <div id="graph" class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
-      <div class="box">
+      <div class="box" style="height: 110%">
         <h1 class="title is-4">Bond Payment Graph</h1>
 
-        <div class="field" style="padding-bottom: 14%; padding-left: 4%; padding-top: 2%; outline:auto" id="putgraph">
-          <div id="graphdisplay" style="height: 350px; padding:2%"">
+        <div class="field" style="padding-bottom: 14%; padding-left: 3%; padding-top: 2%" id="putgraph">
+          <div id="graphdisplay" style="height: 350px; padding:2%">
           </div>
         </div>
-        <div class=" level">
-            <!-- back to inputs -->
-            <div class="level-left">
-              <a class="adv h3 is-5 has-text-danger">Back to inputs</a>
-            </div>
+        <div class="level" style="padding-top: 1%">
 
-            <!-- continue button -->
-            <div class="level-right">
-              <!-- TODO add link to table page -->
-              <button class="adv button is-light" id="outputbtn">Looks Good, Show Table</button>
-            </div>
+          <div class="level-left">
+            <a class="adv h3 is-5 has-text-danger">Back to inputs</a>
+          </div>
 
+
+          <div class="level-right">
+
+            <button class="adv button is-light" id="outputbtn">Looks Good, Show Table</button>
           </div>
 
         </div>
+
       </div>
     </div>
+  </div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
 
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
 
-    <script>
-      // TODO
-      // Copy **only** your firebaseConfig from Google Firebae and add it below
+  <script>
+    // TODO
+    // Copy **only** your firebaseConfig from Google Firebae and add it below
 
-      // Your web app's Firebase configuration 
-      // Import the functions you need from the SDKs you need
+    // Your web app's Firebase configuration 
+    // Import the functions you need from the SDKs you need
 
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyBdU9fKpt_UXOCqiSZikUS01RxmrvX8vnI",
-        authDomain: "universalbondcalculator.firebaseapp.com",
-        projectId: "universalbondcalculator",
-        storageBucket: "universalbondcalculator.appspot.com",
-        messagingSenderId: "374853779066",
-        appId: "1:374853779066:web:0448ac5ea3b2fa467305c3"
-      };
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBdU9fKpt_UXOCqiSZikUS01RxmrvX8vnI",
+      authDomain: "universalbondcalculator.firebaseapp.com",
+      projectId: "universalbondcalculator",
+      storageBucket: "universalbondcalculator.appspot.com",
+      messagingSenderId: "374853779066",
+      appId: "1:374853779066:web:0448ac5ea3b2fa467305c3"
+    };
 
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      // define authentication variable
-      let auth = firebase.auth();
-      let db = firebase.firestore();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    // define authentication variable
+    let auth = firebase.auth();
+    let db = firebase.firestore();
 
-      // define a storage reference
-      let ref = firebase.storage().ref();
-    </script>
+    // define a storage reference
+    let ref = firebase.storage().ref();
+  </script>
 
     <script type="module" src="app.js"></script>
     

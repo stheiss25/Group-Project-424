@@ -634,16 +634,19 @@ tograph.addEventListener('click', () => {
         })
     }
 
+    let interval = xarray.length / 6
+
     // display graph
     var c = new CanvasJS.Chart('graphdisplay', {
         zoomEnabled: true,
 
         axisX: {
-            title: 'X axis',
-            interval: 1
+            title: ' ',
+            interval: interval
         },
         axisY: {
-            title: 'Y axis'
+            title: '',
+            valueFormatString: ' '
         },
         data: [{
             type: 'line',
