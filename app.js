@@ -225,32 +225,18 @@ signup_form.addEventListener('submit', (e) => {
 })
 
 function updateInfo(id, new_name, new_class, new_email, new_password) {
-    let name = id.name;
-    let email = id.email
-    let password = id.password
-    let a_class = id.class
 
-    if (new_name !== null) {
-        name = new_name
-    }
-    if (new_class !== null) {
-        a_class = new_class
-    }
-    if (new_email !== null) {
-        email = new_email
-    }
-    if (new_password !== null) {
-        password = new_password
-    }
+
+
     return id.update({
-            name: name,
-            password: password,
-            class: a_class,
-            email: email
+            name: new_name,
+            password: new_password,
+            class: new_class,
+            email: new_email
 
         })
         .then(() => {
-            console.log("Document successfully updated!");
+            //   console.log("Document successfully updated!");
         })
         .catch((error) => {
             // The document probably doesn't exist.
@@ -261,24 +247,41 @@ function updateInfo(id, new_name, new_class, new_email, new_password) {
 let change_info = document.querySelector("#change_info");
 
 change_info.addEventListener('submit', (e) => {
-
-    var change_modal = document.querySelector("account_info");
+    let change_modal = document.querySelector("account_info");
 
     let new_name = document.querySelector('#change_name').value;
     let new_class = document.querySelector('#change_class').value;
     let new_email = document.querySelector('#change_email').value;
     let new_password = document.querySelector('#change_password').value;
 
-    userdata.forEach((user) => {
-        if (auth.currentUser.uid == user.data().id) {
-            main_user = user;
-            main_user_id = db.collection("users").doc(user.id);
-        }
+
+
+    let main_user_id = null;
+    db.collection("users").get().then((data) => {
+        let userdata = data.docs;
+
+        userdata.forEach((user) => {
+            if (auth.currentUser.uid == user.data().id) {
+                if (new_name == "") {
+                    new_name = user.data().name
+                }
+                if (new_password == "") {
+                    new_password = user.data().password
+                }
+                if (new_email == "") {
+                    new_email = user.data().email
+                }
+                if (new_class == "") {
+                    new_class = user.data().class
+                }
+                main_user_id = db.collection("users").doc(user.id);
+            }
+
+        })
+
+        updateInfo(main_user_id, new_name, new_class, new_email, new_password);
     })
-
-    updateInfo(main_user_id, new_name, new_class, new_email, new_password)
-
-    change_modal.classList.remove('is-active');
+    //change_modal.classList.remove('is-active');
     e.preventDefault();
 })
 
@@ -292,7 +295,7 @@ login_form.addEventListener('submit', (e) => {
     let password_ = document.querySelector('#login_password').value;
     auth.signInWithEmailAndPassword(email_, password_)
         .then((userCredentials) => {
-            console.log(userCredentials.user.email + " with the id " + userCredentials.user.uid + " is logged in");
+            //    console.log(userCredentials.user.email + " with the id " + userCredentials.user.uid + " is logged in");
             // user_id = userCredentials.user.uid;
 
             welcome_user();
@@ -366,7 +369,7 @@ let logoutbtn = document.querySelector('#logout');
 logoutbtn.addEventListener('click', () => {
     auth.signOut()
         .then((msg) => {
-            console.log("user signed out!");
+            //    console.log("user signed out!");
         })
 })
 
@@ -385,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $navbarBurgers.forEach(el => {
             el.addEventListener('click', () => {
 
-                console.log("burger CLICKED!")
+                //     console.log("burger CLICKED!")
                 // Get the target from the "data-target" attribute
                 const target = el.dataset.target;
                 const $target = document.getElementById(target);
@@ -412,6 +415,7 @@ var regime_to_split = ""
 
 let final_save_btn = document.getElementById("final_save_btn")
 let save_modal = document.getElementById("save_modal")
+
 function saveBond() {
     let name = document.getElementById("file_name").value
     db.collection("saved_bonds").add({
@@ -433,7 +437,6 @@ save_modal.addEventListener('submit', (e) => {
 
 let outputbtn = document.getElementById("outputbtn")
 outputbtn.addEventListener('click', (e) => {
-    console.log("fffffffffffasdasdasdasdasd")
     principal = Number(document.getElementById("loan_size").value)
     int_rate = Number(document.getElementById("interest").value)
     numPayments = Number(document.getElementById("payments").value)
@@ -444,12 +447,11 @@ outputbtn.addEventListener('click', (e) => {
     getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
     //below is for spencer
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
-    console.log(graph1)
 })
 
 let exportbtn = document.getElementById("export_button")
 exportbtn.addEventListener('click', (e) => {
-    console.log("exporting table to CSV....")
+
     my_table.unshift(["Month", "Initial Balance", "Payment", "Interest", "Final Balance"])
     my_table.unshift(["", "", "Debt Payment Table", "", ""])
 
@@ -532,7 +534,6 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     let f = npv / (1 + (rate / 12))
 
     let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
-    console.log(f, npv)
     let payment = Array(termLen)
 
     for (let i = 0; i < termLen; i++) {
@@ -557,7 +558,6 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     for (let i = 0; i < term * 12; i++) {
         my_table[i] = [month[i], Number(startprincipal[i].toFixed(2)).toLocaleString('en-US'), payment[i], interestpath[i], endprincipal[i]]
     }
-    console.log(my_table)
 
     function getNPV(rate, cashFlows) {
         var npv = 0;
@@ -584,7 +584,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
 let tograph = document.querySelector('#tograph')
 
 tograph.addEventListener('click', () => {
-    console.log('load graph')
+
 
     let numPayments = Number(document.getElementById("payments").value)
     let term = Number(document.getElementById("periods").value)
@@ -639,18 +639,18 @@ tograph.addEventListener('click', () => {
 //put bond info into saved bonds table
 var saved_bond_table = document.getElementById("saved_bond_table")
 var saved_matched_bonds
-function displaySavedBonds(){
+
+function displaySavedBonds() {
     db.collection("saved_bonds").get().then(doc => {
         saved_matched_bonds = []
         doc.forEach(entry => {
-            if(entry.data().email == firebase.auth().currentUser.email){
+            if (entry.data().email == firebase.auth().currentUser.email) {
                 saved_matched_bonds.push(entry.data())
 
             }
         })
-        console.log(saved_matched_bonds)
-        for(let i = 0; i < saved_matched_bonds.length; i++){
-            saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name + "</div></th>" + "<th><div>"+ saved_matched_bonds[i].date + "</th></div></tr>"
+        for (let i = 0; i < saved_matched_bonds.length; i++) {
+            saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name + "</div></th>" + "<th><div>" + saved_matched_bonds[i].date + "</th></div></tr>"
         }
 
 
