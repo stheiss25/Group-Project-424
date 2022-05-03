@@ -143,6 +143,7 @@ homebtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
 })
 
 homebtnlogo.addEventListener('click', () => {
@@ -151,6 +152,8 @@ homebtnlogo.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
+
 })
 
 savedbtn.addEventListener('click', () => {
@@ -159,6 +162,7 @@ savedbtn.addEventListener('click', () => {
     savedcontent.classList.remove('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
+    displaySavedBonds()
 })
 
 createbtn.addEventListener('click', () => {
@@ -167,6 +171,8 @@ createbtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.remove('is-hidden')
     outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
+
 })
 
 ouputbtn.addEventListener('click', () => {
@@ -175,6 +181,8 @@ ouputbtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.remove('is-hidden')
+    saved_bond_table.innerHTML =""
+
 })
 
 startbtn.addEventListener('click', () => {
@@ -183,6 +191,8 @@ startbtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.remove('is-hidden')
     outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
+
 })
 // TODO
 // //num js (numpy for JS)
@@ -369,17 +379,7 @@ logoutbtn.addEventListener('click', () => {
         })
 })
 
-let final_save_btn = document.getElementById("final_save_btn")
 
-function saveBond() {
-    console.log("ffffff")
-    db.collection("saved_bonds").add({
-        test: "testtttt"
-    }).then(console.log("ffffff"))
-}
-final_save_btn.addEventListener('click', function () {
-    saveBond()
-})
 
 // Navbar Burger (for small screens)
 document.addEventListener('DOMContentLoaded', () => {
@@ -410,16 +410,49 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-var my_table = [7]
+var my_table = []
+var principal = 0
+var int_rate = 0
+var numPayments = 0
+var term = 0
+var balloon = 0
+var regime_to_split = ""
+//implement balloon
+
+let final_save_btn = document.getElementById("final_save_btn")
+let save_modal = document.getElementById("save_modal")
+function saveBond() {
+    let name = document.getElementById("file_name").value
+    db.collection("saved_bonds").add({
+        file_name: name,
+        email: firebase.auth().currentUser.email,
+        date: new Date().toLocaleDateString(),
+        timestamp: Date.now(),
+        principal: principal,
+        int_rate: int_rate,
+        numPayments: numPayments,
+        term: term,
+        balloon: balloon,
+        regime_to_split: regime_to_split
+    }).then(console.log("ffffff"))
+}
+save_modal.addEventListener('submit', (e) => {
+    e.preventDefault()
+    saveBond()
+    save_modal.classList.remove('is-active');
+    
+})
+
 let outputbtn = document.getElementById("outputbtn")
 outputbtn.addEventListener('click', (e) => {
     console.log("fffffffffffasdasdasdasdasd")
-    let principal = Number(document.getElementById("loan_size").value)
-    let int_rate = Number(document.getElementById("interest").value)
-    let numPayments = Number(document.getElementById("payments").value)
-    let term = Number(document.getElementById("periods").value)
-    let balloon = Number(document.getElementById("balloon_payment").value)
-    let regime_to_split = "5 20, 0 20, -5 20"
+    principal = Number(document.getElementById("loan_size").value)
+    int_rate = Number(document.getElementById("interest").value)
+    numPayments = Number(document.getElementById("payments").value)
+    term = Number(document.getElementById("periods").value)
+    balloon = Number(document.getElementById("balloon_payment").value)
+    // let regime_to_split = "5 20, 0 20, -5 20"
+    regime_to_split = document.getElementById("growth").value
     getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
     //below is for spencer
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
@@ -439,8 +472,8 @@ exportbtn.addEventListener('click', (e) => {
 // getPaymentShape(5, 12, "5 20, 0 20, -5 20")
 
 function getPaymentShape(term, numPayments, regimes) {
-    let regime_to_split = "5 20, 0 20, -5 20"
-    // let regime_to_split = regimes
+    // let regime_to_split = "5 20, 0 20, -5 20"
+    let regime_to_split = regimes
 
     let regime_array = regime_to_split.split(",")
     let shape = Array(regime_array.length)
@@ -472,9 +505,6 @@ function getPaymentShape(term, numPayments, regimes) {
 }
 
 function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
-    console.log("FfffffASfasdasd" + my_table)
-    console.log(principal)
-    console.log(balloon_payment)
     //let bnow = 100000000
     let bnow = principal
     //let rate = .10
@@ -537,7 +567,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     my_table = Array(termLen)
 
     for (let i = 0; i < term * 12; i++) {
-        my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
+        my_table[i] = [month[i], Number(startprincipal[i].toFixed(2)).toLocaleString('en-US'), payment[i], interestpath[i], endprincipal[i]]
     }
     console.log(my_table)
 
@@ -556,8 +586,9 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     let tablebody = document.getElementById("table_body")
 
     for (let i = 0; i < term * numPayments; i++) {
-        tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + startprincipal[i] + "</td>" + "<td>" + payment[
-            i] + "</td>" + "<td>" + interestpath[i] + "</td>" + "<td>" + endprincipal[i] + "</td>" + "</tr>")
+        tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + Number(startprincipal[i].toFixed(2)).toLocaleString('en-US') + "</td>" + "<td>" + Number(payment[
+                i].toFixed(2)).toLocaleString('en-US') + "</td>" + "<td>" + Number(interestpath[i].toFixed(2)).toLocaleString('en-US') + "</td>" +
+            "<td>" + Number(endprincipal[i].toFixed(2)).toLocaleString('en-US') + "</td>" + "</tr>")
     }
 }
 
@@ -569,7 +600,7 @@ tograph.addEventListener('click', () => {
 
     let numPayments = Number(document.getElementById("payments").value)
     let term = Number(document.getElementById("periods").value)
-    let regime_to_split = "5 20, 0 20, -5 20"
+    let regime_to_split = document.getElementById("growth").value
     // getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
 
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
@@ -619,3 +650,38 @@ tograph.addEventListener('click', () => {
 })
 // x = term
 // y = numPaymentsx
+
+//put bond info into saved bonds table
+var saved_bond_table = document.getElementById("saved_bond_table")
+var saved_matched_bonds
+function displaySavedBonds(){
+    db.collection("saved_bonds").get().then(doc => {
+        saved_matched_bonds = []
+        doc.forEach(entry => {
+            if(entry.data().email == firebase.auth().currentUser.email){
+                saved_matched_bonds.push(entry.data())
+
+            }
+        })
+        console.log(saved_matched_bonds)
+        for(let i = 0; i < saved_matched_bonds.length; i++){
+            saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name 
+                                        + "</div></th>" + "<th><div class = 'content is-large'>"+ saved_matched_bonds[i].date 
+                                        + "</th></div>" + "<th><button class = 'button is-medium' id = 'temp_view_id'>View</button></th>"
+                                        + '<th><button class = "button is-medium"' +  'id = "temp_download_id"' + '>'  + 'Download</button></th></tr>'
+            document.getElementById('temp_download_id').id = ('download_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
+            document.getElementById('temp_view_id').id = ('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i])
+
+            document.getElementById('download_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp).addEventListener('click', (e) => {
+                
+            })
+            document.getElementById('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp).addEventListener('click', (e) => {
+                
+            })
+        }
+
+
+    })
+
+
+}
