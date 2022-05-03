@@ -143,6 +143,7 @@ homebtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
 })
 
 homebtnlogo.addEventListener('click', () => {
@@ -151,6 +152,8 @@ homebtnlogo.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
+
 })
 
 savedbtn.addEventListener('click', () => {
@@ -168,6 +171,8 @@ createbtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.remove('is-hidden')
     outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
+
 })
 
 ouputbtn.addEventListener('click', () => {
@@ -176,6 +181,8 @@ ouputbtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
     outputcontent.classList.remove('is-hidden')
+    saved_bond_table.innerHTML =""
+
 })
 
 startbtn.addEventListener('click', () => {
@@ -184,6 +191,8 @@ startbtn.addEventListener('click', () => {
     savedcontent.classList.add('is-hidden')
     createcontent.classList.remove('is-hidden')
     outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML =""
+
 })
 // TODO
 // //num js (numpy for JS)
@@ -422,6 +431,7 @@ function saveBond() {
         file_name: name,
         email: firebase.auth().currentUser.email,
         date: new Date().toLocaleDateString(),
+        timestamp: Date.now(),
         principal: principal,
         int_rate: int_rate,
         numPayments: numPayments,
@@ -433,6 +443,8 @@ function saveBond() {
 save_modal.addEventListener('submit', (e) => {
     e.preventDefault()
     saveBond()
+    save_modal.classList.remove('is-active');
+    
 })
 
 let outputbtn = document.getElementById("outputbtn")
@@ -614,16 +626,19 @@ tograph.addEventListener('click', () => {
         })
     }
 
+    let interval = xarray.length / 6
+
     // display graph
     var c = new CanvasJS.Chart('graphdisplay', {
         zoomEnabled: true,
 
         axisX: {
-            title: 'X axis',
-            interval: 1
+            title: ' ',
+            interval: interval
         },
         axisY: {
-            title: 'Y axis'
+            title: '',
+            valueFormatString: ' '
         },
         data: [{
             type: 'line',
@@ -649,8 +664,26 @@ function displaySavedBonds() {
 
             }
         })
+<<<<<<< HEAD
         for (let i = 0; i < saved_matched_bonds.length; i++) {
             saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name + "</div></th>" + "<th><div>" + saved_matched_bonds[i].date + "</th></div></tr>"
+=======
+        console.log(saved_matched_bonds)
+        for(let i = 0; i < saved_matched_bonds.length; i++){
+            saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name 
+                                        + "</div></th>" + "<th><div class = 'content is-large'>"+ saved_matched_bonds[i].date 
+                                        + "</th></div>" + "<th><button class = 'button is-medium' id = 'temp_view_id'>View</button></th>"
+                                        + '<th><button class = "button is-medium"' +  'id = "temp_download_id"' + '>'  + 'Download</button></th></tr>'
+            document.getElementById('temp_download_id').id = ('download_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
+            document.getElementById('temp_view_id').id = ('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i])
+
+            document.getElementById('download_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp).addEventListener('click', (e) => {
+                
+            })
+            document.getElementById('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp).addEventListener('click', (e) => {
+                
+            })
+>>>>>>> a74b125475205bb2898d77480eba4f1ea4db31b5
         }
 
 
