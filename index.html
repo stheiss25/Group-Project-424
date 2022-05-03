@@ -440,35 +440,7 @@
         <h1 class="title has-text-centered">
           Saved Bond Sheets
         </h1>
-        <div class="box">
-
-          <div class="field is-grouped">
-            <div class="control">
-              <label class="label">Date</label>
-
-              <div class="control">
-                <div class="select">
-                  <select>
-                    <option>Select dropdown</option>
-                    <option>With options</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="control">
-              <label class="label">Name</label>
-              <div class="control">
-                <input class="input" type="text" placeholder="Input Name of File">
-              </div>
-
-            </div>
-            <!-- TODO figure out how to get this button to align properly -->
-            <div class="control">
-              <button class="button is-danger">Submit</button>
-            </div>
-
-          </div>
-        </div>
+        
         <div class="box">
           <table class="table is-fullwidth is-striped">
             <thead>
@@ -748,7 +720,7 @@
             <div class="field">
               <label class="label">File Name</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="Input File Name Here" id="file_name">
+                <input class="input" type="text" placeholder="Input File Name Here" id="file_name_export">
               </div>
             </div>
 
@@ -771,7 +743,7 @@
               </div>
 
               <div class="control column">
-                <button class="button is-light">Export as .csv</button>
+                <button class="button is-light" id = "export_csv">Export as .csv</button>
               </div>
             </div>
 
