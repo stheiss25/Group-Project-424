@@ -511,8 +511,10 @@ function getPaymentShape(term, numPayments, regimes) {
 
 var isCreatingBond = false
 function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
+    let tablebody = document.getElementById("table_body")
+    tablebody.innerHTML = ""
     console.log(regimes)
-    console.log(principal)
+    console.log("principal",principal)
     let bnow = principal
     //let rate = .10
     let rate = int_rate
@@ -590,7 +592,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
         return npv;
     }
     if(isCreatingBond == true){
-        let tablebody = document.getElementById("table_body")
+        
 
         for (let i = 0; i < term * numPayments; i++) {
             tablebody.innerHTML += ("<tr><td>" + (i + 1) + "</td>" + "<td>" + Number(startprincipal[i].toFixed(2)).toLocaleString('en-US') + "</td>" + "<td>" + Number(payment[
@@ -676,12 +678,13 @@ function displaySavedBonds(){
         for(let i = 0; i < saved_matched_bonds.length; i++){
             saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name 
                                         + "</div></th>" + "<th><div class = 'content is-large'>"+ saved_matched_bonds[i].date 
-                                        + "</th></div>" + "<th><button class = 'button is-medium' id = 'temp_view_id'>View</button></th>"
+                                        + "</th></div>" + "<th><button class = 'button is-medium viewbtn' id = 'temp_view_id'>View</button></th>"
                                         + '<th><button class = "button is-medium downloadbtn"' +  'id = "temp_download_id"' + '>'  + 'Download</button></th></tr>'
             document.getElementById('temp_download_id').id = ('download_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
-            document.getElementById('temp_view_id').id = ('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i])
+            document.getElementById('temp_view_id').id = ('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
  
         }
+        //for downloading
         var btns = document.getElementsByClassName('button is-medium downloadbtn')
         console.log(btns)
         btns = Array.from( btns )
@@ -696,6 +699,35 @@ function displaySavedBonds(){
                 }
             })  
         });
+        //for viewing
+        var vbtns = document.getElementsByClassName('button is-medium viewbtn')
+        console.log(vbtns)
+        vbtns = Array.from(vbtns)
+        console.log(vbtns)
+        vbtns.forEach(vbtn =>{
+            vbtn.addEventListener('click', event =>{
+               
+                doc.forEach(entry => {
+                    if(event.target.id == "view_"+entry.data().email+entry.data().timestamp){
+                        isCreatingBond = true
+                        console.log('output works')
+                        homecontent.classList.add('is-hidden')
+                        savedcontent.classList.add('is-hidden')
+                        createcontent.classList.add('is-hidden')
+                        outputcontent.classList.remove('is-hidden')
+                        saved_bond_table.innerHTML =""
+                        
+                        getTable(entry.data().principal, entry.data().int_rate, entry.data().numPayments,
+                                 entry.data().term, entry.data().balloon, entry.data().regime_to_split)
+                        
+                    }
+                })
+                
+
+            })
+        })
+
+
     });
     }) 
 }
