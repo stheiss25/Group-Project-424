@@ -1,3 +1,6 @@
+
+
+
 /**
  * Calculates the Net Present Value of a given initial investment
  * cost and an array of cash flow values with the specified discount rate.
@@ -748,3 +751,5 @@ goback.addEventListener('click', (e) =>{
     outputcontent.classList.add('is-hidden')
     saved_bond_table.innerHTML =""
 })
+
+

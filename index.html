@@ -14,6 +14,9 @@
   <script src="https://kit.fontawesome.com/a2a3bcdcb2.js" crossorigin="anonymous"></script>
   <!-- Canvas.js -->
   <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+  
   <link rel="icon" type="image/x-icon" href="/images/calculator-outline-filled.png">
   <style>
     .navbar-brand {
@@ -739,7 +742,7 @@
               </div>
 
               <div class="control column">
-                <button class="button is-light">Export as .pdf</button>
+                <button class="button is-light" id = "pdf_export">Export as .pdf</button>
               </div>
 
               <div class="control column">
@@ -867,7 +870,20 @@
   </script>
 
   <script type="module" src="app.js"></script>
-
+  <script>
+    
+    window.jsPDF = window.jspdf.jsPDF;
+    var pdfexp = document.getElementById("pdf_export")
+    
+    pdfexp.addEventListener('click', (e) =>{
+      var pdf_doc = new jsPDF()
+      var name = document.getElementById("file_name_export").value
+      pdf_doc.autoTable({ html: '#bond_table' })
+      pdf_doc.save(name + '.pdf')
+      
+    })
+  
+  </script>
 </body>
 
 </html>
