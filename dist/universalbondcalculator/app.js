@@ -1,22 +1,3 @@
-/**
- * Calculates the Net Present Value of a given initial investment
- * cost and an array of cash flow values with the specified discount rate.
- *
- * @param {number} rate - The discount rate percentage
- * @param {number} initialCost - The initial investment
- * @param {array} cashFlows - An array of future payment amounts
- * @return {number} The calculated Net Present Value
- */
-function getNPV(rate, initialCost, cashFlows) {
-    var npv = initialCost;
-
-    for (var i = 0; i < cashFlows.length; i++) {
-        npv += cashFlows[i] / Math.pow(rate / 100 + 1, i + 1);
-    }
-
-    return npv;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     // Functions to open and close a modal
     function openModal($el) {
@@ -38,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
         const modal = $trigger.dataset.target;
         const $target = document.getElementById(modal);
-        // console.log($target);
 
         $trigger.addEventListener('click', () => {
             openModal($target);
@@ -118,10 +98,10 @@ function hideButtons(user) {
 auth.onAuthStateChanged((user) => {
     // check if user is signed in or signed out
     if (user) {
-        // console.log('user is now signed in!')
+
         hideButtons(user);
     } else {
-        // console.log('user is now signed out!');
+
         hideButtons();
     }
 })
@@ -140,7 +120,7 @@ let createcontent = document.querySelector('#createcontent')
 let outputcontent = document.querySelector('#outputcontent')
 
 homebtn.addEventListener('click', () => {
-    // console.log('home works')
+
     homecontent.classList.remove('is-hidden')
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
@@ -149,7 +129,7 @@ homebtn.addEventListener('click', () => {
 })
 
 homebtnlogo.addEventListener('click', () => {
-    // console.log('home logo works')
+
     homecontent.classList.remove('is-hidden')
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
@@ -159,7 +139,7 @@ homebtnlogo.addEventListener('click', () => {
 })
 
 savedbtn.addEventListener('click', () => {
-    // console.log('saved works')
+
     homecontent.classList.add('is-hidden')
     savedcontent.classList.remove('is-hidden')
     createcontent.classList.add('is-hidden')
@@ -170,7 +150,7 @@ savedbtn.addEventListener('click', () => {
 })
 
 createbtn.addEventListener('click', () => {
-    // console.log('create works')
+
     homecontent.classList.add('is-hidden')
     savedcontent.classList.add('is-hidden')
     createcontent.classList.remove('is-hidden')
@@ -180,7 +160,7 @@ createbtn.addEventListener('click', () => {
 })
 
 ouputbtn.addEventListener('click', () => {
-    // console.log('output works')
+
     homecontent.classList.add('is-hidden')
     savedcontent.classList.add('is-hidden')
     createcontent.classList.add('is-hidden')
@@ -190,7 +170,7 @@ ouputbtn.addEventListener('click', () => {
 })
 
 startbtn.addEventListener('click', () => {
-    // console.log('startbtn works')
+
     homecontent.classList.add('is-hidden')
     savedcontent.classList.add('is-hidden')
     createcontent.classList.remove('is-hidden')
@@ -198,10 +178,15 @@ startbtn.addEventListener('click', () => {
     saved_bond_table.innerHTML = ""
 
 })
-// TODO
-// //num js (numpy for JS)
-// var a = nj.array([2, 3, 4])
-// console.log("num js output", a)
+
+let cancel_btn = document.getElementById("cancel_bond")
+cancel_btn.addEventListener('click', (e) => {
+    homecontent.classList.remove('is-hidden')
+    savedcontent.classList.add('is-hidden')
+    createcontent.classList.add('is-hidden')
+    outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML = ""
+})
 
 // signup
 let signup_form = document.querySelector('#signup_form')
@@ -219,7 +204,7 @@ signup_form.addEventListener('submit', (e) => {
     let user = {}
 
     auth.createUserWithEmailAndPassword(email, password).then((userCredential) => {
-        // console.log('user created successfully');
+
         user = {
             name: name,
             class: s_class,
@@ -229,7 +214,7 @@ signup_form.addEventListener('submit', (e) => {
         };
 
         db.collection("users").add(user).then((data) => {
-            // console.log("User added to database");
+
         })
     })
 
@@ -247,7 +232,7 @@ function updateInfo(id, new_name, new_class, new_email, new_password) {
 
         })
         .then(() => {
-            //   console.log("Document successfully updated!");
+
         })
         .catch((error) => {
             // The document probably doesn't exist.
@@ -313,7 +298,7 @@ change_info.addEventListener('submit', (e) => {
 
         })
     })
-    //change_modal.classList.remove('is-active');
+
     e.preventDefault();
 })
 
@@ -327,8 +312,6 @@ login_form.addEventListener('submit', (e) => {
     let password_ = document.querySelector('#login_password').value;
     auth.signInWithEmailAndPassword(email_, password_)
         .then((userCredentials) => {
-            // console.log(userCredentials.user.email + " with the id " + userCredentials.user.uid + " is logged in");
-            // user_id = userCredentials.user.uid;
 
             welcome_user();
         })
@@ -421,7 +404,7 @@ let logoutbtn = document.querySelector('#logout');
 logoutbtn.addEventListener('click', () => {
     auth.signOut()
         .then((msg) => {
-            // console.log("user signed out!");
+
         })
 })
 
@@ -440,7 +423,6 @@ document.addEventListener('DOMContentLoaded', () => {
         $navbarBurgers.forEach(el => {
             el.addEventListener('click', () => {
 
-                // console.log("burger CLICKED!")
                 // Get the target from the "data-target" attribute
                 const target = el.dataset.target;
                 const $target = document.getElementById(target);
@@ -482,7 +464,6 @@ function saveBond() {
         balloon: balloon,
         regime_to_split: regime_to_split
     })
-    // .then(console.log("ffffff"))
 }
 save_modal.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -494,34 +475,32 @@ save_modal.addEventListener('submit', (e) => {
 let outputbtn = document.getElementById("outputbtn")
 outputbtn.addEventListener('click', (e) => {
     isCreatingBond = true
-    // console.log("fffffffffffasdasdasdasdasd")
+
     principal = Number(document.getElementById("loan_size").value)
     int_rate = Number(document.getElementById("interest").value)
     numPayments = Number(document.getElementById("payments").value)
     term = Number(document.getElementById("periods").value)
     balloon = Number(document.getElementById("balloon_payment").value)
-    // let regime_to_split = "5 20, 0 20, -5 20"
+
     regime_to_split = document.getElementById("growth").value
     getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
-    //below is for spencer
+
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
-    // console.log(graph1)
 })
 
 let exportbtn = document.getElementById("export_csv")
 exportbtn.addEventListener('click', (e) => {
-    // console.log("exporting table to CSV....")
+
     let export_name = document.getElementById("file_name_export").value
 
 
     exportCSV(my_table, export_name)
 })
 
-//// for Spencer 
-// getPaymentShape(5, 12, "5 20, 0 20, -5 20")
+
 
 function getPaymentShape(term, numPayments, regimes) {
-    // let regime_to_split = "5 20, 0 20, -5 20"
+
     let regime_to_split = regimes
 
     let regime_array = regime_to_split.split(",")
@@ -558,8 +537,7 @@ var isCreatingBond = false
 function getTable(principal, int_rate, payments_per_period, periods, balloon_payment, regimes) {
     let tablebody = document.getElementById("table_body")
     tablebody.innerHTML = ""
-    // console.log(regimes)
-    // console.log("principal", principal)
+
     let bnow = principal
     //let rate = .10
     let rate = int_rate
@@ -598,7 +576,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     let f = npv / (1 + (rate / 12))
 
     let payment1 = (bnow - balloon / Math.pow(((1 + rate / 12)), (term * 12))) / f
-    // console.log(f, npv)
+
     let payment = Array(termLen)
 
     for (let i = 0; i < termLen; i++) {
@@ -623,7 +601,7 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
     for (let i = 0; i < term * 12; i++) {
         my_table[i] = [month[i], startprincipal[i], payment[i], interestpath[i], endprincipal[i]]
     }
-    // console.log(my_table)
+
 
     function getNPV(rate, cashFlows) {
         var npv = 0;
@@ -652,15 +630,15 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
 let tograph = document.querySelector('#tograph')
 
 tograph.addEventListener('click', () => {
-    // console.log('load graph')
+
 
     let numPayments = Number(document.getElementById("payments").value)
     let term = Number(document.getElementById("periods").value)
     let regime_to_split = document.getElementById("growth").value
-    // getTable(principal, int_rate, numPayments, term, balloon, regime_to_split)
+
 
     let graph1 = getPaymentShape(term, numPayments, regime_to_split)
-    // console.log(graph1[2][0])
+
     let xarray = []
     let yarray = []
 
@@ -720,7 +698,7 @@ function displaySavedBonds() {
 
             }
         })
-        // console.log(saved_matched_bonds)
+
         for (let i = 0; i < saved_matched_bonds.length; i++) {
             saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name +
                 "</div></th>" + "<th><div class = 'content is-large'>" + saved_matched_bonds[i].date +
@@ -732,31 +710,30 @@ function displaySavedBonds() {
         }
         //for downloading
         var btns = document.getElementsByClassName('button is-medium downloadbtn')
-        // console.log(btns)
+
         btns = Array.from(btns)
-        // console.log(btns)
+
         btns.forEach(btn => {
 
             btn.addEventListener('click', event => {
                 doc.forEach(entry => {
                     if (event.target.id == "download_" + entry.data().email + entry.data().timestamp) {
-                        // console.log(entry.data().file_name)
+
                         createAndDownloadTable(entry.data())
                     }
                 })
             });
             //for viewing
             var vbtns = document.getElementsByClassName('button is-medium viewbtn')
-            // console.log(vbtns)
+
             vbtns = Array.from(vbtns)
-            // console.log(vbtns)
+
             vbtns.forEach(vbtn => {
                 vbtn.addEventListener('click', event => {
 
                     doc.forEach(entry => {
                         if (event.target.id == "view_" + entry.data().email + entry.data().timestamp) {
                             isCreatingBond = true
-                            // console.log('output works')
                             homecontent.classList.add('is-hidden')
                             savedcontent.classList.add('is-hidden')
                             createcontent.classList.add('is-hidden')
@@ -787,7 +764,6 @@ function createAndDownloadTable(data) {
 //go back/edit inputs
 var goback = document.getElementById("go_back_button")
 goback.addEventListener('click', (e) => {
-    // console.log('create works')
     homecontent.classList.add('is-hidden')
     savedcontent.classList.add('is-hidden')
     createcontent.classList.remove('is-hidden')
