@@ -535,7 +535,7 @@
               <button class="js-modal-trigger button" data-target="graph" id="tograph">Submit</button>
             </div>
             <div class="control">
-              <button class="button is-danger adv" id = "cancel_bond">Cancel</button>
+              <button class="button is-danger adv" id="cancel_bond">Cancel</button>
             </div>
           </div>
         </div>
@@ -615,21 +615,8 @@
           <div class="column"></div>
 
           <!-- column with buttons -->
-          <div class="column">
-            <div class="field is-grouped">
-              <div class="control">
-                <button class="js-modal-trigger loggedin button has-background-danger-dark has-text-white"
-                  data-target="save_modal">
-                  <p>Save for Later</p>
-                </button>
-              </div>
-              <div class="control">
-                <button class="js-modal-trigger button has-background-danger-dark has-text-white"
-                  data-target="export_modal" id="export_button">
-                  <p>Export Data</p>
-                </button>
-              </div>
-            </div>
+          <div class="column is-centered">
+
             <table class="table" id="bond_table">
               <thead>
                 <tr>
@@ -654,6 +641,22 @@
 
               </tbody>
             </table>
+
+            <div class="field is-grouped is-grouped-centered">
+              <div class="control">
+                <button class="js-modal-trigger button has-background-danger-dark has-text-white"
+                  data-target="save_modal">
+                  <p>Save for Later</p>
+                </button>
+              </div>
+              <div class="control">
+                <button class="js-modal-trigger button has-background-danger-dark has-text-white"
+                  data-target="export_modal" id="export_button">
+                  <p>Export Data</p>
+                </button>
+              </div>
+            </div>
+
           </div>
           <!-- blank columns for spacing -->
           <div class="column"></div>
