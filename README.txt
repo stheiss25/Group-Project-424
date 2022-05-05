@@ -3,6 +3,9 @@ Note - this document was prepared as a markdown file to make for easier viewing 
 
 ### Visit the Site!
 https://universalbondcalculator.web.app/
+OR
+<br />
+<https://universalbondcalculator.firebaseapp.com>
 
 ### Link to JustInMind Prototypes:
 <https://drive.google.com/drive/folders/1a-nqqjcKD8_8FJ5eRsRRWaYvtWVjFIOn?usp=sharing>
