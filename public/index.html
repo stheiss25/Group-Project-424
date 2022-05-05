@@ -1,0 +1,861 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Bond Calculator</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/calculator-outline-filled.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <!-- numjs -->
+  <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2a3bcdcb2.js" crossorigin="anonymous"></script>
+  <!-- Canvas.js -->
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
+  <link rel="icon" type="image/x-icon" href="/images/calculator-outline-filled.png">
+  <style>
+    .navbar-brand {
+      width: 5%;
+      margin-bottom: 8;
+    }
+
+    .sameheight {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand" id="homebtnlogo">
+      <a>
+        <img src="images/Wisconsin-Crest-Logo.png" width="85%" height="15%">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="btn navbar-item has-text-white" id="homebtn">
+          Home
+        </a>
+        <a class="navbar-item has-text-white loggedin" id="savedbtn">
+          Saved Bonds
+        </a>
+        <a class="navbar-item has-text-white" id="createbtn">
+          Create Bond
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <h1 class="loggedin has-text-white" style="padding-right:20px;">Welcome!</h1>
+        <div class="buttons">
+          <a class=" js-modal-trigger button is-light loggedout" data-target="sign_up_modal" id="signup">
+            Sign up
+          </a>
+          <a class=" js-modal-trigger button is-light loggedout" data-target="login_modal" id="login">
+            Log in
+          </a>
+          <a class=" js-modal-trigger button is-light loggedin" data-target="account_info" id="acctinfo">
+            Account Info
+          </a>
+          <a class="button is-light loggedin" id="logout">
+            Log out
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- home page -->
+  <div id="homecontent">
+    <div id="home">
+      <!-- Hero -->
+      <section class="hero has-text-centered has-background-grey-lighter">
+        <div class="hero-body">
+          <p class="title">
+            Welcome to the Universal Bond Calculator
+          </p>
+          <p class="subtitle">
+            This application outputs bond payment data based on the bond inputs that you specify. <br>
+            In order to save your work, please create an account or log in<br> <br>
+          </p>
+          <button class="button is-larger has-background-danger-dark is-large" id="startbtn">
+            <p class="has-text-white">
+              Get Started
+            </p>
+
+          </button>
+        </div>
+      </section>
+      <!-- About Us -->
+      <section class="hero has-text-centered ">
+        <div class="hero-body">
+          <p class="title">
+            About Us
+          </p>
+
+          <div class="columns has-text-centered">
+
+            <div class="column sameheight">
+              <!-- Card - row 1, column 1 -->
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="images/Erwan_Quintin_Headshot.jpg" alt="Erwan Quintin Headshot">
+                  </figure>
+                </div>
+                <header class="card-header">
+                  <p class="card-header-title is-centered">
+                    Professor Erwan Quintin
+                  </p>
+                </header>
+                <div class="card-content">
+                  <div class="content sameheight">
+                    <p>Erwan Quintin is a professor in and chair of the Department of Finance, Investment, and
+                      Banking. He
+                      is also the Nathan S. Brand Chair in Finance. He came to Wisconsin in 2010 from the Federal
+                      Reserve
+                      Bank of Dallas, where he had worked as a senior economist and policy advisor since 2000. His
+                      research
+                      lies at the intersection of Financial Economics and Macroeconomics. Quintin earned his Ph.D. in
+                      Economics from the University of Minnesota.</p>
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="http://erwan.marginalq.com/" class="card-footer-item">Personal Website</a>
+                </footer>
+              </div><br />
+              <!-- Card - row 2, column 1 -->
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="images/1602030362021.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                <header class="card-header">
+                  <p class="card-header-title is-centered">
+                    Declan Nashold
+                  </p>
+                </header>
+                <div class="card-content">
+                  <div class="content sameheight">
+                    Hi, I'm a student at University of Wisconsin-Madison studying Operations and Technology
+                    Management, Information Systems, and Computer Science.
+
+                    <br />
+                    <br />
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="https://www.linkedin.com/in/declan-nashold/" class="card-footer-item">LinkedIn</a>
+                </footer>
+              </div>
+            </div>
+
+            <div class="column sameheight">
+              <!-- Card - row 1, column 2 -->
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="images/spencer_picture.jpg" alt="Placeholder image">
+                  </figure>
+                </div>
+                <header class="card-header">
+                  <p class="card-header-title is-centered">
+                    Spencer Hikade
+                  </p>
+                </header>
+                <div class="card-content">
+                  <div class="content  sameheight">
+                    Hi! My name is Spencer and I am a senior studying Management and Human Resources and Information
+                    Systems. I enjoy disc golfing and playing music for various groups back home, and I look forward
+                    to
+                    working in
+                    Human Resources Analytics after graduation.
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="https://www.linkedin.com/in/spencer-hikade-932057174/" class="card-footer-item">LinkedIn</a>
+                </footer>
+              </div><br />
+
+              <!-- Card - row 2, column 2 -->
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="images/Stefan_Picture.JPG" alt="Stefan Picture">
+                  </figure>
+                </div>
+                <header class="card-header">
+                  <p class="card-header-title is-centered">
+                    Stefan Theiss
+                  </p>
+                </header>
+                <div class="card-content">
+                  <div class="content sameheight">
+                    Hi, my name is Stefan. I'm an Information Systems and OTM major at UW Madison and
+                    will be graduating after this semester. I am hoping to obtain a business analyst
+                    position for post-grad employment.
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="https://www.linkedin.com/in/stefan-theiss-107480181/" class="card-footer-item">LinkedIn</a>
+                </footer>
+              </div>
+
+
+            </div>
+            <div class="column sameheight">
+              <!-- Card - row 1, column 3 -->
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="images/guell_headshot.jpg" alt="Mason Guell Photo">
+                  </figure>
+                </div>
+                <header class="card-header">
+                  <p class="card-header-title is-centered">
+                    Mason Guell
+                  </p>
+                </header>
+                <div class="card-content">
+                  <div class="content sameheight">
+                    <p>Hey, I'm Mason and I will be graduating this year studying Finance, Risk
+                      Management, and
+                      Information Systems. My hobbies include staying active, hanging with friends,
+                      reading, and travelling.
+                      After graduation, I will be in Milwaukee working for an Investment Bank.</p>
+                    <br />
+                    <br />
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="https://www.linkedin.com/in/mason-guell/" class="card-footer-item">LinkedIn</a>
+                </footer>
+              </div><br />
+
+              <!-- Card - row 2, column 3 -->
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="images/Tanner_Headshot.JPG" alt="Photo of Tanner Wagner-Durr">
+                  </figure>
+                </div>
+                <header class="card-header">
+                  <p class="card-header-title is-centered">
+                    Tanner Wagner-Durr
+                  </p>
+                </header>
+                <div class="card-content">
+                  <div class="content sameheight">
+                    <p>Hi, my name is Tanner, and I'm a senior majoring in Finance, Economics, and
+                      Information Systems! In my free time, I enjoy sailing, skiing, crypto investing, and
+                      watching Badger sporting events.</p>
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="https://www.linkedin.com/in/tannerwagner-durr/" class="card-footer-item">LinkedIn</a>
+                </footer>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+
+    </div>
+  </div>
+
+  <!-- sign-up modal -->
+  <div id="sign_up_modal" class="modal">
+    <div class="modal-background" id="signupmodalbg"></div>
+    <div class="modal-content">
+      <div class="box">
+        <button class="modal-close is-large" aria-label="close"></button>
+        <h1 class="title is-4">Sign up</h1>
+        <form id="signup_form">
+          <h2 class="subtitle is-6">Already have an account? <a class="js-modal-trigger adv"
+              data-target="login_modal">Log
+              in</a>.</h2>
+
+          <!-- Name input -->
+          <div class="field">
+            <label class="label">Name: </label>
+            <div class="control">
+              <input type="text" class="input" id="signup_name" placeholder="Enter your name">
+            </div>
+          </div>
+
+
+          <!-- Class input -->
+          <div class="field">
+            <label class="label">Class: </label>
+            <div class="control">
+              <input type="text" class="input" id="signup_class"
+                placeholder="For which class are you using this calculator?">
+            </div>
+          </div>
+
+          <!-- email input -->
+          <div class="field">
+            <label class="label">Email: </label>
+            <div class="control">
+              <input type="text" id="signup_email" class="input" placeholder="Enter email address">
+            </div>
+          </div>
+
+          <!-- password input -->
+          <div class="field">
+            <label class="label">Password: </label>
+            <div class="control">
+              <input type="password" id="signup_password" class="input" placeholder="Enter password">
+            </div>
+          </div>
+
+          <!-- submit button -->
+          <br>
+          <div class="has-text-left">
+            <button type="submit" class="button is-danger">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- log in modal -->
+  <div id="login_modal" class="modal">
+    <div class="modal-background" id="loginmodalbg"></div>
+    <div class="modal-content">
+      <div class="box">
+        <button class="modal-close is-large" aria-label="close"></button>
+        <h1 class="title is-4">Log in</h1>
+        <h2 class="subtitle is-6">New user? <a class="js-modal-trigger adv" data-target="sign_up_modal">Sign
+            up</a>.</h2>
+        <form action="" id="login_form" class="mb-0 mt-2">
+          <!-- email input -->
+          <div class="field">
+            <label class="label">Email: </label>
+            <div class="control">
+              <input type="email" class="input" id="login_email" placeholder="Enter email address">
+            </div>
+          </div>
+
+          <!-- password input -->
+          <div class="field">
+            <label class="label">Password: </label>
+            <div class="control">
+              <input type="password" class="input" id="login_password" placeholder="Enter password">
+            </div>
+          </div>
+
+          <!-- submit button -->
+          <br>
+          <div class="has-text-left">
+            <button type="submit" class="button is-danger">Log in</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <!-- account-info modal -->
+  <div id="account_info" class="modal">
+    <div class="modal-background" id="accountinfobg"></div>
+    <div class="modal-content">
+      <div class="box">
+        <button class="modal-close is-large" aria-label="close"></button>
+        <h1 class="title is-4">Account Information</h1>
+        <form action="" id="change_info" class="mb-0 mt-2 loggedin">
+          <!-- Name input -->
+          <div class="field">
+            <label class="label" id="name_label">Name: </label>
+            <div class="control">
+              <input type="text" class="input" id="change_name" placeholder="Change your name">
+            </div>
+          </div>
+
+
+          <!-- Class input -->
+          <div class="field">
+            <label class="label" id="class_label">Class: </label>
+            <div class="control">
+              <input type="text" class="input" id="change_class"
+                placeholder="For which class are you using this calculator?">
+            </div>
+          </div>
+
+          <!-- email input -->
+          <div class="field">
+            <label class="label" id="email_label">Email: </label>
+            <div class="control">
+              <input type="email" class="input" id="change_email" placeholder="Change email address">
+            </div>
+          </div>
+
+          <!-- password input -->
+          <div class="field">
+            <label class="label" id="password_label">Password: </label>
+            <div class="control">
+              <input type="password" class="input" id="change_password" placeholder="Change your password">
+            </div>
+          </div>
+
+          <!-- submit button -->
+          <br>
+          <div class="has-text-left">
+            <button type="submit" class="button is-danger">Change Info</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- saved bonds page -->
+  <div class="is-hidden" id="savedcontent">
+    <div class="columns mt-5">
+      <div class="column is-2">
+
+      </div>
+      <div class="column">
+        <h1 class="title has-text-centered">
+          Saved Bond Sheets
+        </h1>
+
+        <div class="box">
+          <table class="table is-fullwidth is-striped">
+            <thead>
+              <th>Name </th>
+              <th>Date Created</th>
+              <th></th>
+              <th></th>
+            </thead>
+            <tbody id="saved_bond_table">
+              <!-- JS insert rows -->
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="column is-2">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- create bond content -->
+  <div class="is-hidden" id="createcontent">
+    <div class="columns m-4 ">
+
+      <div class="column is-5">
+        <div class="box has-background-light sameheight">
+          <!-- Initial Loan Size -->
+          <h1 class="subtitle has-text-centered has-text-weight-bold">Bond Specifications</h1>
+          <div class="field">
+            <label class="label ">Initial Loan Size:</label>
+
+            <div class="control">
+              <input class="input" id="loan_size" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
+            </div>
+          </div>
+
+          <!-- Balloon payment -->
+          <div class="field">
+            <label class="label">Balloon Payment:</label>
+            <div class="control">
+              <input class="input" id="balloon_payment" type="text" placeholder="Enter a $ amount (e.g. 1000.00)">
+            </div>
+
+          </div>
+
+          <!-- Number of periods -->
+          <div class="field">
+            <label class="label">Number of Periods:</label>
+
+            <div class="control">
+              <input class="input is-right" id="periods" type="text" placeholder="Enter a number (e.g. 1)">
+            </div>
+
+          </div>
+
+          <!-- Interest per period -->
+          <div class="field">
+            <label class="label">Interest per Period:</label>
+
+            <div class="control">
+              <input class="input is-right" id="interest" type="text" placeholder="Enter a decimal (e.g. 0.01 for 1%)">
+            </div>
+
+          </div>
+
+          <!-- Number of payments -->
+          <div class="field">
+            <label class="label">Payments per Period:</label>
+
+            <div class="control">
+              <input class="input is-right" id="payments" type="text" placeholder="Enter a number (e.g. 1)">
+            </div>
+
+          </div>
+
+          <!-- growth regimes -->
+          <div class="field">
+            <label class="label"># of growth regimes:</label>
+            <div class="control">
+              <input class="input is-right" id="growth" type="text"
+                placeholder="Enter a rate followed by length e.g. (5 10) followed by a comma for seperate regimes (Max: 5)">
+            </div>
+
+          </div>
+          <!-- Submit button -->
+          <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+              <button class="js-modal-trigger button" data-target="graph" id="tograph">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-danger adv">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-7">
+        <div class="box has-background-light sameheight">
+          <h1 class="subtitle has-text-centered has-text-weight-bold">
+            Information
+          </h1>
+          <div class="box p-3 mt-3 mb-3">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Initial Loan Size</bold>
+            <p>This may also be referred to as the initial balance of the loan/debt. Please enter a numerical value.</p>
+          </div>
+          <div class="box p-3 mt-3 mb-3">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Balloon Payment</bold>
+            <p>A ballon payment is a large one-time payment made at the end of the bond's lifecycle. Not every bond has
+              a
+              balloon
+              payment. If this is the case, please enter 0 in this field.</p>
+          </div>
+          <div class="box p-3 mt-3 mb-3">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Number of Periods</bold>
+            <p>Enter the bond's term (e.g. number of years).</p>
+          </div>
+          <div class="box p-3 mt-3 mb-3">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Interest per Period</bold>
+            <p>Enter the per-period interest rate in decimal form.</p>
+          </div>
+          <div class="box p-3 mt-3 mb-3">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Payments per Period</bold>
+            <p>Enter the number of payments that will be made per period.</p>
+          </div>
+          <div class="box p-3 mt-3 mb-3">
+            <i class="fa-solid fa-circle-info"></i>
+            <bold>Number of Growth Regimes</bold>
+            <p>Growth regimes are an advanced bond concept. If your bond does not have this feature, please enter 0. If
+              you enter a number greater than zero, you will be prompted to enter the growth rate (as a decimal) and the
+              length of that growth (in number of payments)</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- spacing -->
+      <!-- <div class="column is-1">
+
+      </div> -->
+    </div>
+  </div>
+
+  <!-- output content -->
+  <div class="is-hidden" id="outputcontent">
+    <!-- Go Back to Edit Inputs Hero -->
+    <section class="hero has-text-centered has-background-grey-lighter">
+      <div class="hero-body">
+        <!-- FIXME: Need to combine with code in index.html so you have access to the input form -->
+        <a class="js-modal-trigger button go_back" id="go_back_button" data-target="bond_input">
+          <span class="icon">
+            <i class="fa-regular fa-circle-up"></i>
+          </span>
+        </a>
+        <p>Edit Inputs</p>
+
+      </div>
+    </section>
+
+    <!-- Output Hero -->
+    <section class="hero has-text-centered has-background-white">
+      <div class="hero-body">
+        <p>Congrats! Here's your debt payment table:</p>
+        <!-- FIXME - Add JS to create the table -->
+
+
+        <div class="columns mt-1">
+
+          <!-- blank columns for spacing -->
+          <div class="column"></div>
+          <div class="column"></div>
+
+          <!-- column with buttons -->
+          <div class="column">
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="js-modal-trigger button has-background-danger-dark has-text-white"
+                  data-target="save_modal">
+                  <p>Save for Later</p>
+                </button>
+              </div>
+              <div class="control">
+                <button class="js-modal-trigger button has-background-danger-dark has-text-white"
+                  data-target="export_modal" id="export_button">
+                  <p>Export Data</p>
+                </button>
+              </div>
+            </div>
+            <table class="table" id="bond_table">
+              <thead>
+                <tr>
+                  <th>
+                    Month
+                  </th>
+                  <th>
+                    Initial Balance
+                  </th>
+                  <th>
+                    Payment
+                  </th>
+                  <th>
+                    Interest
+                  </th>
+                  <th>
+                    Final Balance
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="table_body">
+
+              </tbody>
+            </table>
+          </div>
+          <!-- blank columns for spacing -->
+          <div class="column"></div>
+          <div class="column"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- save to my account modal -->
+    <div class="modal" id="save_modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Save To My Account</p>
+          <button class="delete" id="save_modalx"></button>
+        </header>
+
+        <section class="modal-card-body">
+          <!-- Content ... -->
+          <form id="save_form">
+            <div class="field">
+              <label class="label">File Name</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Input File Name Here" id="file_name">
+              </div>
+            </div>
+
+            <!-- save errors -->
+            <div id="save_error" class="has-text-danger">
+
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-light" id="final_save_btn">Save</button>
+              </div>
+              <div class="control">
+                <button class="button is-danger is-light">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+
+
+    <!-- export modal -->
+    <div class="modal" id="export_modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Export</p>
+          <button class="delete" id="export_modalx"></button>
+        </header>
+
+        <section class="modal-card-body">
+          <!-- Content ... -->
+          <form id="export_form">
+            <div class="field">
+              <label class="label">File Name</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Input File Name Here" id="file_name_export">
+              </div>
+            </div>
+
+            <!-- export errors -->
+            <div id="export_error" class="has-text-danger">
+
+            </div>
+
+
+            <div class="field is-grouped columns mt-2">
+              <div class="control column">
+                <button class="button is-danger is-light">Cancel</button>
+              </div>
+
+              <div class="column">
+              </div>
+
+              <div class="control column">
+                <button class="button is-light" id="pdf_export">Export as .pdf</button>
+              </div>
+
+              <div class="control column">
+                <button class="button is-light" id="export_csv">Export as .csv</button>
+              </div>
+            </div>
+
+          </form>
+        </section>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p> <strong>&copy; Copyright 2022</strong> Declan Nashold, Mason Guell, Spencer Hikade, Stefan Theiss, and
+        Tanner
+        Wagner-Durr. </p>
+      <p>Developed for Prof. Erwan Quintin for use by the students, alumni, staff, and faculty of the University
+        of
+        Wisconsin-Madison.</p>
+      <p>View the source code of this project on <a href="https://github.com/stheiss25/Group-Project-424">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- graph modal -->
+  <div id="graph" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+        <h1 class="title is-4">Bond Payment Graph</h1>
+
+        <div class="field" style="padding-bottom: 14%; padding-left: 4%; padding-top: 2%; outline:auto" id="putgraph">
+          <div id="graphdisplay" style="height: 350px; padding:2%"">
+          </div>
+        </div>
+        <div class=" level">
+            <!-- back to inputs -->
+            <div class="level-left">
+              <a class="adv h3 is-5 has-text-danger">Back to inputs</a>
+            </div>
+
+            <!-- continue button -->
+            <div class="level-right">
+              <!-- TODO add link to table page -->
+              <button class="adv button is-light" id="outputbtn">Looks Good, Show Table</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <script>
+      // TODO
+      // Copy **only** your firebaseConfig from Google Firebae and add it below
+
+      // Your web app's Firebase configuration 
+      // Import the functions you need from the SDKs you need
+
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBdU9fKpt_UXOCqiSZikUS01RxmrvX8vnI",
+        authDomain: "universalbondcalculator.firebaseapp.com",
+        projectId: "universalbondcalculator",
+        storageBucket: "universalbondcalculator.appspot.com",
+        messagingSenderId: "374853779066",
+        appId: "1:374853779066:web:0448ac5ea3b2fa467305c3"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      // define authentication variable
+      let auth = firebase.auth();
+      let db = firebase.firestore();
+
+      // define a storage reference
+      let ref = firebase.storage().ref();
+    </script>
+
+    <script type="module" src="app.js"></script>
+    <script>
+      window.jsPDF = window.jspdf.jsPDF;
+      var pdfexp = document.getElementById("pdf_export")
+
+      pdfexp.addEventListener('click', (e) => {
+        var pdf_doc = new jsPDF()
+        var name = document.getElementById("file_name_export").value
+        pdf_doc.autoTable({
+          html: '#bond_table'
+        })
+        pdf_doc.save(name + '.pdf')
+
+      })
+    </script>
+</body>
+
+</html>
