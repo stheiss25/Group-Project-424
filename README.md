@@ -2,7 +2,11 @@
 Note - this document was prepared as a markdown file to make for easier viewing on GitHub. If your device is unable to open this file for grading, just change the file extension to ".txt" or download the ".txt" version of this file instead.
 
 ### Visit the Site!
-https://universalbondcalculator.web.app/
+<https://universalbondcalculator.web.app/>
+<br />
+OR
+<br />
+<https://universalbondcalculator.firebaseapp.com>
 
 ### Link to JustInMind Prototypes:
 <https://drive.google.com/drive/folders/1a-nqqjcKD8_8FJ5eRsRRWaYvtWVjFIOn?usp=sharing>
