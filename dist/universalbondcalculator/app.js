@@ -511,6 +511,18 @@ function getPaymentShape(term, numPayments, regimes) {
         shape[i][1] = Number(shape[i][1])
     }
     let termLen = term * numPayments
+
+    let regime_sum = 0
+
+
+    for (let i = 0; i < regime_array.length; i++) {
+        regime_sum += Number(shape[i][1])
+    }
+    if (regime_sum != termLen) {
+        if (regime_to_split != null && regime_to_split != 0) {
+            alert("The length of your growth regimes does not add up to the number of payments.");
+        }
+    }
     let month = Array(termLen).fill(null).map((_, i) => i + 1)
     let cf_pattern = Array(termLen).fill(1)
     let regime = 0
@@ -558,7 +570,9 @@ function getTable(principal, int_rate, payments_per_period, periods, balloon_pay
         shape[i][1] = Number(shape[i][1])
     }
 
+
     let termLen = term * numPayments
+
     let month = Array(termLen).fill(null).map((_, i) => i + 1)
     let cf_pattern = Array(termLen).fill(1)
     let regime = 0
