@@ -1,22 +1,3 @@
-/**
- * Calculates the Net Present Value of a given initial investment
- * cost and an array of cash flow values with the specified discount rate.
- *
- * @param {number} rate - The discount rate percentage
- * @param {number} initialCost - The initial investment
- * @param {array} cashFlows - An array of future payment amounts
- * @return {number} The calculated Net Present Value
- */
-function getNPV(rate, initialCost, cashFlows) {
-    var npv = initialCost;
-
-    for (var i = 0; i < cashFlows.length; i++) {
-        npv += cashFlows[i] / Math.pow(rate / 100 + 1, i + 1);
-    }
-
-    return npv;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     // Functions to open and close a modal
     function openModal($el) {
@@ -196,6 +177,15 @@ startbtn.addEventListener('click', () => {
     outputcontent.classList.add('is-hidden')
     saved_bond_table.innerHTML = ""
 
+})
+
+let cancel_btn = document.getElementById("cancel_bond")
+cancel_btn.addEventListener('click', (e) => {
+    homecontent.classList.remove('is-hidden')
+    savedcontent.classList.add('is-hidden')
+    createcontent.classList.add('is-hidden')
+    outputcontent.classList.add('is-hidden')
+    saved_bond_table.innerHTML = ""
 })
 
 // signup
