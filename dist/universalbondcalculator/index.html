@@ -828,20 +828,7 @@
     </script>
 
     <script type="module" src="app.js"></script>
-    <script>
-      window.jsPDF = window.jspdf.jsPDF;
-      var pdfexp = document.getElementById("pdf_export")
 
-      pdfexp.addEventListener('click', (e) => {
-        var pdf_doc = new jsPDF()
-        var name = document.getElementById("file_name_export").value
-        pdf_doc.autoTable({
-          html: '#bond_table'
-        })
-        pdf_doc.save(name + '.pdf')
-
-      })
-    </script>
 </body>
 
 </html>

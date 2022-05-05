@@ -703,26 +703,40 @@ function displaySavedBonds() {
             saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name +
                 "</div></th>" + "<th><div class = 'content is-large'>" + saved_matched_bonds[i].date +
                 "</th></div>" + "<th><button class = 'button viewbtn' id = 'temp_view_id'>View</button></th>" +
-                '<th><button class = "button downloadbtn"' + 'id = "temp_download_id"' + '>' + 'Download CSV</button></th></tr>'
+                '<th><button class = "button downloadbtn"' + 'id = "temp_download_id"' + '>' + 'Download CSV</button></th>' +
+                '<th><button class = "button downloadbtnpdf"' + 'id = "temp_download_id_pdf"' + '>' + 'Download PDF</button></th></tr>'
             document.getElementById('temp_download_id').id = ('download_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
             document.getElementById('temp_view_id').id = ('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
+            document.getElementById('temp_download_id_pdf').id = ('downloadpdf_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
 
         }
-        //for downloading
+        //for downloading csv
         var btns = document.getElementsByClassName('button downloadbtn')
-
+        var btnspdf = document.getElementsByClassName('button downloadbtnpdf')
         btns = Array.from(btns)
+        btnspdf = Array.from(btnspdf)
+        btnspdf.forEach(btn =>{
+            btn.addEventListener('click', event => {
+                doc.forEach(entry => {
+                    if (event.target.id == "downloadpdf_" + entry.data().email + entry.data().timestamp) {
 
+                        createAndDownloadTablePDF(entry.data())
+                    }
+                })
+            });
+        })
         btns.forEach(btn => {
 
             btn.addEventListener('click', event => {
                 doc.forEach(entry => {
                     if (event.target.id == "download_" + entry.data().email + entry.data().timestamp) {
 
-                        createAndDownloadTable(entry.data())
+                        createAndDownloadTableCSV(entry.data())
                     }
                 })
             });
+           
+        
         
             //for viewing
             var vbtns = document.getElementsByClassName('button viewbtn')
@@ -756,10 +770,20 @@ function displaySavedBonds() {
     })
 }
 
-function createAndDownloadTable(data) {
+function createAndDownloadTableCSV(data) {
 
     getTable(data.principal, data.int_rate, data.numPayments, data.term, data.balloon, data.regime_to_split)
     exportCSV(my_table, data.file_name)
+}
+function createAndDownloadTablePDF(data) {
+
+    getTable(data.principal, data.int_rate, data.numPayments, data.term, data.balloon, data.regime_to_split)
+    var pdf_doc = new jsPDF()
+    var name = data.file_name
+    pdf_doc.autoTable({
+      html: '#bond_table'
+    })
+    pdf_doc.save(name + '.pdf')
 }
 
 //go back/edit inputs
@@ -771,3 +795,16 @@ goback.addEventListener('click', (e) => {
     outputcontent.classList.add('is-hidden')
     saved_bond_table.innerHTML = ""
 })
+
+window.jsPDF = window.jspdf.jsPDF;
+var pdfexp = document.getElementById("pdf_export")
+
+      pdfexp.addEventListener('click', (e) => {
+        var pdf_doc = new jsPDF()
+        var name = document.getElementById("file_name_export").value
+        pdf_doc.autoTable({
+          html: '#bond_table'
+        })
+        pdf_doc.save(name + '.pdf')
+})
+
