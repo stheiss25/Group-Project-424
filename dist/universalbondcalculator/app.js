@@ -702,14 +702,14 @@ function displaySavedBonds() {
         for (let i = 0; i < saved_matched_bonds.length; i++) {
             saved_bond_table.innerHTML += "<tr><th><div class='content is-large'>" + saved_matched_bonds[i].file_name +
                 "</div></th>" + "<th><div class = 'content is-large'>" + saved_matched_bonds[i].date +
-                "</th></div>" + "<th><button class = 'button is-medium viewbtn' id = 'temp_view_id'>View</button></th>" +
-                '<th><button class = "button is-medium downloadbtn"' + 'id = "temp_download_id"' + '>' + 'Download</button></th></tr>'
+                "</th></div>" + "<th><button class = 'button viewbtn' id = 'temp_view_id'>View</button></th>" +
+                '<th><button class = "button downloadbtn"' + 'id = "temp_download_id"' + '>' + 'Download CSV</button></th></tr>'
             document.getElementById('temp_download_id').id = ('download_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
             document.getElementById('temp_view_id').id = ('view_' + saved_matched_bonds[i].email + saved_matched_bonds[i].timestamp)
 
         }
         //for downloading
-        var btns = document.getElementsByClassName('button is-medium downloadbtn')
+        var btns = document.getElementsByClassName('button downloadbtn')
 
         btns = Array.from(btns)
 
@@ -723,8 +723,9 @@ function displaySavedBonds() {
                     }
                 })
             });
+        
             //for viewing
-            var vbtns = document.getElementsByClassName('button is-medium viewbtn')
+            var vbtns = document.getElementsByClassName('button viewbtn')
 
             vbtns = Array.from(vbtns)
 
